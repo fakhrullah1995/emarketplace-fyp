@@ -46,7 +46,7 @@
   <section class="content-header">
     <h1>
       ProMatcher
-      <small>Some of this information will display to other user</small>
+      <small>This information secure by third-party getaway only</small>
     </h1>
     <ol class="breadcrumb">
       <li>
@@ -64,44 +64,46 @@
         <div class="col-md-12">
       <div class="box box-info">
         <div class="box-header with-border">
-          <h3 class="box-title">Advance Register Form</h3>
+          <h3 class="box-title">Register Payment Form</h3>
         </div>
         <!-- /.box-header -->
         <!-- form start -->
         <form class="form-horizontal">
-         
-            <div class="form-group">
-              <label for="inputEmail3" class="col-sm-2 control-label">UserName</label>
-              <div class="col-sm-3"> 
-                <div class="input-group">
+        <div class="form-group">
+          <label for="inputEmail3" class="col-sm-2 control-label">Card Number:</label>
+          <div class="col-sm-10">
+            <div class="input-group">
               <div class="input-group-addon">
-        <i class="fa fa-fw fa-user"></i>
-      </div>
-                <input type="email" class="form-control" id="inputEmail3" placeholder="Enter User Name">
+                <i class=" fa fa-fw fa-credit-card"></i>
               </div>
-            </div> 
+              <input type="text" class="form-control" data-inputmask="'mask': ['999-999-9999 [x99999]', '+099 99 99 9999[9]-9999']" data-mask>
             </div>
-            
-            <div class="form-group">
-              <label for="inputEmail3" class="col-sm-2 control-label">Phone Number:</label>
-            <div class="col-sm-3">
-              <div class="input-group">
-                <div class="input-group-addon">
-                  <i class="fa fa-phone"></i>
+          </div>
+          <!-- /.input group -->
+        </div>
+        <!-- /.form group -->
+              <div class="form-group">
+                <label for="inputEmail3" class="col-sm-2 control-label">Phone Number</label>
+              
+                <div class="col-sm-10">
+                  <input type="email" class="form-control" id="inputEmail3" placeholder="Enter Phone No.">
                 </div>
-                <input type="text" class="form-control" data-inputmask="'mask': ['999-999-9999 [x99999]', '+099 99 99 9999[9]-9999']" data-mask>
               </div>
-              </div>
-              <!-- /.input group -->
-            </div>
-            <!-- /.form group -->
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label">Occupation</label>
+                <div class="col-sm-10">
+                  <select class="form-control" >
+                  <option selected="selected">Choose your Occupation</option>
+                  <option>Public Section</option>
+                  <option>Private Section</option>
+                  <option>Self Employed</option>
+                  <option>Unemployed</option>
+                </select>
+                </div>
+         </div>
           <div class="form-group">
             <label for="inputEmail3" class="col-sm-2 control-label">Income</label>
-            <div class="col-sm-3">
-              <div class="input-group">
-                <div class="input-group-addon">
-                  <i class="fa fa-fw fa-dollar"></i>
-                  </div>
+            <div class="col-sm-10">
               <select class="form-control">
                 <option selected="selected">Choose your average income</option>
                 <option>No income</option>
@@ -112,14 +114,9 @@
               </select>
             </div>
           </div>
-          </div>
           <div class="form-group">
             <label for="inputEmail3" class="col-sm-2 control-label">State</label>
-            <div class="col-sm-3">
-              <div class="input-group">
-                <div class="input-group-addon">
-                  <i class="fa fa-fw fa-map"></i>
-                </div>
+            <div class="col-sm-10">
             <select class="form-control select2" style="width: 100%;">
               <option selected="selected">Choose your current location</option>
               <option>Johor</option>
@@ -137,17 +134,10 @@
               <option>Serawak</option>
             </select>
           </div>
-            </div>
           </div>
-
-
           <div class="form-group">
           <label for="inputEmail3" class="col-sm-2 control-label">Skills</label>
-          <div class="col-sm-3">
-                <div class="input-group">
-                  <div class="input-group-addon">
-                    <i class="fa fa-fw fa-wrench"></i>
-                  </div>
+          <div class="col-sm-10">
             <select class="form-control select2" multiple="multiple" data-placeholder="Select which you familiar" style="width: 100%;">
               <option>HTML</option>
               <option>CSS</option>
@@ -159,14 +149,9 @@
             </select>
           </div>
           </div>
-          </div>
               <div class="form-group">
                 <label for="inputEmail3" class="col-sm-2 control-label">Experience</label>
-                <div class="col-sm-3">
-                  <div class="input-group">
-                    <div class="input-group-addon">
-                      <i class="fa fa-fw fa-briefcase"></i>
-                    </div>
+                <div class="col-sm-10">
                   <select class="form-control select2" style="width: 100%;">
                     <option selected="selected">Choose your Experience level</option>
                     <option>Beginner</option>
@@ -174,30 +159,19 @@
                     <option>Expert</option>
                   </select>
                 </div>
-                </div>
               </div>
-
               <div class="form-group">
                 <label for="inputEmail3" class="col-sm-2 control-label">Payment type</label>
-                <div class="col-sm-3">
-                  <div class="input-group">
-                    <div class="input-group-addon">
-                      <i class="fa fa-fw fa-bank"></i>
-                    </div>
+                <div class="col-sm-10">
                   <select class="form-control select2" multiple="multiple" data-placeholder="Select type of payment you would accept" style="width: 100%;">
                     <option>Payment Per Hour</option>
                     <option>Payment Per Job</option>
                   </select>
                 </div>
-                </div>
               </div>
               <div class="form-group">
                 <label for="inputEmail3" class="col-sm-2 control-label">Project you interested</label>
-                <div class="col-sm-3">
-                        <div class="input-group">
-                          <div class="input-group-addon">
-                            <i class="fa fa-fw fa-trophy"></i>
-                          </div>
+                <div class="col-sm-10">
                   <select class="form-control select2" multiple="multiple" data-placeholder="Select type of project you interested" style="width: 100%;">
                     <option>Designer</option>
                     <option>Web Application Development</option>
@@ -205,25 +179,24 @@
                   </select>
                 </div>
               </div>
-              </div>
 
             <div class="form-group">
               <label for="inputEmail3" class="col-sm-2 control-label">Education Background</label>
-              <div class="col-sm-3">
-                <textarea class="form-control" rows="4" placeholder="Enter your education background"></textarea>
+              <div class="col-sm-10">
+                <textarea class="form-control" rows="3" placeholder="Enter your education background"></textarea>
               </div>
             </div>
 
               <div class="form-group">
                 <label for="inputEmail3" class="col-sm-2 control-label">Address</label>
-                <div class="col-sm-3">
-                  <textarea class="form-control" rows="4" placeholder="Enter your current address"></textarea>
+                <div class="col-sm-10">
+                  <textarea class="form-control" rows="3" placeholder="Enter your current address"></textarea>
                 </div>
               </div>
 
               <div class="form-group">
-                <label for="exampleInputFile" class="col-sm-2 control-label">Artwork</label>
-                <div class="col-sm-3">
+                <label for="exampleInputFile" class="col-sm-2 control-label">File input</label>
+                <div class="col-sm-10">
                 <input type="file" id="exampleInputFile">
                 <br>
                 <input type="file" id="exampleInputFile">
@@ -233,18 +206,18 @@
                 <p class="help-block" class="col-sm-2 control-label">Please attach 3 best artwork represent your skill</p></div>
               </div>
               <div class="
-        
+          <!-- /.box-body -->
+          <!-- footer -->
           <div class="box-footer">
         
-            <a href="register payment1.html" target="_blank" class="btn btn-info pull-right">
-              <i class="fa fa-print"></i> Register Payment</a>
+            <button type="submit" class="btn btn-info pull-right">Next</button>
           </div>
-          
+          <!-- /.box-footer -->
         
         </form>
       
           </div>
-          
+          <!-- /.box -->
 
 <!-- jQuery 3 -->
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
