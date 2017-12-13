@@ -1,3 +1,35 @@
+<?php
+// call file connection
+include_once 'conn.php';
+// check value post
+if(isset ($_POST['submit'])){
+  //declare variable for store input data
+  $clientName=$_POST['clientName'];
+  $clientEmail=$_POST['clientEmail'];
+  $clientPassword=$_['clientPassword'];
+//insert
+$query= "INSERT INTO client (clientName, clientEmail, clientPassword) VALUES ('$clientName','$clientEmail','$clientPassword')";
+$result=mysqli_query($conm,$query);
+if($result){
+?>
+<script type="test/javascript">
+alert ('register success!');
+header ('Location: advance register1a.html');
+</script>
+<?php
+}
+else
+{
+  ?>
+<script type="text/javascript">
+alert ('failed to register. please try again!');
+</script>
+
+<?php
+}
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,19 +70,19 @@
 
     <form action="advance register1a.html" method="post">
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="Full name" required>
+        <input class="form-control" id="clientName" name="clientName" placeholder="Full name"  type="text"  required>
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="Email" required>
+        <input class="form-control" id="clientEmail" name="clientEmail" placeholder="Email" type="email" required>
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password" required>
+        <input  class="form-control" id="clientPassword" name="clientPassword" placeholder="Password" type="password" required>
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Retype password" required>
+        <input  class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Retype password" type="password" required>
         <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
       </div>
       <div class="row">
@@ -62,8 +94,22 @@
           </div>
         </div>
         <!-- /.col -->
+        <script>
+var password = document.getElementById("password")
+  , confirm_password = document.getElementById("confirmpassword");
+function validatePassword(){
+  if(password.value != confirm_password.value) {
+    confirm_password.setCustomValidity("Passwords Don't Match");
+  } else {
+    confirm_password.setCustomValidity('');
+  }
+}
+password.onchange = validatePassword;
+confirm_password.onkeyup = validatePassword;
+</script>
+
         <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
+         <button id="submit" name="submit" class="btn btn-success" href="advance register1a.html">Sign Up</button>
         </div>
         <!-- /.col -->
       </div>
