@@ -32,6 +32,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Google Font -->
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+        <style>
+          .example-modal .modal {
+            position: relative;
+            top: auto;
+            bottom: auto;
+            right: auto;
+            left: auto;
+            display: block;
+            z-index: 1;
+          }
+        
+          .example-modal .modal {
+            background: transparent !important;
+          }
+        </style>
 </head>
 <!-- 
 BODY TAG OPTIONS:
@@ -288,18 +304,109 @@ desired effect
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Dashboard
-        <small>Monitor your work here</small>
+        Payment Page
+        <small>Pay your Freelancer Here</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-        <li class="active">Here</li>
+        <li class="active"><a href="#"><i class="fa fa-dashboard"></i> Payment</a></li>
       </ol>
     </section>
 
     <!-- Main content -->
     <section class="content container-fluid">
 
+      <!-- bar char start -->
+      <div class="col-md-8">
+        <div class="box box-primary">
+          <div class="box-header with-border">
+            <i class="fa fa-bar-chart-o"></i>
+      
+            <h3 class="box-title">Job Status</h3>
+            <p>Check whether freelancer completed or not</p>
+      
+            <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                <i class="fa fa-minus"></i>
+              </button>
+      
+            </div>
+          </div>
+          <div class="box-body no-padding">
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-success">
+                    Project ID: 123
+                  </button>
+                  <span>Project design grafic interface</span>
+              </li>
+              <br>
+              <li>
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger">
+                   Project ID: 133
+                </button>
+              <span>Project design grafic interface</span>
+             
+              </li>
+              </li>
+              <br>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-success">
+               Project ID: 125
+            </button>
+           <span>Project design grafic interface</span>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+
+
+    <div class="modal modal-success fade" id="modal-success">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title">Completed Job</h4>
+          </div>
+          <div class="modal-body">
+            <p>Payment need to paid 100% from total price in agreement &hellip;</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-outline">Payment</button>
+          </div>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+        <div class="modal modal-danger fade" id="modal-danger">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Ongoing Job</h4>
+              </div>
+              <div class="modal-body">
+                <p>Payment need to paid are 70% from total price in agreement &hellip;</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-outline">Payment</button>
+              </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
+       
       <!--------------------------
         | Your Page Content Here |
         -------------------------->
