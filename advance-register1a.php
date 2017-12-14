@@ -1,3 +1,58 @@
+<?php
+//call file connection
+include_once 'conn.php';
+//check for any value posted
+if(isset($_POST['submit'])){
+  //declare variable for input data
+
+  //TABLE CLIENT
+  $ClientPhoneNumber=$_POST['ClientPhoneNumber'];
+  $ClientIncome=$_POST['ClientIncome'];
+  $ClientState=$_POST['ClientState'];
+  $clientEx=$_POST['clientEx'];
+  $clientEdu=$_POST['clientEdu'];
+  $clientAddress=$_POST['clientAddress'];
+  //TABLE PAYMENT 
+  $clientPayType=$_POST['clientPayType'];
+  //TABLE PROJECT  
+  $clientInterested=$_POST['clientInterested'];
+  //TABLE SKILL
+  $clientSkillType=$_POST['clientSkillType'];
+  //TABLE ARTWORK
+  $clientArtwork=$_POST['clientArtwokr'];
+ 
+ 
+  //insert query1
+  $query1="INSERT INTO client (ClientPhoneNumber, ClientIncome, ClientState, clientEx, clientEdu, clientAddress ) VALUES ('$ClientPhoneNumber', '$ClientIncome','$ClientState', '$clientEx','$clientEdu', '$clientAddress')";
+  //insert query2
+  $query2="INSERT INTO clientpayment(paymentType) values ('$paymentType')";
+  //insert query3
+  $query3="INSERT INTO interestproject(projectType) values('$projectType')";
+  //insert query4
+  $query4="INSERT INTO clientskill (clientSkillType) values ('$clientSkillType')";
+  //insert query5
+  $query5="INSERT INTO clientartwork (clientArtwork, clientArtworkDescription) values ('$clientArtwork','$clientArtworkDescription')";
+
+      $result1 = mysqli_query($con,$query1);
+      $result2 = mysqli_query($con,$query2);
+      $result3 = mysqli_query($con,$query3);
+      $result4 = mysqli_query($con,$query4);
+      $result5 = mysqli_query($con,$query5);
+
+      if($result1&&$result2&&$result3&&$result4&&$result5)
+      {
+        echo "<script>alert ('register success!');</script>";
+        header ("Location: register-payment1.php");
+        exit();
+      }
+      else
+      {
+        echo "<script>alert ('failed to register. please try again!');</script>";
+      }
+
+
+}
+?>
 
 <!DOCTYPE html>
 <html>
@@ -83,7 +138,7 @@
               </div>
               <!-- /.input group -->
             </div>
-            <br>
+            
             <!-- /.form group -->
           <div class="form-group">
             <label for="inputEmail3" class="col-sm-2 control-label">Income</label>
@@ -93,17 +148,16 @@
                   <i class="fa fa-fw fa-dollar"></i>
                   </div>
               <select class="form-control" id="ClientIncome" name="ClientIncome">
-                <option selected="selected">Choose your average income</option>
-                <option>No income</option>
-                <option>Below RM1,000</option>
-                <option>Below RM2,000 & above RM1,000 </option>
-                <option>Below RM3,000 & above RM2,000 </option>
-                <option>Above RM3,000</option>
+                <option value="noIncome">No income</option>
+                <option value="below1000">Below RM1,000</option>
+                <option value="below2000"> RM1,000 - RM2,000 </option>
+                <option value="below3000">RM2,000 - RM3,000</option>
+                <option value="above3000">Above RM3,000</option>
               </select>
             </div>
           </div>
           </div>
-          <br>
+          
           <div class="form-group">
             <label for="inputEmail3" class="col-sm-2 control-label">State</label>
             <div class="col-sm-3">
@@ -113,24 +167,24 @@
                 </div>
             <select class="form-control select2" style="width: 100%;" id="ClientState" name="ClientState">
               <option selected="selected">Choose your current location</option>
-              <option>Johor</option>
-              <option>Melaka</option>
-              <option>Negeri Sembilan</option>
-              <option>Selangor</option>
-              <option>Perak</option>
-              <option>Pahang</option>
-              <option>Kedah</option>
-              <option>Pulau Pinang</option>
-              <option>Kedah</option>
-              <option>Perlis</option>
-              <option>Kelantan</option>
-              <option>Sabah</option>
-              <option>Serawak</option>
+              <option value="johor">Johor</option>
+              <option value="melaka">Melaka</option>
+              <option value="negeri9">Negeri Sembilan</option>
+              <option value="selangor">Selangor</option>
+              <option value="perak">Perak</option>
+              <option value="pahang">Pahang</option>
+              <option value="kedah">Kedah</option>
+              <option value="pulauPinang">Pulau Pinang</option>
+              <option value="kedah">Kedah</option>
+              <option value="perlis">Perlis</option>
+              <option value="kelantan">Kelantan</option>
+              <option value="sabah">Sabah</option>
+              <option value="serawak">Serawak</option>
             </select>
           </div>
             </div>
           </div>
-          <br>
+          
 
           <div class="form-group">
           <label for="inputEmail3" class="col-sm-2 control-label">Skills</label>
@@ -140,13 +194,11 @@
                     <i class="fa fa-fw fa-wrench"></i>
                   </div>
             <select class="form-control select2" multiple="multiple" data-placeholder="Select which you familiar" style="width: 100%;" id="clientSkillType" name="clientSkillType">
-              <option>HTML</option>
-              <option>CSS</option>
-              <option>PHP</option>
-              <option>Java Script</option>
-              <option>Tennessee</option>
-              <option>Texas</option>
-              <option>Washington</option>
+              <option value="HTML">HTML</option>
+              <option value="CSS">CSS</option>
+              <option value="PHP">PHP</option>
+              <option value="Java">Java Script</option>
+           
             </select>
           </div>
           </div>
@@ -160,9 +212,9 @@
                     </div>
                   <select class="form-control select2" style="width: 100%;" id="clientEx" name="clientEx">
                     <option selected="selected">Choose your Experience level</option>
-                    <option>Beginner</option>
-                    <option>Intermediate</option>
-                    <option>Expert</option>
+                    <option value="beginner">Beginner</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="expert">Expert</option>
                   </select>
                 </div>
                 </div>
@@ -176,8 +228,8 @@
                       <i class="fa fa-fw fa-bank"></i>
                     </div>
                   <select class="form-control select2" multiple="multiple" data-placeholder="Select type of payment you would accept" style="width: 100%;" id="paymentType" name="paymentType">
-                    <option>Payment Per Hour</option>
-                    <option>Payment Per Job</option>
+                    <option value="payperhour">Payment Per Hour</option>
+                    <option value="payperjob">Payment Per Job</option>
                   </select>
                 </div>
                 </div>
@@ -190,9 +242,9 @@
                             <i class="fa fa-fw fa-trophy"></i>
                           </div>
                   <select class="form-control select2" multiple="multiple" data-placeholder="Select type of project you interested" style="width: 100%;" id="projectType" name="projectType">
-                    <option>Designer</option>
-                    <option>Web Application Development</option>
-                    <option>Mobile Application Development</option>
+                    <option value="designer">Designer</option>
+                    <option value="webApps">Web Application Development</option>
+                    <option value="mobileApps">Mobile Application Development</option>
                   </select>
                 </div>
               </div>
@@ -216,15 +268,15 @@
                 <label for="exampleInputFile" class="col-sm-2 control-label">Artwork</label>
                 <div class="col-sm-3">
                 <input type="file" id="clientArtwork" name="clientArtwork">
-                <textarea class="form-control" rows="4" placeholder="Enter your education background" id="clientArtworkDescription" name="clientArtworkDescription"></textarea>
+                <textarea class="form-control" rows="4" placeholder="Enter your education background"  id="clientArtworkDescription" name="clientArtworkDescription" ></textarea>
                 <br>
                 
                 <input type="file" id="clientArtwork" name="clientArtwork">
-                <textarea class="form-control" rows="4" placeholder="Enter your education background"  id="clientArtworkDescription" name="clientArtworkDescription" ></textarea>
+               <textarea class="form-control" rows="4" placeholder="Enter your education background"  id="clientArtworkDescription" name="clientArtworkDescription" ></textarea>
 
                 <br>
                 <input type="file"  id="clientArtwork" name="clientArtwork">
-                <textarea class="form-control" rows="4" placeholder="Enter your education background"  id="clientArtworkDescription" name="clientArtworkDescription" ></textarea>
+              <textarea class="form-control" rows="4" placeholder="Enter your education background"  id="clientArtworkDescription" name="clientArtworkDescription" ></textarea>  
               
                 <p class="help-block" class="col-sm-2 control-label">Please attach 3 best artwork represent your skill</p></div>
               </div>

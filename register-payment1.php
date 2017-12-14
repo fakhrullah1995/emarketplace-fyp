@@ -1,3 +1,34 @@
+<?php
+//call file connection
+include_once 'conn.php';
+//check for any value posted
+if(isset($_POST['submit'])){
+
+  //declare variable for input data
+  //TABLE clientPayment
+  $clientCardNo=$_POST['clientCardNo'];
+  $clientCardName=$_POST['clientCardName'];
+  $clientCardExpired=$_POST['clientCardExpired'];
+  $clientCCV=$_POST['clientCCV'];
+
+  //insert query
+  $query="INSERT INTO clientPayment(clientCardNo, clientCardName,clientCCV ) VALUES('$clientCardNo','$clientCardName','$clientCardExpired','$clientCCV')";
+
+  $result=mysqli_query($con,$query);
+  if($result)
+  {
+    echo "<script> alert('register success!');</script>";
+    header ("Location: login1.php");
+    exit();
+  }
+  else
+  {
+    echo "<script>alert ('failed to register, please try again');</script>";
+  }
+}
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -68,29 +99,29 @@
         </div>
         <!-- /.box-header -->
         <!-- form start -->
-        <form class="form-horizontal">
+        <form action=register-payment1.php method="post">
         <div class="form-group">
-          <label for="inputEmail3" class="col-sm-2 control-label">Card Number:</label>
+          <label for="clientCardNo" class="col-sm-2 control-label">Card Number:</label>
           <div class="col-sm-3">
             <div class="input-group">
               <div class="input-group-addon">
                 <i class=" fa fa-fw fa-credit-card"></i>
               </div>
-              <input type="text" class="form-control" data-inputmask="'mask': ['999-999-9999 [x99999]', '+099 99 99 9999[9]-9999']" data-mask>
+              <input id="clientCardNo" name="clientCardNo" type="text" class="form-control" data-inputmask="'mask': ['999-999-9999 [x99999]', '+099 99 99 9999[9]-9999']" data-mask>
             </div>
           </div>
           <!-- /.input group -->
         </div>
         <!-- /.form group -->
               <div class="form-group">
-                <label for="inputEmail3" class="col-sm-2 control-label">Name on Card</label>
+                <label for="clientCardName" class="col-sm-2 control-label">Name on Card</label>
               
                 <div class="col-sm-3">
                     <div class="input-group">
                       <div class="input-group-addon">
                         <i class=" fa fa-fw fa-user-plus"></i>
                       </div>
-                  <input type="email" class="form-control" id="inputEmail3">
+                  <input id="clientCardName" name="clientCardName" type="text" class="form-control" >
                 </div>
                 </div>
               </div>
@@ -98,26 +129,26 @@
                 <div class="box-body">
                   <!-- Date dd/mm/yyyy -->
                   <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-2 control-label">Expired Date</label>
+                    <label for="clientCardExpired" class="col-sm-2 control-label">Expired Date</label>
                 <div class="col-sm-3">
                     <div class="input-group">
                       <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
                       </div>
-                      <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>
+                      <input id="clientCardExpired" name="clientCardExpired" type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>
                     </div></div>
                     <!-- /.input group -->
                   </div>
   <!-- /.form group -->
     <div class="form-group">
-      <label for="inputEmail3" class="col-sm-2 control-label">CCV /CVV</label>
+      <label for="clientCCV" class="col-sm-2 control-label">CCV /CVV</label>
     
       <div class="col-sm-3">
         <div class="input-group">
           <div class="input-group-addon">
             <i class="fa fa-fw fa-cc-diners-club"></i>
           </div>
-          <input type="email" class="form-control" id="inputEmail3">
+          <input id="clientCCV" name="clientCCV" type="text" class="form-control" >
         </div>
       </div>
     </div>
@@ -125,11 +156,9 @@
          
           <!-- /.box-body -->
           <!-- footer -->
-          <div class="box-footer">
-        
-              <a href="dashboard1.html" class="btn btn-info pull-right">
-                <i class="fa fa-fw fa-check-square-o"></i> Complete</a>
-          </div>
+             <div class="col-xs-4">
+         <button id="submit" name="submit" class="btn btn-success" href="login1.php">Complete</button>
+        </div>
           <!-- /.box-footer -->
         
         </form>
