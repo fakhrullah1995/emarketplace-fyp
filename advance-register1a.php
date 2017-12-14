@@ -1,5 +1,7 @@
+
 <!DOCTYPE html>
 <html>
+  
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -68,20 +70,7 @@
         </div>
         <!-- /.box-header -->
         <!-- form start -->
-        <form class="form-horizontal">
-         
-            <div class="form-group">
-              <label for="inputEmail3" class="col-sm-2 control-label">UserName</label>
-              <div class="col-sm-3"> 
-                <div class="input-group">
-              <div class="input-group-addon">
-        <i class="fa fa-fw fa-user"></i>
-      </div>
-                <input type="email" class="form-control" id="inputEmail3" placeholder="Enter User Name">
-              </div>
-            </div> 
-            </div>
-            
+        <form action="advance-register1a.php" method="post">  
             <div class="form-group">
               <label for="inputEmail3" class="col-sm-2 control-label">Phone Number:</label>
             <div class="col-sm-3">
@@ -89,11 +78,12 @@
                 <div class="input-group-addon">
                   <i class="fa fa-phone"></i>
                 </div>
-                <input type="text" class="form-control" data-inputmask="'mask': ['999-999-9999 [x99999]', '+099 99 99 9999[9]-9999']" data-mask>
+                <input  class="form-control" id="clientPhoneNumber" name="clientPhoneNumber" data-inputmask="'mask': ['999-999-9999 [x99999]', '+099 99 99 9999[9]-9999']" data-mask type="text">
               </div>
               </div>
               <!-- /.input group -->
             </div>
+            <br>
             <!-- /.form group -->
           <div class="form-group">
             <label for="inputEmail3" class="col-sm-2 control-label">Income</label>
@@ -102,7 +92,7 @@
                 <div class="input-group-addon">
                   <i class="fa fa-fw fa-dollar"></i>
                   </div>
-              <select class="form-control">
+              <select class="form-control" id="ClientIncome" name="ClientIncome">
                 <option selected="selected">Choose your average income</option>
                 <option>No income</option>
                 <option>Below RM1,000</option>
@@ -113,6 +103,7 @@
             </div>
           </div>
           </div>
+          <br>
           <div class="form-group">
             <label for="inputEmail3" class="col-sm-2 control-label">State</label>
             <div class="col-sm-3">
@@ -120,7 +111,7 @@
                 <div class="input-group-addon">
                   <i class="fa fa-fw fa-map"></i>
                 </div>
-            <select class="form-control select2" style="width: 100%;">
+            <select class="form-control select2" style="width: 100%;" id="ClientState" name="ClientState">
               <option selected="selected">Choose your current location</option>
               <option>Johor</option>
               <option>Melaka</option>
@@ -139,7 +130,7 @@
           </div>
             </div>
           </div>
-
+          <br>
 
           <div class="form-group">
           <label for="inputEmail3" class="col-sm-2 control-label">Skills</label>
@@ -148,7 +139,7 @@
                   <div class="input-group-addon">
                     <i class="fa fa-fw fa-wrench"></i>
                   </div>
-            <select class="form-control select2" multiple="multiple" data-placeholder="Select which you familiar" style="width: 100%;">
+            <select class="form-control select2" multiple="multiple" data-placeholder="Select which you familiar" style="width: 100%;" id="clientSkillType" name="clientSkillType">
               <option>HTML</option>
               <option>CSS</option>
               <option>PHP</option>
@@ -167,7 +158,7 @@
                     <div class="input-group-addon">
                       <i class="fa fa-fw fa-briefcase"></i>
                     </div>
-                  <select class="form-control select2" style="width: 100%;">
+                  <select class="form-control select2" style="width: 100%;" id="clientEx" name="clientEx">
                     <option selected="selected">Choose your Experience level</option>
                     <option>Beginner</option>
                     <option>Intermediate</option>
@@ -184,7 +175,7 @@
                     <div class="input-group-addon">
                       <i class="fa fa-fw fa-bank"></i>
                     </div>
-                  <select class="form-control select2" multiple="multiple" data-placeholder="Select type of payment you would accept" style="width: 100%;">
+                  <select class="form-control select2" multiple="multiple" data-placeholder="Select type of payment you would accept" style="width: 100%;" id="paymentType" name="paymentType">
                     <option>Payment Per Hour</option>
                     <option>Payment Per Job</option>
                   </select>
@@ -198,7 +189,7 @@
                           <div class="input-group-addon">
                             <i class="fa fa-fw fa-trophy"></i>
                           </div>
-                  <select class="form-control select2" multiple="multiple" data-placeholder="Select type of project you interested" style="width: 100%;">
+                  <select class="form-control select2" multiple="multiple" data-placeholder="Select type of project you interested" style="width: 100%;" id="projectType" name="projectType">
                     <option>Designer</option>
                     <option>Web Application Development</option>
                     <option>Mobile Application Development</option>
@@ -210,25 +201,30 @@
             <div class="form-group">
               <label for="inputEmail3" class="col-sm-2 control-label">Education Background</label>
               <div class="col-sm-3">
-                <textarea class="form-control" rows="4" placeholder="Enter your education background"></textarea>
+                <textarea class="form-control" rows="4" placeholder="Enter your education background" id="clientEdu" name="clientEdu"></textarea>
               </div>
             </div>
 
               <div class="form-group">
                 <label for="inputEmail3" class="col-sm-2 control-label">Address</label>
                 <div class="col-sm-3">
-                  <textarea class="form-control" rows="4" placeholder="Enter your current address"></textarea>
+                  <textarea class="form-control" rows="4" placeholder="Enter your current address" id="clientAddress" name="clientAddress"></textarea>
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="exampleInputFile" class="col-sm-2 control-label">Artwork</label>
                 <div class="col-sm-3">
-                <input type="file" id="exampleInputFile">
+                <input type="file" id="clientArtwork" name="clientArtwork">
+                <textarea class="form-control" rows="4" placeholder="Enter your education background" id="clientArtworkDescription" name="clientArtworkDescription"></textarea>
                 <br>
-                <input type="file" id="exampleInputFile">
+                
+                <input type="file" id="clientArtwork" name="clientArtwork">
+                <textarea class="form-control" rows="4" placeholder="Enter your education background"  id="clientArtworkDescription" name="clientArtworkDescription" ></textarea>
+
                 <br>
-                <input type="file" id="exampleInputFile">
+                <input type="file"  id="clientArtwork" name="clientArtwork">
+                <textarea class="form-control" rows="4" placeholder="Enter your education background"  id="clientArtworkDescription" name="clientArtworkDescription" ></textarea>
               
                 <p class="help-block" class="col-sm-2 control-label">Please attach 3 best artwork represent your skill</p></div>
               </div>
@@ -236,8 +232,9 @@
         
           <div class="box-footer">
         
-            <a href="register payment1.html" class="btn btn-info pull-right">
-              <i class="fa fa-print"></i> Register Payment</a>
+               <div class="col-xs-4">
+         <button id="submit" name="submit" class="btn btn-success" href="advance register1a.html">Sign Up</button>
+        </div>
           </div>
           
         

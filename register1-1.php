@@ -6,26 +6,21 @@ if(isset ($_POST['submit'])){
   //declare variable for store input data
   $clientName=$_POST['clientName'];
   $clientEmail=$_POST['clientEmail'];
-  $clientPassword=$_['clientPassword'];
+  $clientPassword=$_POST['clientPassword'];
 //insert
 $query= "INSERT INTO client (clientName, clientEmail, clientPassword) VALUES ('$clientName','$clientEmail','$clientPassword')";
-$result=mysqli_query($conm,$query);
-if($result){
-?>
-<script type="test/javascript">
-alert ('register success!');
-header ('Location: advance register1a.html');
-</script>
-<?php
+
+$result = mysqli_query($con,$query);
+
+if($result)
+{
+echo "<script>alert ('register success!');</script>";
+header ("Location: advance-register1a.php");
+exit();
 }
 else
 {
-  ?>
-<script type="text/javascript">
-alert ('failed to register. please try again!');
-</script>
-
-<?php
+echo "<script>alert ('failed to register. please try again!');</script>";
 }
 }
 ?>
@@ -68,7 +63,7 @@ alert ('failed to register. please try again!');
   <div class="register-box-body">
     <p class="login-box-msg">Register a new membership</p>
 
-    <form action="advance register1a.html" method="post">
+    <form action="register1-1.php" method="post">
       <div class="form-group has-feedback">
         <input class="form-control" id="clientName" name="clientName" placeholder="Full name"  type="text"  required>
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -94,19 +89,7 @@ alert ('failed to register. please try again!');
           </div>
         </div>
         <!-- /.col -->
-        <script>
-var password = document.getElementById("password")
-  , confirm_password = document.getElementById("confirmpassword");
-function validatePassword(){
-  if(password.value != confirm_password.value) {
-    confirm_password.setCustomValidity("Passwords Don't Match");
-  } else {
-    confirm_password.setCustomValidity('');
-  }
-}
-password.onchange = validatePassword;
-confirm_password.onkeyup = validatePassword;
-</script>
+
 
         <div class="col-xs-4">
          <button id="submit" name="submit" class="btn btn-success" href="advance register1a.html">Sign Up</button>
@@ -135,6 +118,19 @@ confirm_password.onkeyup = validatePassword;
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- iCheck -->
 <script src="plugins/iCheck/icheck.min.js"></script>
+<script>
+var clientPassword = document.getElementById("clientPassword")
+  , confirm_password = document.getElementById("confirmpassword");
+function validatePassword(){
+  if(clientPassword.value != confirm_password.value) {
+    confirm_password.setCustomValidity("Passwords Don't Match");
+  } else {
+    confirm_password.setCustomValidity('');
+  }
+}
+clientPassword.onchange = validatePassword;
+confirm_password.onkeyup = validatePassword;
+</script>
 <script>
   $(function () {
     $('input').iCheck({
