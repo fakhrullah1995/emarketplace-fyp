@@ -101,8 +101,8 @@ if(isset($_POST['submit'])){
         <!-- form start -->
         <form action=register-payment1.php method="post">
         <div class="form-group">
-          <label for="clientCardNo" class="col-sm-2 control-label">Card Number:</label>
-          <div class="col-sm-3">
+          <label for="clientCardNo" class="col-md-12 col-sm-2 control-label">Card Number:</label>
+          <div class="col-md-6 col-sm-3">
             <div class="input-group">
               <div class="input-group-addon">
                 <i class=" fa fa-fw fa-credit-card"></i>
@@ -114,9 +114,9 @@ if(isset($_POST['submit'])){
         </div>
         <!-- /.form group -->
               <div class="form-group">
-                <label for="clientCardName" class="col-sm-2 control-label">Name on Card</label>
+                <label for="clientCardName" class="col-md-12 col-sm-2 control-label">Name on Card</label>
               
-                <div class="col-sm-3">
+                <div class="col-md-6 col-sm-3">
                     <div class="input-group">
                       <div class="input-group-addon">
                         <i class=" fa fa-fw fa-user-plus"></i>
@@ -129,8 +129,8 @@ if(isset($_POST['submit'])){
                 <div class="box-body">
                   <!-- Date dd/mm/yyyy -->
                   <div class="form-group">
-                    <label for="clientCardExpired" class="col-sm-2 control-label">Expired Date</label>
-                <div class="col-sm-3">
+                    <label for="clientCardExpired" class="col-md-12 col-sm-2 control-label">Expired Date</label>
+                <div class="col-md-6 col-sm-3">
                     <div class="input-group">
                       <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
@@ -141,9 +141,9 @@ if(isset($_POST['submit'])){
                   </div>
   <!-- /.form group -->
     <div class="form-group">
-      <label for="clientCCV" class="col-sm-2 control-label">CCV /CVV</label>
+      <label for="clientCCV" class="col-md-12 col-sm-2 control-label">CCV /CVV</label>
     
-      <div class="col-sm-3">
+      <div class="col-md-6 col-sm-3">
         <div class="input-group">
           <div class="input-group-addon">
             <i class="fa fa-fw fa-cc-diners-club"></i>
@@ -152,13 +152,17 @@ if(isset($_POST['submit'])){
         </div>
       </div>
     </div>
+    </div>
       <!-- /.form group -->
          
           <!-- /.box-body -->
           <!-- footer -->
-             <div class="col-xs-4">
-         <button id="submit" name="submit" class="btn btn-success" href="login1.php">Complete</button>
+       <div class="box-footer">
+
+               <div class="col-md-12 col-xs-4">
+         <button id="submit" name="submit" class="btn btn-success" href="login1.php">Sign Up</button>
         </div>
+          </div>
           <!-- /.box-footer -->
         
         </form>
