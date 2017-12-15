@@ -2,61 +2,56 @@
 //call file connection
 include_once 'conn.php';
 //check for any value posted
-if(isset($_POST['submit'])){
-  //declare variable for input data
+if (isset($_POST['submit'])) {
+    //declare variable for input data
 
-  //TABLE CLIENT
-  $ClientPhoneNumber=$_POST['ClientPhoneNumber'];
-  $ClientIncome=$_POST['ClientIncome'];
-  $ClientState=$_POST['ClientState'];
-  $clientEx=$_POST['clientEx'];
-  $clientEdu=$_POST['clientEdu'];
-  $clientAddress=$_POST['clientAddress'];
-  //TABLE PAYMENT 
-  $clientPayType=$_POST['clientPayType'];
-  //TABLE PROJECT  
-  $clientInterested=$_POST['clientInterested'];
-  //TABLE SKILL
-  $clientSkillType=$_POST['clientSkillType'];
-  //TABLE ARTWORK
-  $clientArtwork=$_POST['clientArtwokr'];
- 
- 
-  //insert query1
-  $query1="INSERT INTO client (ClientPhoneNumber, ClientIncome, ClientState, clientEx, clientEdu, clientAddress ) VALUES ('$ClientPhoneNumber', '$ClientIncome','$ClientState', '$clientEx','$clientEdu', '$clientAddress')";
-  //insert query2
-  $query2="INSERT INTO clientpayment(paymentType) values ('$paymentType')";
-  //insert query3
-  $query3="INSERT INTO interestproject(projectType) values('$projectType')";
-  //insert query4
-  $query4="INSERT INTO clientskill (clientSkillType) values ('$clientSkillType')";
-  //insert query5
-  $query5="INSERT INTO clientartwork (clientArtwork, clientArtworkDescription) values ('$clientArtwork','$clientArtworkDescription')";
+    //TABLE CLIENT
+    $ClientPhoneNumber = $_POST['ClientPhoneNumber'];
+    $ClientIncome = $_POST['ClientIncome'];
+    $ClientState = $_POST['ClientState'];
+    $clientEx = $_POST['clientEx'];
+    $clientEdu = $_POST['clientEdu'];
+    $clientAddress = $_POST['clientAddress'];
+    //TABLE PAYMENT
+    $clientPayType = $_POST['clientPayType'];
+    //TABLE PROJECT
+    $clientInterested = $_POST['clientInterested'];
+    //TABLE SKILL
+    $clientSkillType = $_POST['clientSkillType'];
+    //TABLE ARTWORK
+    $clientArtwork = $_POST['clientArtwokr'];
 
-      $result1 = mysqli_query($con,$query1);
-      $result2 = mysqli_query($con,$query2);
-      $result3 = mysqli_query($con,$query3);
-      $result4 = mysqli_query($con,$query4);
-      $result5 = mysqli_query($con,$query5);
+    //insert query1
+    $query1 = "INSERT INTO client (ClientPhoneNumber, ClientIncome, ClientState, clientEx, clientEdu, clientAddress ) VALUES ('$ClientPhoneNumber', '$ClientIncome','$ClientState', '$clientEx','$clientEdu', '$clientAddress')";
+    //insert query2
+    $query2 = "INSERT INTO clientpayment(paymentType) values ('$paymentType')";
+    //insert query3
+    $query3 = "INSERT INTO interestproject(projectType) values('$projectType')";
+    //insert query4
+    $query4 = "INSERT INTO clientskill (clientSkillType) values ('$clientSkillType')";
+    //insert query5
+    $query5 = "INSERT INTO clientartwork (clientArtwork, clientArtworkDescription) values ('$clientArtwork','$clientArtworkDescription')";
 
-      if($result1&&$result2&&$result3&&$result4&&$result5)
-      {
+    $result1 = mysqli_query($con, $query1);
+    $result2 = mysqli_query($con, $query2);
+    $result3 = mysqli_query($con, $query3);
+    $result4 = mysqli_query($con, $query4);
+    $result5 = mysqli_query($con, $query5);
+
+    if ($result1 && $result2 && $result3 && $result4 && $result5) {
         echo "<script>alert ('register success!');</script>";
-        header ("Location: register-payment1.php");
+        header("Location: register-payment1.php");
         exit();
-      }
-      else
-      {
+    } else {
         echo "<script>alert ('failed to register. please try again!');</script>";
-      }
-
+    }
 
 }
 ?>
 
 <!DOCTYPE html>
 <html>
-  
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -112,23 +107,23 @@ if(isset($_POST['submit'])){
       </li>
       <li>
         <a href="advance register1a.html">Advance Register 1</a>
-      
+
     </ol>
   </section>
     <section class="content">
-   
+
         <!-- left column -->
-        
+
       <div class="box box-info">
         <div class="box-header with-border">
           <h3 class="box-title">Advance Register Form</h3>
         </div>
         <!-- /.box-header -->
         <!-- form start -->
-        <form action="advance-register1a.php" method="post">  
+        <form action="advance-register1a.php" method="post">
             <div class="form-group">
-              <label for="inputEmail3" class="col-sm-2 control-label">Phone Number:</label>
-            <div class="col-sm-3">
+              <label for="inputEmail3" class="col-md-12 col-sm-2  control-label">Phone Number:</label>
+            <div class="col-md-6 col-sm-3">
               <div class="input-group">
                 <div class="input-group-addon">
                   <i class="fa fa-phone"></i>
@@ -138,11 +133,11 @@ if(isset($_POST['submit'])){
               </div>
               <!-- /.input group -->
             </div>
-            
+
             <!-- /.form group -->
           <div class="form-group">
-            <label for="inputEmail3" class="col-sm-2 control-label">Income</label>
-            <div class="col-sm-3">
+            <label for="inputEmail3" class="col-md-12 col-sm-2 control-label">Income</label>
+            <div class="col-md-6 col-sm-3">
               <div class="input-group">
                 <div class="input-group-addon">
                   <i class="fa fa-fw fa-dollar"></i>
@@ -157,10 +152,10 @@ if(isset($_POST['submit'])){
             </div>
           </div>
           </div>
-          
+
           <div class="form-group">
-            <label for="inputEmail3" class="col-sm-2 control-label">State</label>
-            <div class="col-sm-3">
+            <label for="inputEmail3" class="col-md-12 col-sm-2 control-label">State</label>
+            <div class="col-md-6 col-sm-3">
               <div class="input-group">
                 <div class="input-group-addon">
                   <i class="fa fa-fw fa-map"></i>
@@ -184,11 +179,11 @@ if(isset($_POST['submit'])){
           </div>
             </div>
           </div>
-          
+
 
           <div class="form-group">
-          <label for="inputEmail3" class="col-sm-2 control-label">Skills</label>
-          <div class="col-sm-3">
+          <label for="inputEmail3" class="col-md-12 col-sm-2 control-label">Skills</label>
+          <div class="col-md-6 col-sm-3">
                 <div class="input-group">
                   <div class="input-group-addon">
                     <i class="fa fa-fw fa-wrench"></i>
@@ -198,14 +193,14 @@ if(isset($_POST['submit'])){
               <option value="CSS">CSS</option>
               <option value="PHP">PHP</option>
               <option value="Java">Java Script</option>
-           
+
             </select>
           </div>
           </div>
           </div>
               <div class="form-group">
-                <label for="inputEmail3" class="col-sm-2 control-label">Experience</label>
-                <div class="col-sm-3">
+                <label for="inputEmail3" class="col-md-12 col-sm-2 control-label">Experience</label>
+                <div class="col-md-6 col-sm-3">
                   <div class="input-group">
                     <div class="input-group-addon">
                       <i class="fa fa-fw fa-briefcase"></i>
@@ -221,8 +216,8 @@ if(isset($_POST['submit'])){
               </div>
 
               <div class="form-group">
-                <label for="inputEmail3" class="col-sm-2 control-label">Payment type</label>
-                <div class="col-sm-3">
+                <label for="inputEmail3" class="col-md-12 col-sm-2 control-label">Payment type</label>
+                <div class="col-md-6 col-sm-3">
                   <div class="input-group">
                     <div class="input-group-addon">
                       <i class="fa fa-fw fa-bank"></i>
@@ -235,8 +230,8 @@ if(isset($_POST['submit'])){
                 </div>
               </div>
               <div class="form-group">
-                <label for="inputEmail3" class="col-sm-2 control-label">Project you interested</label>
-                <div class="col-sm-3">
+                <label for="inputEmail3" class="col-md-12 col-sm-2 control-label">Project you interested</label>
+                <div class="col-md-6 col-sm-3">
                         <div class="input-group">
                           <div class="input-group-addon">
                             <i class="fa fa-fw fa-trophy"></i>
@@ -251,47 +246,47 @@ if(isset($_POST['submit'])){
               </div>
 
             <div class="form-group">
-              <label for="inputEmail3" class="col-sm-2 control-label">Education Background</label>
-              <div class="col-sm-3">
+              <label for="inputEmail3" class="col-md-12 col-sm-2 control-label">Education Background</label>
+              <div class="col-md-6 col-sm-3">
                 <textarea class="form-control" rows="4" placeholder="Enter your education background" id="clientEdu" name="clientEdu"></textarea>
               </div>
             </div>
 
               <div class="form-group">
-                <label for="inputEmail3" class="col-sm-2 control-label">Address</label>
-                <div class="col-sm-3">
+                <label for="inputEmail3" class="col-md-12 col-sm-2 control-label">Address</label>
+                <div class="col-md-6 col-sm-3">
                   <textarea class="form-control" rows="4" placeholder="Enter your current address" id="clientAddress" name="clientAddress"></textarea>
                 </div>
               </div>
 
               <div class="form-group">
-                <label for="exampleInputFile" class="col-sm-2 control-label">Artwork</label>
-                <div class="col-sm-3">
+                <label for="exampleInputFile" class="col-md-12 col-sm-2 control-label">Artwork</label>
+                <div class="col-md-6 col-sm-3">
                 <input type="file" id="clientArtwork" name="clientArtwork">
                 <textarea class="form-control" rows="4" placeholder="Enter your education background"  id="clientArtworkDescription" name="clientArtworkDescription" ></textarea>
                 <br>
-                
+
                 <input type="file" id="clientArtwork" name="clientArtwork">
                <textarea class="form-control" rows="4" placeholder="Enter your education background"  id="clientArtworkDescription" name="clientArtworkDescription" ></textarea>
 
                 <br>
                 <input type="file"  id="clientArtwork" name="clientArtwork">
-              <textarea class="form-control" rows="4" placeholder="Enter your education background"  id="clientArtworkDescription" name="clientArtworkDescription" ></textarea>  
-              
+              <textarea class="form-control" rows="4" placeholder="Enter your education background"  id="clientArtworkDescription" name="clientArtworkDescription" ></textarea>
+
                 <p class="help-block" class="col-sm-2 control-label">Please attach 3 best artwork represent your skill</p></div>
               </div>
-              
-        
+
+
           <div class="box-footer">
-        
-               <div class="col-xs-4">
+
+               <div class="col-md-12 col-xs-4">
          <button id="submit" name="submit" class="btn btn-success" href="advance register1a.html">Sign Up</button>
         </div>
           </div>
-          
-        
+
+
         </form>
-      
+
           </div>
         </section>
 
