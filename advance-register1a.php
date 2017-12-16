@@ -13,16 +13,17 @@ if (isset($_POST['submit'])) {
     $clientEdu = $_POST['clientEdu'];
     $clientAddress = $_POST['clientAddress'];
     //TABLE PAYMENT
-    $clientPayType = $_POST['clientPayType'];
+    $paymentType = $_POST['paymentType'];
     //TABLE PROJECT
-    $clientInterested = $_POST['clientInterested'];
+    $projectType = $_POST['projectType'];
     //TABLE SKILL
     $clientSkillType = $_POST['clientSkillType'];
     //TABLE ARTWORK
-    $clientArtwork = $_POST['clientArtwokr'];
+    $clientArtwork = $_POST['clientArtwork'];
+    $clientArtworkDescription = $_POST['clientArtworkDescription'];
 
     //insert query1
-    $query1 = "INSERT INTO client (ClientPhoneNumber, ClientIncome, ClientState, clientEx, clientEdu, clientAddress ) VALUES ('$ClientPhoneNumber', '$ClientIncome','$ClientState', '$clientEx','$clientEdu', '$clientAddress')";
+    $query1 = "UPDATE INTO client (ClientPhoneNumber, ClientIncome, ClientState, clientEx, clientEdu, clientAddress ) VALUES ('$ClientPhoneNumber', '$ClientIncome','$ClientState', '$clientEx','$clientEdu', '$clientAddress')";
     //insert query2
     $query2 = "INSERT INTO clientpayment(paymentType) values ('$paymentType')";
     //insert query3
@@ -128,7 +129,7 @@ if (isset($_POST['submit'])) {
                 <div class="input-group-addon">
                   <i class="fa fa-phone"></i>
                 </div>
-                <input  class="form-control" id="clientPhoneNumber" name="clientPhoneNumber" data-inputmask="'mask': ['999-999-9999 [x99999]', '+099 99 99 9999[9]-9999']" data-mask type="text">
+                <input  class="form-control" id="ClientPhoneNumber" name="ClientPhoneNumber" data-inputmask="'mask': ['999-999-9999 [x99999]', '+099 99 99 9999[9]-9999']" data-mask type="text">
               </div>
               </div>
               <!-- /.input group -->

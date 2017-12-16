@@ -12,7 +12,7 @@ if(isset($_POST['submit'])){
   $clientCCV=$_POST['clientCCV'];
 
   //insert query
-  $query="INSERT INTO clientPayment(clientCardNo, clientCardName,clientCCV ) VALUES('$clientCardNo','$clientCardName','$clientCardExpired','$clientCCV')";
+  $query="UPDATE INTO clientpayment(clientCardNo, clientCardName,clientCardExpired, clientCCV ) VALUES('$clientCardNo','$clientCardName','$clientCardExpired','$clientCCV')";
 
   $result=mysqli_query($con,$query);
   if($result)
