@@ -19,27 +19,40 @@ if (isset($_POST['submit'])) {
     //TABLE SKILL
     $clientSkillType = $_POST['clientSkillType'];
     //TABLE ARTWORK
-    $clientArtwork = $_POST['clientArtwork'];
-    $clientArtworkDescription = $_POST['clientArtworkDescription'];
+    //$clientArtwork = $_POST['clientArtwork'];
+   // $clientArtworkDescription = $_POST['clientArtworkDescription'];
+
+  //  output semua
+  echo  'ClientPhoneNumber- '.$ClientPhoneNumber.PHP_EOL;
+  echo 'ClientIncome- '. $ClientIncome.PHP_EOL;
+  echo  'ClientState- '.$ClientState.PHP_EOL;
+  echo  'clientEx- '.$clientEx.PHP_EOL;
+  echo  'clientEdu- '.$clientEdu.PHP_EOL;
+  echo  'clientAddress- '.$clientAddress.PHP_EOL;
+  echo  'paymentType- '.$paymentType.PHP_EOL;
+  echo  'clientSkillType- '.$clientSkillType.PHP_EOL;
+  echo  'projectType- '.$projectType.PHP_EOL;
 
     //insert query1
-    $query1 = "UPDATE INTO client (ClientPhoneNumber, ClientIncome, ClientState, clientEx, clientEdu, clientAddress ) VALUES ('$ClientPhoneNumber', '$ClientIncome','$ClientState', '$clientEx','$clientEdu', '$clientAddress')";
-    //insert query2
-    $query2 = "INSERT INTO clientpayment(paymentType) values ('$paymentType')";
-    //insert query3
+    $query1 = "UPDATE client SET ClientPhoneNumber='$ClientPhoneNumber', ClientIncome='$ClientIncome', ClientState='$ClientState', clientEx= '$clientEx', clientEdu='$clientEdu', clientAddress='$clientAddress'";
+  // insert query2
+    $query2 = "INSERT INTO clientpayment (paymentType) values ('$paymentType')";
+    // insert query3
     $query3 = "INSERT INTO interestproject(projectType) values('$projectType')";
-    //insert query4
+  //   //insert query4
     $query4 = "INSERT INTO clientskill (clientSkillType) values ('$clientSkillType')";
-    //insert query5
-    $query5 = "INSERT INTO clientartwork (clientArtwork, clientArtworkDescription) values ('$clientArtwork','$clientArtworkDescription')";
+  //insert query5
+  // $query5 = "INSERT INTO clientartwork (clientArtwork, clientArtworkDescription) values ('$clientArtwork','$clientArtworkDescription')";
 
-    $result1 = mysqli_query($con, $query1);
+    $result1 = mysqli_query($con, $query1); //done
     $result2 = mysqli_query($con, $query2);
     $result3 = mysqli_query($con, $query3);
     $result4 = mysqli_query($con, $query4);
-    $result5 = mysqli_query($con, $query5);
+   //  $result5 = mysqli_query($con, $query5);
 
-    if ($result1 && $result2 && $result3 && $result4 && $result5) {
+  echo $result1;
+
+    if ($result2 ) {
         echo "<script>alert ('register success!');</script>";
         header("Location: register-payment1.php");
         exit();
@@ -253,14 +266,14 @@ if (isset($_POST['submit'])) {
               </div>
             </div>
 
-              <div class="form-group">
+               <div class="form-group">
                 <label for="inputEmail3" class="col-md-12 col-sm-2 control-label">Address</label>
                 <div class="col-md-6 col-sm-3">
                   <textarea class="form-control" rows="4" placeholder="Enter your current address" id="clientAddress" name="clientAddress"></textarea>
                 </div>
               </div>
 
-              <div class="form-group">
+             <!-- <div class="form-group">
                 <label for="exampleInputFile" class="col-md-12 col-sm-2 control-label">Artwork</label>
                 <div class="col-md-6 col-sm-3">
                 <input type="file" id="clientArtwork" name="clientArtwork">
@@ -272,10 +285,10 @@ if (isset($_POST['submit'])) {
 
                 <br>
                 <input type="file"  id="clientArtwork" name="clientArtwork">
-              <textarea class="form-control" rows="4" placeholder="Enter your education background"  id="clientArtworkDescription" name="clientArtworkDescription" ></textarea>
+              <textarea class="form-control" rows="4" placeholder="Enter your education background"  id="clientArtworkDescription" name="clientArtworkDescription" ></textarea> -->
 
-                <p class="help-block" class="col-sm-2 control-label">Please attach 3 best artwork represent your skill</p></div>
-              </div>
+                <!-- <p class="help-block" class="col-sm-2 control-label">Please attach 3 best artwork represent your skill</p></div>
+              </div> -->
 
 
           <div class="box-footer">
