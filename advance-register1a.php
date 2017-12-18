@@ -1,131 +1,3 @@
-<?php
-//call file connection
-include_once 'conn.php';
-//check for any value posted
-if (isset($_POST['submit'])) {
-    //declare variable for input data
-
-    //TABLE CLIENT
-    $ClientPhoneNumber = $_POST['ClientPhoneNumber'];
-    $ClientIncome = $_POST['ClientIncome'];
-    $ClientState = $_POST['ClientState'];
-    $clientEx = $_POST['clientEx'];
-    $clientEdu = $_POST['clientEdu'];
-    $clientAddress = $_POST['clientAddress'];
-    //TABLE PAYMENT
-    $paymentType = $_POST['paymentType'];
-    //TABLE PROJECT
-    $projectType = $_POST['projectType'];
-    //TABLE SKILL
-    $clientSkillType = $_POST['clientSkillType'];
-    //TABLE ARTWORK
-     //$clientArtwork = addslashes(file_get_contents($_FILES["clientArtwork"]["tmp_name"])); 
-   // $clientArtwork = addslashes(file_get_contest($_FILES["clientArtwork"]["tmpt_name"]));
-    $clientArtworkDescription = $_POST['clientArtworkDescription'];
- }
- 
-  //  output semua
-  echo  'ClientPhoneNumber- '.$ClientPhoneNumber.PHP_EOL;
-  echo 'ClientIncome- '. $ClientIncome.PHP_EOL;
-  echo  'ClientState- '.$ClientState.PHP_EOL;
-  echo  'clientEx- '.$clientEx.PHP_EOL;
-  echo  'clientEdu- '.$clientEdu.PHP_EOL;
-  echo  'clientAddress- '.$clientAddress.PHP_EOL;
-  echo  'paymentType- '.$paymentType.PHP_EOL;
-  echo  'clientSkillType- '.$clientSkillType.PHP_EOL;
-  echo  'projectType- '.$projectType.PHP_EOL;
-
-    //insert query1
-    $query1 = "UPDATE client SET ClientPhoneNumber='$ClientPhoneNumber', ClientIncome='$ClientIncome', ClientState='$ClientState', clientEx= '$clientEx', clientEdu='$clientEdu', clientAddress='$clientAddress'";
-  // insert query2
-    $query2 = "INSERT INTO clientpayment (paymentType) values ('$paymentType')";
-    // insert query3
-    $query3 = "INSERT INTO interestproject(projectType) values('$projectType')";
-  //   //insert query4
-    $query4 = "INSERT INTO clientskill (clientSkillType) values ('$clientSkillType')";
-  //insert query5
-
-   $query5 = "INSERT INTO clientartwork (clientArtwork, clientArtworkDescription) values ('$clientArtwork','$clientArtworkDescription')";
-
-    $result1 = mysqli_query($con, $query1); //done
-    $result2 = mysqli_query($con, $query2);
-    $result3 = mysqli_query($con, $query3);
-    $result4 = mysqli_query($con, $query4);
-   //  $result5 = mysqli_query($con, $query5);
-
-  echo $result1;
-
-    if ($result2 ) {
-        echo "<script>alert ('register success!');</script>";
-        header("Location: register-payment1.php");
-        exit();
-    } else {
-        echo "<script>alert ('failed to register. please try again!');</script>";
-    }
-  $image=checkUpload();
-    //check for an upload file
-    if(isset($file['upload'] )){
-      //validate the type of file uploaded JPEG/JPG/PNG/GIF
-      // $allowed = array('');
-        if(in_array($_FILES['upload'] ['type'], $allowed)){
-          print "Uploading files...";
-          //move the file over
-          if(move_uploaded_file($_FILES['upload']['tmp-name'], "images/{$_FILES['upload']['name']}")){
-            echo "<p><em>The file has been uploaded!</em></p>";
-            $image="{$_FILES['upload']['name']}";
-            print "$image";
-
-          }
-        }
-      else{
-        echo '<p class= "error" > Please upload a JPEG, PNG, or GIF image </p> ';
-
-        if($_FILES['upload']['error']>0){
-          echo '<p class="error">The file could not be uploaded because: <strong>';
-
-          //print for an error message (5type of error)
-          switch ($_FILES['upload']['error']){
-            case 1:
-              print 'The file uploaded max size setting in PHP';
-              break;
-            case 2:
-              print 'The file uploaded max size setting in HTML form';
-              break;
-            case 3:
-            print 'The file partially uploaded';
-              break;
-            case 4:
-            print 'No file uploaded ';
-              break;
-           
-            case 6:
-            print 'No temporary uploaded';
-              break;
-            case 7:
-            print 'Unable to write to the disk';
-              break;
-            case 8:
-            print 'File Uploaded stopped';
-              break;
-            default:
-            print 'A system error occured.';
-              break;
-          } //end switch error
-        }
-        print'</strong></p>';
-      } // end if error 
-    // delete file if it still exist
-    if(file_exists($_FILES['upload']['tmp_name'])&& is_file($_FILES['upload']['tmp_name'])){
-      print "file exists";
-      unlink($_FILES['upload']['tmp_name']);
-    }  
-    return $image;
-    
-  }
-  
- 
-
-?>
 
 <!DOCTYPE html>
 <html>
@@ -202,7 +74,7 @@ if (isset($_POST['submit'])) {
         </div>
         <!-- /.box-header -->
         <!-- form start -->
-        <form action="advance-register1a.php" method="post" enctype="multipart/form-data">
+        <form action="signup.php" method="post" enctype="multipart/form-data">
             <div class="form-group">
               <label for="inputEmail3" class="col-md-12 col-sm-2  control-label">Phone Number:</label>
             <div class="col-md-6 col-sm-3">
@@ -344,15 +216,15 @@ if (isset($_POST['submit'])) {
              <div class="form-group">
                 <label for="exampleInputFile" class="col-md-12 col-sm-2 control-label">Artwork</label>
                 <div class="col-md-6 col-sm-3">
-                <input type="file" id="clientArtwork" name="upload">
+                <input type="file" id="clientArtwork" name="clientArtwork1">
                 <textarea class="form-control" rows="4" placeholder="Enter your education background"  id="clientArtworkDescription" name="clientArtworkDescription" ></textarea>
                 <br>
 
-                <input type="file" id="clientArtwork" name="upload">
+                <input type="file" id="clientArtwork" name="clientArtwork2">
                <textarea class="form-control" rows="4" placeholder="Enter your education background"  id="clientArtworkDescription" name="clientArtworkDescription" ></textarea>
 
                 <br>
-                <input type="file"  id="clientArtwork" name="upload">
+                <input type="file"  id="clientArtwork" name="clientArtwork3">
               <textarea class="form-control" rows="4" placeholder="Enter your education background"  id="clientArtworkDescription" name="clientArtworkDescription" ></textarea> 
 
                 <p class="help-block" class="col-sm-2 control-label">Please attach 3 best artwork represent your skill</p></div>
