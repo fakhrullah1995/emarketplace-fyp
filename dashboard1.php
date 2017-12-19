@@ -259,22 +259,22 @@ desired effect
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MENU</li>
         <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="dashboard1.html"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
-        <li><a href="home1.html"><i class="fa fa-link"></i> <span>Home</span></a></li>
-        <li><a href="schedule1.html"><i class="fa fa-link"></i> <span>Schedule</span></a></li>
-        <li><a href="acceptreject1.html"><i class="fa fa-link"></i> <span>Accept/Reject</span></a></li>
-        <li><a href="payment1.html"><i class="fa fa-link"></i> <span>Payment</span></a></li>
-        <li><a href="profile1.html"><i class="fa fa-link"></i> <span>Profile</span></a></li>
+        <li class="active"><a href="dashboard1.php"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
+        <li><a href="home1.php"><i class="fa fa-link"></i> <span>Home</span></a></li>
+        <li><a href="schedule1.php"><i class="fa fa-link"></i> <span>Schedule</span></a></li>
+        <li><a href="acceptreject1.php"><i class="fa fa-link"></i> <span>Accept/Reject</span></a></li>
+        <li><a href="payment1.php"><i class="fa fa-link"></i> <span>Payment</span></a></li>
+        <li><a href="profile1.php"><i class="fa fa-link"></i> <span>Profile</span></a></li>
         <li class="treeview">
-          <a href="offerjob1.html"><i class="fa fa-link"></i> <span>Offer Job</span>
+          <a href="offerjob1.php"><i class="fa fa-link"></i> <span>Offer Job</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="randompost1.html">Random Post</a></li>
-            <li><a href="hire1.html">Hire Freelancer</a></li>
-            <li><a href="contest1.html">Open Contest</a></li>
+            <li><a href="randompost1.php">Random Post</a></li>
+            <li><a href="hire1.php">Hire Freelancer</a></li>
+            <li><a href="contest1.php">Open Contest</a></li>
           </ul>
         </li>
       </ul>
@@ -344,11 +344,11 @@ desired effect
               </div>
               <div class="box-body no-padding">
                   <ul class="nav nav-pills nav-stacked">
-                    <li><a href="designReport.html"><i class="fa fa-inbox"></i> Designing Project
+                    <li><a href="designReport.php"><i class="fa fa-inbox"></i> Designing Project
                       <span class="label label-primary pull-right">12</span></a></li>
-                    <li><a href="webReport.html"><i class="fa fa-envelope-o"></i> Web Development Project
+                    <li><a href="webReport.php"><i class="fa fa-envelope-o"></i> Web Development Project
                       <span class="label label-primary pull-right">12</span></a></li>
-                    <li><a href="mobileReport.html"><i class="fa fa-file-text-o"></i> Mobile Application Project
+                    <li><a href="mobileReport.php"><i class="fa fa-file-text-o"></i> Mobile Application Project
                       <span class="label label-primary pull-right">12</span></a></li>
                     
                   </ul>

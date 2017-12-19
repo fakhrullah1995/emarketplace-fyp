@@ -106,7 +106,7 @@ echo "<script>alert ('failed to register. please try again!');</script>";
         Google+</a>
     </div>
 
-    <a href="login.html" class="text-center">I already have a membership</a>
+    <a href="login1.php" class="text-center">I already have a membership</a>
   </div>
   <!-- /.form-box -->
 </div>

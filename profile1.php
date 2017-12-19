@@ -1,3 +1,21 @@
+<!-- <?php
+include_once 'conn.php';
+
+if($conn->connect_error){
+  die("Connection failed:" .$conn->connect_error);
+}
+$sql= "SELECT clientID, clientEmail, clientPassword,clientName, ClientPhoneNumber, ClientIncome, ClientState, clientEx. clientEdu,clientAddress FROM client";
+$result=$conn->query($sql);
+if($result->num_rows>0){
+  //output data of each row
+  while($row=$result->fetch_assoc()){
+    echo "clientID: " . $row["clientID"]. "-"
+  }
+
+} 
+
+?> -->
+
 <!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from
@@ -93,7 +111,7 @@ desired effect
                     <a href="#">
                       <div class="pull-left">
                         <!-- User Image -->
-                        <img src="dist/img/fazira.jpg" class="img-circle" alt="User Image">
+                        <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                       </div>
                       <!-- Message title and timestamp -->
                       <h4>
@@ -178,14 +196,14 @@ desired effect
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!-- The user image in the navbar-->
-              <img src="dist/img/fazira.jpg" class="user-image" alt="User Image">
+              <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
               <span class="hidden-xs">Fazira Suhaimi</span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
               <li class="user-header">
-                <img src="dist/img/fazira.jpg" class="img-circle" alt="User Image">
+                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
                    Fazira Suhaimi - Web Developer
@@ -235,7 +253,7 @@ desired effect
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="dist/img/fazira.jpg" class="img-circle" alt="User Image">
+          <img src="dist/img/user2-160x160.jpgg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>Fazira Suhaimi</p>
@@ -260,22 +278,22 @@ desired effect
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MENU</li>
         <!-- Optionally, you can add icons to the links -->
-        <li><a href="dashboard1.html"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
-        <li><a href="home1.html"><i class="fa fa-link"></i> <span>Home</span></a></li>
-        <li><a href="schedule1.html"><i class="fa fa-link"></i> <span>Schedule</span></a></li>
-        <li><a href="acceptreject1.html"><i class="fa fa-link"></i> <span>Accept/Reject</span></a></li>
-        <li><a href="payment1.html"><i class="fa fa-link"></i> <span>Payment</span></a></li>
-        <li class="active"><a href="profile1.html"><i class="fa fa-link"></i> <span>Profile</span></a></li>
+        <li><a href="dashboard1.php"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
+        <li><a href="home1.php"><i class="fa fa-link"></i> <span>Home</span></a></li>
+        <li><a href="schedule1.php"><i class="fa fa-link"></i> <span>Schedule</span></a></li>
+        <li><a href="acceptreject1.php"><i class="fa fa-link"></i> <span>Accept/Reject</span></a></li>
+        <li><a href="payment1.php"><i class="fa fa-link"></i> <span>Payment</span></a></li>
+        <li class="active"><a href="profile1.php"><i class="fa fa-link"></i> <span>Profile</span></a></li>
         <li class="treeview">
-          <a href="offerjob1.html"><i class="fa fa-link"></i> <span>Offer Job</span>
+          <a href="offerjob1.php"><i class="fa fa-link"></i> <span>Offer Job</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="randompost1.html">Random Post</a></li>
-            <li><a href="hire1.html">Hire Freelancer</a></li>
-            <li> <a href="contest1.html">Open Contest</a> </li>
+            <li><a href="randompost1.php">Random Post</a></li>
+            <li><a href="hire1.php">Hire Freelancer</a></li>
+            <li> <a href="contest1.php">Open Contest</a> </li>
           </ul>
         </li>
       </ul>
@@ -306,7 +324,7 @@ desired effect
           <!-- Profile Image -->
           <div class="box box-primary">
             <div class="box-body box-profile">
-              <img class="profile-user-img img-responsive img-circle" src="dist/img/fazira.jpg" alt="User profile picture">
+              <img class="profile-user-img img-responsive img-circle" src="dist/img/user2-160x160.jpg" alt="User profile picture">
 
               <h3 class="profile-username text-center">Fazira Suhaimi</h3>
 
@@ -324,7 +342,7 @@ desired effect
                 </li>
               </ul>
 
-              <a href="editProfile1.html" class="btn btn-primary btn-block"><b>Edit Profile</b></a>
+              <a href="editProfile1.php" class="btn btn-primary btn-block"><b>Edit Profile</b></a>
             </div>
             <!-- /.box-body -->
           </div>

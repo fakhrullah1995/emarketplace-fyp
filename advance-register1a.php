@@ -56,11 +56,11 @@
     </h1>
     <ol class="breadcrumb">
       <li>
-        <a href="register1-1.html">
+        <a href="register1-1.php">
           <i class="fa fa-dashboard"></i> Register</a>
       </li>
       <li>
-        <a href="advance register1a.html">Advance Register 1</a>
+        <a href="advance register1a.php">Advance Register 1</a>
 
     </ol>
   </section>

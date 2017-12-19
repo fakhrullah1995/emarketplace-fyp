@@ -259,22 +259,22 @@ desired effect
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MENU</li>
         <!-- Optionally, you can add icons to the links -->
-        <li><a href="dashboard1.html"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
-        <li><a href="home1.html"><i class="fa fa-link"></i> <span>Home</span></a></li>
-        <li><a href="schedule1.html"><i class="fa fa-link"></i> <span>Schedule</span></a></li>
-        <li  class="active"><a href="acceptreject1.html"><i class="fa fa-link"></i> <span>Accept/Reject</span></a></li>
-        <li><a href="payment1.html"><i class="fa fa-link"></i> <span>Payment</span></a></li>
-        <li><a href="profile1.html"><i class="fa fa-link"></i> <span>Profile</span></a></li>
+        <li><a href="dashboard1.php"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
+        <li><a href="home1.php"><i class="fa fa-link"></i> <span>Home</span></a></li>
+        <li><a href="schedule1.php"><i class="fa fa-link"></i> <span>Schedule</span></a></li>
+        <li  class="active"><a href="acceptreject1.php"><i class="fa fa-link"></i> <span>Accept/Reject</span></a></li>
+        <li><a href="payment1.php"><i class="fa fa-link"></i> <span>Payment</span></a></li>
+        <li><a href="profile1.php"><i class="fa fa-link"></i> <span>Profile</span></a></li>
         <li class="treeview">
-          <a href="offerjob1.html"><i class="fa fa-link"></i> <span>Offer Job</span>
+          <a href="offerjob1.php"><i class="fa fa-link"></i> <span>Offer Job</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="randompost1.html">Random Post</a></li>
-            <li><a href="hire1.html">Hire Freelancer</a></li>
-            <li> <a href="contest1.html">Open Contest</a> </li>
+            <li><a href="randompost1.php">Random Post</a></li>
+            <li><a href="hire1.php">Hire Freelancer</a></li>
+            <li> <a href="contest1.php">Open Contest</a> </li>
           </ul>
         </li>
       </ul>
@@ -304,68 +304,145 @@ desired effect
         | Your Page Content Here |
         -------------------------->
               <div class="row">
-                <div class="col-xs-12">
-                  <div class="box">
-                    <div class="box-header">
-                      <h3 class="box-title">Freelancer under your project</h3>
-              
+               
+                  <div class="col-md-8">
+                    <div class="box box-solid">
+                      <div class="box-header with-border">
+                        <h3 class="box-title">Carousel</h3>
+                      </div>
+                      <!-- /.box-header -->
+                      <div class="box-body">
+                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                          <ol class="carousel-indicators">
+                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
+                          </ol>
+                          <div class="carousel-inner">
+                            <div class="item active">
+                              <img src="http://placehold.it/900x500/39CCCC/ffffff&text=I+Love+Bootstrap" alt="First slide">
                   
+                              <div class="carousel-caption">
+                                First Changes
+                              </div>
+                            </div>
+                            <div class="item">
+                              <img src="http://placehold.it/900x500/3c8dbc/ffffff&text=I+Love+Bootstrap" alt="Second slide">
+                  
+                              <div class="carousel-caption">
+                                Second Changes
+                              </div>
+                            </div>
+                            <div class="item">
+                              <img src="http://placehold.it/900x500/f39c12/ffffff&text=I+Love+Bootstrap" alt="Third slide">
+                  
+                              <div class="carousel-caption">
+                                Third Changes
+                              </div>
+                            </div>
+                          </div>
+                          <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                            <span class="fa fa-angle-left"></span>
+                          </a>
+                          <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                            <span class="fa fa-angle-right"></span>
+                          </a>
+                        </div>
+                      </div>
+                      <!-- /.box-body -->
                     </div>
-                    <!-- /.box-header -->
-                    <div class="box-body table-responsive no-padding">
-                      <table class="table table-hover">
-                        <tr>
-                          <th>ID</th>
-                          <th>User</th>
-                          <th>Date</th>
-                          <th>Status</th>
-                          <th>Reason</th>
-                          <th>View Project</th>
-                        </tr>
-                        <tr>
-                          <td>183</td>
-                          <td>John Doe</td>
-                          <td>11-7-2014</td>
-                          <td>
-                            <span class="label label-success">Approved</span>
-                          </td>
-                          <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                          <td><a href="acceptreject1-1.html" class="btn btn-info pull-center">
-                            <i></i> Post</a></td>
-                        </tr>
-                        <tr>
-                          <td>219</td>
-                          <td>Alexander Pierce</td>
-                          <td>11-7-2014</td>
-                          <td>
-                            <span class="label label-warning">Pending</span>
-                          </td>
-                          <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                        </tr>
-                        <tr>
-                          <td>657</td>
-                          <td>Bob Doe</td>
-                          <td>11-7-2014</td>
-                          <td>
-                            <span class="label label-primary">Approved</span>
-                          </td>
-                          <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                        </tr>
-                        <tr>
-                          <td>175</td>
-                          <td>Mike Doe</td>
-                          <td>11-7-2014</td>
-                          <td>
-                            <span class="label label-danger">Denied</span>
-                          </td>
-                          <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                        </tr>
-                      </table>
-                    </div>
-                    <!-- /.box-body -->
+                    <!-- /.box -->
                   </div>
-                  <!-- /.box -->
-                </div>
+                  <!-- /.col -->
+
+
+                    <div class="col-md-4">
+                      <!-- DIRECT CHAT PRIMARY -->
+                      <div class="box box-primary direct-chat direct-chat-primary">
+                        <div class="box-header with-border">
+                          <h3 class="box-title">Direct Chat</h3>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                          <!-- Conversations are loaded here -->
+                          <div class="direct-chat-messages">
+                            <!-- Message. Default to the left -->
+                            <div class="direct-chat-msg">
+                              <div class="direct-chat-info clearfix">
+                                <span class="direct-chat-name pull-left">Alexander Pierce</span>
+                                <span class="direct-chat-timestamp pull-right">23 Jan 2:00 pm</span>
+                              </div>
+                              <!-- /.direct-chat-info -->
+                              <img class="direct-chat-img" src="dist/img/user1-128x128.jpg" alt="Message User Image">
+                              <!-- /.direct-chat-img -->
+                              <div class="direct-chat-text">
+                                Is this template really for free? That's unbelievable!
+                              </div>
+                              <!-- /.direct-chat-text -->
+                            </div>
+                            <!-- /.direct-chat-msg -->
+                    
+                            <!-- Message to the right -->
+                            <div class="direct-chat-msg right">
+                              <div class="direct-chat-info clearfix">
+                                <span class="direct-chat-name pull-right">Sarah Bullock</span>
+                                <span class="direct-chat-timestamp pull-left">23 Jan 2:05 pm</span>
+                              </div>
+                              <!-- /.direct-chat-info -->
+                              <img class="direct-chat-img" src="dist/img/user3-128x128.jpg" alt="Message User Image">
+                              <!-- /.direct-chat-img -->
+                              <div class="direct-chat-text">
+                                You better believe it!
+                              </div>
+                              <!-- /.direct-chat-text -->
+                            </div>
+                            <!-- /.direct-chat-msg -->
+                          </div>
+                          <!--/.direct-chat-messages-->
+                    
+                          <!-- Contacts are loaded here -->
+                          <div class="direct-chat-contacts">
+                            <ul class="contacts-list">
+                              <li>
+                                <a href="#">
+                                  <img class="contacts-list-img" src="dist/img/user1-128x128.jpg" alt="User Image">
+                    
+                                  <div class="contacts-list-info">
+                                    <span class="contacts-list-name">
+                                      Count Dracula
+                                      <small class="contacts-list-date pull-right">2/28/2015</small>
+                                    </span>
+                                    <span class="contacts-list-msg">How have you been? I was...</span>
+                                  </div>
+                                  <!-- /.contacts-list-info -->
+                                </a>
+                              </li>
+                              <!-- End Contact Item -->
+                            </ul>
+                            <!-- /.contatcts-list -->
+                          </div>
+                          <!-- /.direct-chat-pane -->
+                        </div>
+                        <!-- /.box-body -->
+                        <div class="box-footer">
+                          <form action="#" method="post">
+                            <div class="input-group">
+                              <input type="text" name="message" placeholder="Type Message ..." class="form-control">
+                              <span class="input-group-btn">
+                                <button type="submit" class="btn btn-primary btn-flat">Send</button>
+                              </span>
+                            </div>
+                          </form>
+                        </div>
+                        <!-- /.box-footer-->
+                      </div>
+                      <!--/.direct-chat --> 
+                      <button type="button" class="btn btn-block btn-danger">BACK</button>
+                        <button type="button" class="btn btn-block btn-success">FINALIZE</button>
+                      
+                    </div>
+                    <!-- /.col -->
+               
               </div>
 
     </section>

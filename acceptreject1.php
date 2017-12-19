@@ -32,22 +32,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Google Font -->
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-
-        <style>
-          .example-modal .modal {
-            position: relative;
-            top: auto;
-            bottom: auto;
-            right: auto;
-            left: auto;
-            display: block;
-            z-index: 1;
-          }
-        
-          .example-modal .modal {
-            background: transparent !important;
-          }
-        </style>
 </head>
 <!-- 
 BODY TAG OPTIONS:
@@ -275,22 +259,22 @@ desired effect
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MENU</li>
         <!-- Optionally, you can add icons to the links -->
-        <li><a href="dashboard1.html"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
-        <li><a href="home1.html"><i class="fa fa-link"></i> <span>Home</span></a></li>
-        <li><a href="schedule1.html"><i class="fa fa-link"></i> <span>Schedule</span></a></li>
-        <li><a href="acceptreject1.html"><i class="fa fa-link"></i> <span>Accept/Reject</span></a></li>
-        <li class="active"><a href="payment1.html"><i class="fa fa-link"></i> <span>Payment</span></a></li>
-        <li><a href="profile1.html"><i class="fa fa-link"></i> <span>Profile</span></a></li>
+        <li><a href="dashboard1.php"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
+        <li><a href="home1.php"><i class="fa fa-link"></i> <span>Home</span></a></li>
+        <li><a href="schedule1.php"><i class="fa fa-link"></i> <span>Schedule</span></a></li>
+        <li  class="active"><a href="acceptreject1.php"><i class="fa fa-link"></i> <span>Accept/Reject</span></a></li>
+        <li><a href="payment1.php"><i class="fa fa-link"></i> <span>Payment</span></a></li>
+        <li><a href="profile1.php"><i class="fa fa-link"></i> <span>Profile</span></a></li>
         <li class="treeview">
-          <a href="offerjob1.html"><i class="fa fa-link"></i> <span>Offer Job</span>
+          <a href="offerjob1.php"><i class="fa fa-link"></i> <span>Offer Job</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="randompost1.html">Random Post</a></li>
-            <li><a href="hire1.html">Hire Freelancer</a></li>
-            <li> <a href="contest1.html">Open Contest</a> </li>
+            <li><a href="randompost1.php">Random Post</a></li>
+            <li><a href="hire1.php">Hire Freelancer</a></li>
+            <li> <a href="contest1.php">Open Contest</a> </li>
           </ul>
         </li>
       </ul>
@@ -304,112 +288,85 @@ desired effect
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Payment Page
-        <small>Pay your Freelancer Here</small>
+        Dashboard
+        <small>Monitor your work here</small>
       </h1>
       <ol class="breadcrumb">
-        <li class="active"><a href="#"><i class="fa fa-dashboard"></i> Payment</a></li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+        <li class="active">Here</li>
       </ol>
     </section>
 
     <!-- Main content -->
     <section class="content container-fluid">
 
-      <!-- bar char start -->
-      <div class="col-md-8">
-        <div class="box box-primary">
-          <div class="box-header with-border">
-            <i class="fa fa-bar-chart-o"></i>
-      
-            <h3 class="box-title">Job Status</h3>
-            <p>Check whether freelancer completed or not</p>
-      
-            <div class="box-tools pull-right">
-              <button type="button" class="btn btn-box-tool" data-widget="collapse">
-                <i class="fa fa-minus"></i>
-              </button>
-      
-            </div>
-          </div>
-          <div class="box-body no-padding">
-            <ul class="nav nav-pills nav-stacked">
-              <li>
-                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-success">
-                    Project ID: 123
-                  </button>
-                  <span>Project design grafic interface</span>
-              </li>
-              <br>
-              <li>
-                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger">
-                   Project ID: 133
-                </button>
-              <span>Project design grafic interface</span>
-             
-              </li>
-              </li>
-              <br>
-            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-success">
-               Project ID: 125
-            </button>
-           <span>Project design grafic interface</span>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-
-
-
-    <div class="modal modal-success fade" id="modal-success">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-            <h4 class="modal-title">Completed Job</h4>
-          </div>
-          <div class="modal-body">
-            <p>Payment need to paid 100% from total price in agreement &hellip;</p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-outline">Payment</button>
-          </div>
-        </div>
-        <!-- /.modal-content -->
-      </div>
-      <!-- /.modal-dialog -->
-    </div>
-    <!-- /.modal -->
-        <div class="modal modal-danger fade" id="modal-danger">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-                <h4 class="modal-title">Ongoing Job</h4>
-              </div>
-              <div class="modal-body">
-                <p>Payment need to paid are 70% from total price in agreement &hellip;</p>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-outline">Payment</button>
-              </div>
-            </div>
-            <!-- /.modal-content -->
-          </div>
-          <!-- /.modal-dialog -->
-        </div>
-        <!-- /.modal -->
-
-       
       <!--------------------------
         | Your Page Content Here |
         -------------------------->
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="box">
+                    <div class="box-header">
+                      <h3 class="box-title">Freelancer under your project</h3>
+              
+                  
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body table-responsive no-padding">
+                      <table class="table table-hover">
+                        <tr>
+                          <th>ID</th>
+                          <th>User</th>
+                          <th>Date</th>
+                          <th>Status</th>
+                          <th>Reason</th>
+                          <th>View Project</th>
+                        </tr>
+                        <tr>
+                          <td>183</td>
+                          <td>John Doe</td>
+                          <td>11-7-2014</td>
+                          <td>
+                            <span class="label label-success">Approved</span>
+                          </td>
+                          <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                          <td><a href="acceptreject1-1.php" class="btn btn-info pull-center">
+                            <i></i> Post</a></td>
+                        </tr>
+                        <tr>
+                          <td>219</td>
+                          <td>Alexander Pierce</td>
+                          <td>11-7-2014</td>
+                          <td>
+                            <span class="label label-warning">Pending</span>
+                          </td>
+                          <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                        </tr>
+                        <tr>
+                          <td>657</td>
+                          <td>Bob Doe</td>
+                          <td>11-7-2014</td>
+                          <td>
+                            <span class="label label-primary">Approved</span>
+                          </td>
+                          <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                        </tr>
+                        <tr>
+                          <td>175</td>
+                          <td>Mike Doe</td>
+                          <td>11-7-2014</td>
+                          <td>
+                            <span class="label label-danger">Denied</span>
+                          </td>
+                          <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                        </tr>
+                      </table>
+                    </div>
+                    <!-- /.box-body -->
+                  </div>
+                  <!-- /.box -->
+                </div>
+              </div>
 
     </section>
     <!-- /.content -->
