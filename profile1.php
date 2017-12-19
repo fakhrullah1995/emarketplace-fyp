@@ -1,20 +1,4 @@
-<!-- <?php
-include_once 'conn.php';
 
-if($conn->connect_error){
-  die("Connection failed:" .$conn->connect_error);
-}
-$sql= "SELECT clientID, clientEmail, clientPassword,clientName, ClientPhoneNumber, ClientIncome, ClientState, clientEx. clientEdu,clientAddress FROM client";
-$result=$conn->query($sql);
-if($result->num_rows>0){
-  //output data of each row
-  while($row=$result->fetch_assoc()){
-    echo "clientID: " . $row["clientID"]. "-"
-  }
-
-} 
-
-?> -->
 
 <!DOCTYPE html>
 <!--

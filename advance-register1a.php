@@ -217,15 +217,15 @@
                 <label for="exampleInputFile" class="col-md-12 col-sm-2 control-label">Artwork</label>
                 <div class="col-md-6 col-sm-3">
                 <input type="file" id="clientArtwork" name="clientArtwork1">
-                <textarea class="form-control" rows="4" placeholder="Enter your education background"  id="clientArtworkDescription" name="clientArtworkDescription" ></textarea>
+                <textarea class="form-control" rows="4" placeholder="Enter your education background"  id="clientArtworkDescription" name="clientArtworkDescription1" ></textarea>
                 <br>
 
                 <input type="file" id="clientArtwork" name="clientArtwork2">
-               <textarea class="form-control" rows="4" placeholder="Enter your education background"  id="clientArtworkDescription" name="clientArtworkDescription" ></textarea>
+               <textarea class="form-control" rows="4" placeholder="Enter your education background"  id="clientArtworkDescription" name="clientArtworkDescription2" ></textarea>
 
                 <br>
                 <input type="file"  id="clientArtwork" name="clientArtwork3">
-              <textarea class="form-control" rows="4" placeholder="Enter your education background"  id="clientArtworkDescription" name="clientArtworkDescription" ></textarea> 
+              <textarea class="form-control" rows="4" placeholder="Enter your education background"  id="clientArtworkDescription" name="clientArtworkDescription3" ></textarea> 
 
                 <p class="help-block" class="col-sm-2 control-label">Please attach 3 best artwork represent your skill</p></div>
               </div>
@@ -234,7 +234,7 @@
           <div class="box-footer">
 
                <div class="col-md-12 col-xs-4">
-         <button id="submit" name="submit" class="btn btn-success" href="advance register1a.html">Sign Up</button>
+         <button id="submit" name="submit" class="btn btn-success" href="register-payment1.php">Sign Up</button>
         </div>
           </div>
 

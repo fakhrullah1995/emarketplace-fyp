@@ -21,7 +21,8 @@ if(isset($_POST["submit"])) {
     $clientEdu = $_POST['clientEdu'];
     $clientAddress = $_POST['clientAddress'];
     //TABLE PAYMENT
-    $paymentType = $_POST['paymentType'];
+    $paymentType1 = $_POST['paymentType1'];
+    //  $paymentType2 = $_POST['paymentType2'];
     //TABLE PROJECT
     $projectType = $_POST['projectType'];
     //TABLE SKILL
@@ -29,7 +30,9 @@ if(isset($_POST["submit"])) {
     //TABLE ARTWORK
      //$clientArtwork = addslashes(file_get_contents($_FILES["clientArtwork"]["tmp_name"])); 
    // $clientArtwork = addslashes(file_get_contest($_FILES["clientArtwork"]["tmpt_name"]));
-    $clientArtworkDescription = $_POST['clientArtworkDescription'];
+    $clientArtworkDescription1 = $_POST['clientArtworkDescription1'];
+     $clientArtworkDescription2 = $_POST['clientArtworkDescription2'];
+      $clientArtworkDescription3 = $_POST['clientArtworkDescription3'];
 
 
     $check = getimagesize($_FILES["clientArtwork1"]["tmp_name"]);
@@ -120,14 +123,14 @@ if ($uploadOk == 0) {
     //insert query1
     $query1 = "UPDATE client SET ClientPhoneNumber='$ClientPhoneNumber', ClientIncome='$ClientIncome', ClientState='$ClientState', clientEx= '$clientEx', clientEdu='$clientEdu', clientAddress='$clientAddress'";
   // insert query2
-    $query2 = "INSERT INTO clientpayment (paymentType) values ('$paymentType')";
+    $query2 = "INSERT INTO clientpayment (paymentType1) values ('$paymentType1')";
     // insert query3
     $query3 = "INSERT INTO interestproject(projectType) values('$projectType')";
   //   //insert query4
     $query4 = "INSERT INTO clientskill (clientSkillType) values ('$clientSkillType')";
   //insert query5
 
-   $query5 = "INSERT INTO clientartwork (clientArtwork, clientArtwork2,clientArtwork3,clientArtworkDescription) values ('uploads/$art1','uploads/$art2','uploads/$art3','$clientArtworkDescription')";
+   $query5 = "INSERT INTO clientartwork (clientArtwork1, clientArtwork2,clientArtwork3,clientArtworkDescription1,clientArtworkDescription2,clientArtworkDescription3) values ('uploads/$art1','uploads/$art2','uploads/$art3','$clientArtworkDescription1','$clientArtworkDescription2','$clientArtworkDescription3')";
 
     $result1 = mysqli_query($con, $query1); //done
     $result2 = mysqli_query($con, $query2);
