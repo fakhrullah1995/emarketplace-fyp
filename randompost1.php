@@ -315,47 +315,47 @@ desired effect
   <div class="box-header with-border">
     <h3 class="box-title">Posting Form</h3>
   </div>
-  <form class="form-horizontal">
+  <form action="signup2.php" class="form-horizontal"  method="post" enctype="multipart/form-data">
 
         <div class="form-group">
-          <label for="inputEmail3" class="col-sm-2 control-label">Type of job</label>
+          <label class="col-sm-2 control-label">Type of job</label>
           <div class="col-sm-5">
             <div class="input-group">
               <div class="input-group-addon">
                 <i class="fa fa-fw fa-black-tie"></i>
               </div>
-              <select class="form-control">
-                <option selected="selected">Choose type of job you want to offer</option>
-                <option>Design</option>
-                <option>Website developement</option>
-                <option>Mobile Application Development</option>
+              <select class="form-control" id="jobType" name="jobType">
+                <option value="" selected="selected">Choose type of job you want to offer</option>
+                <option value="Design">Design</option>
+                <option value="Website Development">Website developement</option>
+                <option value="Mobile Application">Mobile Application Development</option>
               </select>
             </div>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="inputEmail3" class="col-sm-2 control-label">Job Offer Description</label>
+          <label  class="col-sm-2 control-label">Job Offer Description</label>
           <div class="col-sm-5">
-            <textarea class="form-control" rows="6" placeholder="Descript about your job you want to offer"></textarea>
+            <textarea class="form-control" id="jobdescription" name="jobdescription" rows="6" placeholder="Descript about your job you want to offer"></textarea>
           </div>
         </div>
 
   <div class="form-group">
-    <label for="inputEmail3" class="col-sm-2 control-label">Skills you need</label>
+    <label class="col-sm-2 control-label" >Skills you need</label>
     <div class="col-sm-5">
       <div class="input-group">
         <div class="input-group-addon">
           <i class="fa fa-fw fa-wrench"></i>
         </div>
-        <select class="form-control select2" multiple="multiple" data-placeholder="Enter Skills require for this job *multiple " style="width: 100%;">
-          <option>HTML</option>
-          <option>CSS</option>
-          <option>PHP</option>
-          <option>Java Script</option>
-          <option>Tennessee</option>
-          <option>Texas</option>
-          <option>Washington</option>
+        <select class="form-control select2" multiple="multiple" data-placeholder="Enter Skills require for this job *multiple " style="width: 100%;" id="jobSkill" name="jobSkill[]">
+          <option value="HTML" >HTML</option>
+          <option value="CSS" >CSS</option>
+          <option value="PHP" >PHP</option>
+          <option value="Java Script" >Java Script</option>
+          <option value="" >Tennessee</option>
+          <option value="" >Texas</option>
+          <option value="" >Washington</option>
         </select>
       </div>
     </div>
@@ -363,40 +363,40 @@ desired effect
 
 
   <div class="form-group">
-    <label for="inputEmail3" class="col-sm-2 control-label">Duration </label>
+    <label  class="col-sm-2 control-label">Duration </label>
     <div class="col-sm-5">
       <div class="input-group">
         <div class="input-group-addon">
           <i class="fa fa-clock-o"></i>
         </div>
-        <input type="email" class="form-control" id="inputEmail3" placeholder="Enter duration you want your job completed in day">
+        <input class="form-control" id="jobDuration" name="jobDuration" placeholder="Enter duration you want your job completed in day">
       </div>
     </div>
   </div>
 
 
     <div class="form-group">
-      <label for="inputEmail3" class="col-sm-2 control-label">Type of Payment</label>
+      <label  class="col-sm-2 control-label" >Type of Payment</label>
       <div class="col-sm-3">
         <div class="input-group">
           <div class="input-group-addon">
             <i class="fa fa-fw fa-dollar"></i>
           </div>
           <select class="form-control" data-placeholder="Enter of payment you want to offer"
-            style="width: 100%;">
-            <option>Pay Per Job</option>
-            <option>Pay Per Hour</option>
+            style="width: 100%;" id="jobPayment" name="jobPayment">
+            <option value="Pay Per Job">Pay Per Job</option>
+            <option value="Pay Per Hour">Pay Per Hour</option>
           </select>
         </div>
       </div>
   <div class="form-group">
-    <label for="inputEmail3" class="col-sm-2 control-label">Payment Rate</label>
+    <label class="col-sm-2 control-label" >Payment Rate</label>
     <div class="col-sm-4">
       <div class="input-group">
         <div class="input-group-addon">
           <i class="fa fa-fw fa-dollar"></i>
         </div>
-        <input type="email" class="form-control" id="inputEmail3" placeholder="Enter Payment rate">
+        <input class="form-control" id="jobRate" name="jobRate" placeholder="Enter Payment rate per day">
       </div>
     </div>
   </div>
@@ -405,22 +405,24 @@ desired effect
   <div class="form-group">
     <label for="exampleInputFile" class="col-sm-2 control-label">Expected Outcome</label>
     <div class="col-sm-3">
-      <input type="file" id="exampleInputFile">
+      <input type="file" id="outcome1" name="outcome1">
       <br>
-      <input type="file" id="exampleInputFile">
+      <input type="file" id="outcome2" name="outcome2">
       <br>
-      <input type="file" id="exampleInputFile">
+      <input type="file" id="outcome3" name="outcome3">
   
       <p class="help-block" class="col-sm-2 control-label">Please attach 3 expected outcome</p>
     </div>
   </div>
-  <div class="box-footer">
-  
-    <a href="#" class="btn btn-info pull-right">
-      <i ></i> Post</a>
-  </div>
-      </form>
+   <div class="box-footer">
+
+               <div class="col-md-12 col-xs-4">
+         <button id="submit" name="submit" class="btn btn-success" href="review1.php">Sign Up</button>
+        </div>
+          </div>
+      
 </div>
+</form>
     </section>
     <!-- /.content -->
   </div>
