@@ -389,6 +389,7 @@ desired effect
           </select>
         </div>
       </div>
+      </div>
   <div class="form-group">
     <label class="col-sm-2 control-label" >Payment Rate</label>
     <div class="col-sm-4">
@@ -400,27 +401,31 @@ desired effect
       </div>
     </div>
   </div>
-    </div>
+    
+   <div class="form-group">
+                <label for="exampleInputFile" class="col-md-12 col-sm-2 control-label"></label>
+                <div class="col-md-6 col-sm-3">
+                <input type="file" id="outcome1" name="outcome1">
+               
+                <br>
 
-  <div class="form-group">
-    <label for="exampleInputFile" class="col-sm-2 control-label">Expected Outcome</label>
-    <div class="col-sm-3">
-      <input type="file" id="outcome1" name="outcome1">
-      <br>
-      <input type="file" id="outcome2" name="outcome2">
-      <br>
-      <input type="file" id="outcome3" name="outcome3">
-  
-      <p class="help-block" class="col-sm-2 control-label">Please attach 3 expected outcome</p>
-    </div>
-  </div>
+                <input type="file" id="outcome2" name="outcome2">
+              
+
+                <br>
+                <input type="file"  id="outcome3" name="outcome3">
+              
+
+                <p class="help-block" class="col-sm-2 control-label">Please attach 3 best artwork represent your skill</p></div>
+              </div>
+
    <div class="box-footer">
 
                <div class="col-md-12 col-xs-4">
          <button id="submit" name="submit" class="btn btn-success" href="review1.php">Sign Up</button>
         </div>
           </div>
-      
+      </div>
 </div>
 </form>
     </section>
@@ -509,13 +514,12 @@ desired effect
       </div>
       <!-- /.tab-pane -->
     </div>
-  </aside>
+  </aside> 
   <!-- /.control-sidebar -->
   <!-- Add the sidebar's background. This div must be placed
   immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
 </div>
-<!-- ./wrapper -->
 
 <!-- REQUIRED JS SCRIPTS -->
 

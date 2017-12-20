@@ -1,3 +1,26 @@
+<?php
+include_once 'conn.php';
+
+// $sql=mysql_query("SELECT freeId, freeEmail, freeName, freePhoneNumber, freePaymentType, freeInterest, freeSkillType FROM freelancer" );
+$sql=mysql_query("SELECT freeId, freeName FROM freelancer" );
+$i=0;
+$dyn_table='<table border="1" cellpadding="10>';
+while($row=mysql_fetch_array($sql)){
+  $id=$row["freeId"];
+  $member_name=$row["freeName"];
+
+if($i%3==0){
+  $dyn_table .='<tr><td>'.$member_name.'</td>';
+
+}else{
+  $dyn_table .='<td>'.$member_name.'</td>';
+
+}
+
+  $i++;
+}
+$dyn_table .='</tr></table>';
+?>
 <!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from
@@ -303,6 +326,8 @@ desired effect
       <!--------------------------
         | Your Page Content Here |
         -------------------------->
+
+        <?php echo $dyn_table; ?>
 
     </section>
     <!-- /.content -->

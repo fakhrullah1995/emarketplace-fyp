@@ -12,37 +12,15 @@ $imageFileType = strtolower(pathinfo($target_file2,PATHINFO_EXTENSION));
 $imageFileType = strtolower(pathinfo($target_file3,PATHINFO_EXTENSION));
 // Check if image file is a actual image or fake image
 if(isset($_POST["submit"])) {
-
-    //TABLE CLIENT
-    // $ClientPhoneNumber = $_POST['ClientPhoneNumber'];
-    // $ClientIncome = $_POST['ClientIncome'];
-    // $ClientState = $_POST['ClientState'];
-    // $clientEx = $_POST['clientEx'];
-    // $clientEdu = $_POST['clientEdu'];
-    // $clientAddress = $_POST['clientAddress'];
-    // $paymentType = $_POST['clientPaymentType'];
-    //     $a=implode(" , ",$paymentType);
-    // $projectType = $_POST['projectType'];
-    //     $b=implode(" , ",$projectType);
-    // $clientSkillType = $_POST['clientSkillType'];
-    //     $c=implode(" , ",$clientSkillType);
-
-    // //TABLE ARTWORK
-    // $clientArtworkDescription1 = $_POST['clientArtworkDescription1'];
-    // $clientArtworkDescription2 = $_POST['clientArtworkDescription2'];
-    // $clientArtworkDescription3 = $_POST['clientArtworkDescription3'];
-    
+   
     //Table clientOffer
     $jobType= $_POST['jobType'];
     $jobdescription= $_POST['jobdescription'];
-    $jobSkill= $_POST['jobSkill'];
-    $a=implode(" , ",$jobSkill);
     $jobDuration= $_POST['jobDuration'];
     $jobPayment=$_POST['jobPayment'];
     $jobRate= $_POST['jobRate'];
-    // $outcome1=$_POST['outcome1'];
-    // $outcome2=$_POST['outcome2'];
-    // $outcome3=$_POST['outcome3'];
+    $jobSkill= $_POST['jobSkill'];
+    $a=implode(" , ",$jobSkill);
 
     $check = getimagesize($_FILES["outcome1"]["tmp_name"]);
     $check2 = getimagesize($_FILES["outcome2"]["tmp_name"]);
@@ -88,9 +66,9 @@ if ($uploadOk == 0) {
     echo "Sorry, your file was not uploaded.";
 // if everything is ok, try to upload file
 } else {
-    $art11 =  basename( $_FILES["outcome1"]["name"]);
-    $art22 = basename( $_FILES["outcome2"]["name"]);
-    $art33= basename( $_FILES["outcome3"]["name"]);
+    $Art11 =  basename( $_FILES["outcome1"]["name"]);
+    $Art22 = basename( $_FILES["outcome2"]["name"]);
+    $Art33= basename( $_FILES["outcome3"]["name"]);
      
 
     if (move_uploaded_file($_FILES["outcome1"]["tmp_name"], $target_file)) {
@@ -113,25 +91,10 @@ if ($uploadOk == 0) {
     }
 
 }
-
-    // $jobType=$_POST['jobType'];
-    // $jobdescription=$_POST['jobdescription'];
-    // $jobSkill=$_POST['jobSkill'];
-    // $jobDuration=$_POST['jobDuration'];
-    // $jobPayment=$_POST['jobPayment'];
-    // $jobRate=$_POST['jobRate'];
-    // $outcome1=$_POST['outcome1'];
-    // $outcome2=$_POST['outcome2'];
-    // $outcome3=$_POST['outcome3'];
-    //insert query1
-    $query1 = "INSERT INTO clientoffer (jobType, jobdescription, jobSkill, jobDuration, jobPayment, jobRate, outcome1, outcome2, outcome3) values ('$jobType','$jobdescription','$a','$jobDuration','$jobPayment','$jobRate','uploads/$art11','uploads/$art22','uploads/$art33',)";
-
+     //insert query1
+    $query1 = "INSERT INTO clientoffer (jobType, jobdescription, jobSkill, jobDuration, jobPayment, jobRate, outcome1, outcome2, outcome3) values ('$jobType','$jobdescription','$a','$jobDuration','$jobPayment','$jobRate','uploads/$Art11','uploads/$Art22','uploads/$Art33',)";
 
     $result1 = mysqli_query($con, $query1); //done
-   // $result2 = mysqli_query($con, $query2);
-    // $result3 = mysqli_query($con, $query3);
-    // $result4 = mysqli_query($con, $query4);
-    //$result5 = mysqli_query($con, $query5);
 
   echo $result1;
 
@@ -142,3 +105,4 @@ if ($uploadOk == 0) {
     } else {
         echo "<script>alert ('failed to register. please try again!');</script>";
     }
+    ?>

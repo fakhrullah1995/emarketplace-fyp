@@ -120,3 +120,4 @@ if ($uploadOk == 0) {
     } else {
         echo "<script>alert ('failed to register. please try again!');</script>";
     }
+    ?>
