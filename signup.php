@@ -20,20 +20,17 @@ if(isset($_POST["submit"])) {
     $clientEx = $_POST['clientEx'];
     $clientEdu = $_POST['clientEdu'];
     $clientAddress = $_POST['clientAddress'];
-    //TABLE PAYMENT
-    $paymentType1 = $_POST['paymentType1'];
-    //  $paymentType2 = $_POST['paymentType2'];
-    //TABLE PROJECT
+    $paymentType = $_POST['clientPaymentType'];
+        $a=implode(" , ",$paymentType);
     $projectType = $_POST['projectType'];
-    //TABLE SKILL
+        $b=implode(" , ",$projectType);
     $clientSkillType = $_POST['clientSkillType'];
-    //TABLE ARTWORK
-     //$clientArtwork = addslashes(file_get_contents($_FILES["clientArtwork"]["tmp_name"])); 
-   // $clientArtwork = addslashes(file_get_contest($_FILES["clientArtwork"]["tmpt_name"]));
-    $clientArtworkDescription1 = $_POST['clientArtworkDescription1'];
-     $clientArtworkDescription2 = $_POST['clientArtworkDescription2'];
-      $clientArtworkDescription3 = $_POST['clientArtworkDescription3'];
+        $c=implode(" , ",$clientSkillType);
 
+    //TABLE ARTWORK
+    $clientArtworkDescription1 = $_POST['clientArtworkDescription1'];
+    $clientArtworkDescription2 = $_POST['clientArtworkDescription2'];
+    $clientArtworkDescription3 = $_POST['clientArtworkDescription3'];
 
     $check = getimagesize($_FILES["clientArtwork1"]["tmp_name"]);
     $check2 = getimagesize($_FILES["clientArtwork2"]["tmp_name"]);
@@ -121,26 +118,25 @@ if ($uploadOk == 0) {
 //   echo  'projectType- '.$projectType.PHP_EOL;
 
     //insert query1
-    $query1 = "UPDATE client SET ClientPhoneNumber='$ClientPhoneNumber', ClientIncome='$ClientIncome', ClientState='$ClientState', clientEx= '$clientEx', clientEdu='$clientEdu', clientAddress='$clientAddress'";
-  // insert query2
-    $query2 = "INSERT INTO clientpayment (paymentType1) values ('$paymentType1')";
-    // insert query3
-    $query3 = "INSERT INTO interestproject(projectType) values('$projectType')";
-  //   //insert query4
-    $query4 = "INSERT INTO clientskill (clientSkillType) values ('$clientSkillType')";
-  //insert query5
-
+    $query1 = "UPDATE client SET ClientPhoneNumber='$ClientPhoneNumber', ClientIncome='$ClientIncome', ClientState='$ClientState', clientEx= '$clientEx', clientEdu='$clientEdu', clientAddress='$clientAddress', clientPaymentType='$a',projectType='$b', clientSkillType='$c' " ;
+//   // insert query2
+//   //  $query2 = "INSERT INTO clientpayment (paymentType1) values ('$paymentType1')";
+//     // insert query3
+//     $query3 = "INSERT INTO interestproject(projectType) values('$projectType')";
+//   //   //insert query4
+//     $query4 = "INSERT INTO clientskill (clientSkillType) values ('$clientSkillType')";
+//   //insert query5
    $query5 = "INSERT INTO clientartwork (clientArtwork1, clientArtwork2,clientArtwork3,clientArtworkDescription1,clientArtworkDescription2,clientArtworkDescription3) values ('uploads/$art1','uploads/$art2','uploads/$art3','$clientArtworkDescription1','$clientArtworkDescription2','$clientArtworkDescription3')";
 
     $result1 = mysqli_query($con, $query1); //done
-    $result2 = mysqli_query($con, $query2);
-    $result3 = mysqli_query($con, $query3);
-    $result4 = mysqli_query($con, $query4);
+   // $result2 = mysqli_query($con, $query2);
+    // $result3 = mysqli_query($con, $query3);
+    // $result4 = mysqli_query($con, $query4);
     $result5 = mysqli_query($con, $query5);
 
   echo $result1;
 
-    if ($result2 ) {
+    if ($result1 && $result5 ) {
         echo "<script>alert ('register success!');</script>";
         header("Location: register-payment1.php");
         exit();

@@ -142,7 +142,7 @@
                   <div class="input-group-addon">
                     <i class="fa fa-fw fa-wrench"></i>
                   </div>
-            <select class="form-control select2" multiple="multiple" data-placeholder="Select which you familiar" style="width: 100%;" id="clientSkillType" name="clientSkillType">
+            <select class="form-control select2" multiple="multiple" data-placeholder="Select which you familiar" style="width: 100%;" id="clientSkillType" name="clientSkillType[]">
               <option value="HTML">HTML</option>
               <option value="CSS">CSS</option>
               <option value="PHP">PHP</option>
@@ -176,7 +176,7 @@
                     <div class="input-group-addon">
                       <i class="fa fa-fw fa-bank"></i>
                     </div>
-                  <select class="form-control select2" multiple="multiple" data-placeholder="Select type of payment you would accept" style="width: 100%;" id="paymentType" name="paymentType">
+                  <select class="form-control select2" multiple="multiple" data-placeholder="Select type of payment you would accept" style="width: 100%;" id="paymentType" name="clientPaymentType[]">
                     <option value="payperhour">Payment Per Hour</option>
                     <option value="payperjob">Payment Per Job</option>
                   </select>
@@ -190,7 +190,7 @@
                           <div class="input-group-addon">
                             <i class="fa fa-fw fa-trophy"></i>
                           </div>
-                  <select class="form-control select2" multiple="multiple" data-placeholder="Select type of project you interested" style="width: 100%;" id="projectType" name="projectType">
+                  <select class="form-control select2" multiple="multiple" data-placeholder="Select type of project you interested" style="width: 100%;" id="projectType" name="projectType[]">
                     <option value="designer">Designer</option>
                     <option value="webApps">Web Application Development</option>
                     <option value="mobileApps">Mobile Application Development</option>
