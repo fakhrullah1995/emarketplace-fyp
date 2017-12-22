@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from
@@ -12,18 +10,29 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <title>PROMatcher | client</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
-  <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
-        page. However, you can choose any other skin. Make sure you
-        apply the skin class to the body tag so the changes take effect. -->
-  <link rel="stylesheet" href="dist/css/skins/skin-blue.min.css">
-  <link rel="stylesheet" href="dist/css/skins/skin-green.min.css">
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+<!-- Ionicons -->
+<link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
+<!-- daterange picker -->
+<link rel="stylesheet" href="bower_components/bootstrap-daterangepicker/daterangepicker.css">
+<!-- bootstrap datepicker -->
+<link rel="stylesheet" href="bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+<!-- iCheck for checkboxes and radio inputs -->
+<link rel="stylesheet" href="plugins/iCheck/all.css">
+<!-- Bootstrap Color Picker -->
+<link rel="stylesheet" href="bower_components/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css">
+<!-- Bootstrap time Picker -->
+<link rel="stylesheet" href="plugins/timepicker/bootstrap-timepicker.min.css">
+<!-- Select2 -->
+<link rel="stylesheet" href="bower_components/select2/dist/css/select2.min.css">
+<!-- Theme style -->
+<link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+<!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+<link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -56,7 +65,7 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------| -->
 
-<body class="hold-transition skin-green sidebar-mini">
+<body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
   <!-- Main Header -->
@@ -182,7 +191,7 @@ desired effect
               <!-- The user image in the navbar-->
               <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">Fazira Suhaimi</span>
+              <span class="hidden-xs">Alexander Pierce</span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
@@ -190,7 +199,7 @@ desired effect
                 <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                   Fazira Suhaimi - Web Developer
+                  Alexander Pierce - Web Developer
                   <small>Member since Nov. 2012</small>
                 </p>
               </li>
@@ -237,10 +246,10 @@ desired effect
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="dist/img/user2-160x160.jpgg" class="img-circle" alt="User Image">
+          <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Fazira Suhaimi</p>
+          <p>Alexander Pierce</p>
           <!-- Status -->
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
@@ -267,7 +276,7 @@ desired effect
         <li><a href="schedule1.php"><i class="fa fa-link"></i> <span>Schedule</span></a></li>
         <li><a href="acceptreject1.php"><i class="fa fa-link"></i> <span>Accept/Reject</span></a></li>
         <li><a href="payment1.php"><i class="fa fa-link"></i> <span>Payment</span></a></li>
-        <li class="active"><a href="profile1.php"><i class="fa fa-link"></i> <span>Profile</span></a></li>
+        <li><a href="profile1.php"><i class="fa fa-link"></i> <span>Profile</span></a></li>
         <li class="treeview">
           <a href="offerjob1.php"><i class="fa fa-link"></i> <span>Offer Job</span>
             <span class="pull-right-container">
@@ -275,7 +284,7 @@ desired effect
               </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="randompost1.php">Random Post</a></li>
+            <li class="active"><a href="randompost1.php">Random Post</a></li>
             <li><a href="hire1.php">Hire Freelancer</a></li>
             <li> <a href="contest1.php">Open Contest</a> </li>
           </ul>
@@ -291,325 +300,132 @@ desired effect
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Profile
-        <small>This page may be view by other user</small>
+        Random Post Page
+        <small>Post your job offer here</small>
       </h1>
-     
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Random post</a></li>
+       
+      </ol>
     </section>
 
- 
-
     <!-- Main content -->
-    <section class="content">
+    <section class="content container-fluid">
+<div class="box box-info">
+  <div class="box-header with-border">
+    <h3 class="box-title">Posting Form</h3>
+  </div>
+  <form action="signup2.php"  method="post" enctype="multipart/form-data" class="form-horizontal">
 
-      <div class="row">
-        <div class="col-md-3">
-
-          <!-- Profile Image -->
-          <div class="box box-primary">
-            <div class="box-body box-profile">
-              <img class="profile-user-img img-responsive img-circle" src="dist/img/user2-160x160.jpg" alt="User profile picture">
-
-              <h3 class="profile-username text-center">Fazira Suhaimi</h3>
-
-              <p class="text-muted text-center">Software Engineer</p>
-
-              <ul class="list-group list-group-unbordered">
-                <li class="list-group-item">
-                  <b>Followers</b> <a class="pull-right">1,322</a>
-                </li>
-                <li class="list-group-item">
-                  <b>Following</b> <a class="pull-right">543</a>
-                </li>
-                <li class="list-group-item">
-                  <b>Friends</b> <a class="pull-right">13,287</a>
-                </li>
-              </ul>
-
-              <a href="editProfile1.php" class="btn btn-primary btn-block"><b>Edit Profile</b></a>
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
-
-          <!-- About Me Box -->
-          <div class="box box-primary">
-            <div class="box-header with-border">
-              <h3 class="box-title">About Me</h3>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <strong><i class="fa fa-book margin-r-5"></i> Education</strong>
-
-              <p class="text-muted">
-                B.S. in Computer Science from the University of Tennessee at Knoxville
-              </p>
-
-              <hr>
-
-              <strong><i class="fa fa-map-marker margin-r-5"></i> Location</strong>
-
-              <p class="text-muted">Malibu, California</p>
-
-              <hr>
-
-              <strong><i class="fa fa-pencil margin-r-5"></i> Skills</strong>
-
-              <p>
-                <span class="label label-danger">UI Design</span>
-                <span class="label label-success">Coding</span>
-                <span class="label label-info">Javascript</span>
-                <span class="label label-warning">PHP</span>
-                <span class="label label-primary">Node.js</span>
-              </p>
-
-              <hr>
-
-              <strong><i class="fa fa-file-text-o margin-r-5"></i> Notes</strong>
-
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
-        </div>
-        <!-- /.col -->
-        <div class="col-md-9">
-          <div class="nav-tabs-custom">
-            <ul class="nav nav-tabs">
-              <li class=""><a href="#ongoing" data-toggle="tab" aria-expanded="false">Ongoing</a></li>
-              <li class=""><a href="#review" data-toggle="tab" aria-expanded="false">Review</a></li>
-              <li class="active"><a href="#resume" data-toggle="tab" aria-expanded="true">Resume</a></li>
-            </ul>
-            <div class="tab-content">
-              <div class="tab-pane" id="ongoing">
-                <!-- Post -->
-                <!-- Post -->
-                <div class="post">
-                  <div class="user-block">
-                    <img class="img-circle img-bordered-sm" src="dist/img/laila.jpeg" alt="User Image">
-                    <span class="username">
-                      <a href="#">Laila</a>
-                      <a href="#" class="pull-right btn-box-tool">
-                        <i class="fa fa-times"></i>
-                      </a>
-                    </span>
-                    <span class="description">Posted 5 photos - 5 days ago</span>
-                  </div>
-                  <p>
-                   Please design me Batman poster.
-                   Display word "BATMAN" and batman character in middle.
-                  </p>
-                  <!-- /.user-block -->
-                  <div class="row margin-bottom">
-                    <div class="col-sm-6">
-                      <img class="img-responsive" src="dist/img/batman.jpg" alt="Photo">
-                    </div>
-                  </div>
-                </div>
-                <!-- /.post -->
-               
-               <!-- Post -->
-                  <div class="post">
-                    <div class="user-block">
-                      <img class="img-circle img-bordered-sm" src="dist/img/user6-128x128.jpg" alt="User Image">
-                          <span class="username">
-                            <a href="#">Adam Jones</a>
-                            <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
-                          </span>
-                      <span class="description">Posted 5 photos - 5 days ago</span>
-                    </div>
-                    <p>
-                      Lorem ipsum represents a long-held tradition for designers, typographers and the like. Some people hate it and argue for
-                      its demise, but others ignore the hate as they create awesome tools to help create filler text for everyone from bacon
-                      lovers to Charlie Sheen fans.
-                    </p>
-                    <!-- /.user-block -->
-                    <div class="row margin-bottom">
-                      <div class="col-sm-6">
-                        <img class="img-responsive" src="dist/img/captain.png" alt="Photo">
-                      </div>
-                    </div>
-                  </div>
-                  <!-- /.post -->
-                  <!-- /.post -->
-
-                  <!-- Post -->
-                  <div class="post">
-                    <div class="user-block">
-                      <img class="img-circle img-bordered-sm" src="dist/img/hasbun.jpeg" alt="User Image">
-                          <span class="username">
-                            <a href="#">Hasbun</a>
-                            <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
-                          </span>
-                      <span class="description">Posted 5 photos - 5 days ago</span>
-                    </div>
-                    <p>
-                      Lorem ipsum represents a long-held tradition for designers, typographers and the like. Some people hate it and argue for
-                      its demise, but others ignore the hate as they create awesome tools to help create filler text for everyone from bacon
-                      lovers to Charlie Sheen fans.
-                    </p>
-                    <!-- /.user-block -->
-                    <div class="row margin-bottom">
-                      <div class="col-sm-6">
-                        <img class="img-responsive" src="dist/img/superman.jpg" alt="Photo">
-                      </div>
-                    </div>
-                  </div>
-                  <!-- /.post -->
-                </div>
-                <!-- /.tab-pane -->
-                <div class="tab-pane" id="review">
-                  <!-- The timeline -->
-                  <ul class="timeline timeline-inverse">
-                    <!-- timeline time label -->
-                    <li class="time-label">
-                          <span class="bg-red">
-                            10 Feb. 2014
-                          </span>
-                    </li>
-                    <!-- /.timeline-label -->
-                    <!-- timeline item -->
-                  <li>
-                    <i class="fa fa-user bg-aqua"></i>
-                  
-                    <div class="timeline-item">
-                      <span class="time">
-                        <i class="fa fa-clock-o"></i> 5 mins ago</span>
-                  
-                      <h3 class="timeline-header no-border">
-                        <a href="#">Sarah Young</a> accepted your friend request
-                      </h3>
-                    </div>
-                  </li>
-                    <!-- END timeline item -->
-                    <!-- timeline item -->
-                    <li>
-                      <i class="fa fa-user bg-aqua"></i>
-
-                      <div class="timeline-item">
-                        <span class="time"><i class="fa fa-clock-o"></i> 5 mins ago</span>
-
-                        <h3 class="timeline-header no-border"><a href="#">Sarah Young</a> accepted your friend request
-                        </h3>
-                      </div>
-                    </li>
-                    <!-- END timeline item -->
-                    <!-- timeline item -->
-                    <li>
-                      <i class="fa fa-user bg-aqua"></i>
-                    
-                      <div class="timeline-item">
-                        <span class="time">
-                          <i class="fa fa-clock-o"></i> 5 mins ago</span>
-                    
-                        <h3 class="timeline-header no-border">
-                          <a href="#">Sarah Young</a> accepted your friend request
-                        </h3>
-                      </div>
-                    </li>
-                    <!-- END timeline item -->
-                    <!-- timeline time label -->
-                    <li class="time-label">
-                          <span class="bg-green">
-                            3 Jan. 2014
-                          </span>
-                    </li>
-                    <!-- /.timeline-label -->
-                    <!-- timeline item -->
-                  <li>
-                    <i class="fa fa-user bg-aqua"></i>
-                  
-                    <div class="timeline-item">
-                      <span class="time">
-                        <i class="fa fa-clock-o"></i> 5 mins ago</span>
-                  
-                      <h3 class="timeline-header no-border">
-                        <a href="#">Sarah Young</a> accepted your friend request
-                      </h3>
-                    </div>
-                  </li>
-                    <!-- END timeline item -->
-                      <!-- timeline item -->
-                      <li>
-                        <i class="fa fa-user bg-aqua"></i>
-                      
-                        <div class="timeline-item">
-                          <span class="time">
-                            <i class="fa fa-clock-o"></i> 5 mins ago</span>
-                      
-                          <h3 class="timeline-header no-border">
-                            <a href="#">Sarah Young</a> accepted your friend request
-                          </h3>
-                        </div>
-                      </li>
-                      <!-- END timeline item -->
-                    <li>
-                      <i class="fa fa-clock-o bg-gray"></i>
-                    </li>
-                  </ul>
-                </div>
-                <!-- /.tab-pane -->
-
-                <div class="tab-pane active" id="resume">
-                <div class="box-body">
-                  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                      <li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
-                      <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
-                    </ol>
-                    <div class="carousel-inner">
-                      <div class="item active">
-                        <img src="dist/img/corousel1.jpg" alt="First slide">
-                
-                        <div class="carousel-caption">
-                          First Slide
-                        </div>
-                        <p>blablabalbalbalalevhckjbsxn jhwkbax ickbjsaxm hckdwjx</p>
-                      </div>
-                      <div class="item">
-                        <img src="dist/img/carousel2.png" alt="Second slide">
-                
-                        <div class="carousel-caption">
-                          Second Slide
-                        </div>
-                        <p>blablabalbalbalalevhckjbsxn jhwkbax ickbjsaxm  hckdwjx</p>
-                      </div>
-                      <div class="item">
-                        <img src="dist/img/corousel3.jpg" alt="Third slide">
-                
-                        <div class="carousel-caption">
-                          Third Slide
-                        </div>
-                        <p>blablabalbalbalalevhckjbsxn jhwkbax ickbjsaxm hckdwjx</p>
-                      </div>
-                    </div>
-                    <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-                      <span class="fa fa-angle-left"></span>
-                    </a>
-                    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-                      <span class="fa fa-angle-right"></span>
-                    </a>
-                  </div>
-                </div>
-                </div>
-                <!-- /.tab-pane -->
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Type of job</label>
+          <div class="col-sm-5">
+            <div class="input-group">
+              <div class="input-group-addon">
+                <i class="fa fa-fw fa-black-tie"></i>
               </div>
-              <!-- /.tab-content -->
+              <select class="form-control" id="jobType" name="jobType">
+                <option value="" selected="selected">Choose type of job you want to offer</option>
+                <option value="Design">Design</option>
+                <option value="Website Development">Website developement</option>
+                <option value="Mobile Application">Mobile Application Development</option>
+              </select>
             </div>
-            <!-- /.nav-tabs-custom -->
           </div>
-        <!-- /.col -->
-      </div>
-      <!-- /.row -->
+        </div>
 
+        <div class="form-group">
+          <label  class="col-sm-2 control-label">Job Offer Description</label>
+          <div class="col-sm-5">
+            <textarea class="form-control" id="jobdescription" name="jobdescription" rows="6" placeholder="Descript about your job you want to offer"></textarea>
+          </div>
+        </div>
+
+  <div class="form-group">
+    <label class="col-sm-2 control-label" >Skills you need</label>
+    <div class="col-sm-5">
+      <div class="input-group">
+        <div class="input-group-addon">
+          <i class="fa fa-fw fa-wrench"></i>
+        </div>
+        <select class="form-control select2" multiple="multiple" data-placeholder="Enter Skills require for this job *multiple " style="width: 100%;" id="jobSkill" name="jobSkill[]">
+          <option value="HTML" >HTML</option>
+          <option value="CSS" >CSS</option>
+          <option value="PHP" >PHP</option>
+          <option value="Java Script" >Java Script</option>
+         
+        </select>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <label  class="col-sm-2 control-label">Duration </label>
+    <div class="col-sm-5">
+      <div class="input-group">
+        <div class="input-group-addon">
+          <i class="fa fa-clock-o"></i>
+        </div>
+        <input class="form-control" id="jobDuration" name="jobDuration" placeholder="Enter duration you want your job completed in day">
+      </div>
+    </div>
+  </div>
+
+
+    <div class="form-group">
+      <label  class="col-sm-2 control-label" >Type of Payment</label>
+      <div class="col-sm-3">
+        <div class="input-group">
+          <div class="input-group-addon">
+            <i class="fa fa-fw fa-dollar"></i>
+          </div>
+          <select class="form-control" data-placeholder="Enter of payment you want to offer"
+            style="width: 100%;" id="jobPayment" name="jobPayment">
+            <option value="Pay Per Job">Pay Per Job</option>
+            <option value="Pay Per Hour">Pay Per Hour</option>
+          </select>
+        </div>
+      </div>
+      </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label" >Payment Rate</label>
+    <div class="col-sm-4">
+      <div class="input-group">
+        <div class="input-group-addon">
+          <i class="fa fa-fw fa-dollar"></i>
+        </div>
+        <input class="form-control" id="jobRate" name="jobRate" placeholder="Enter Payment rate per day">
+      </div>
+    </div>
+  </div>
+    
+  <div class="form-group">
+              <label for="exampleInputFile" class="col-sm-2 control-label">Expected Outcome</label>
+              <div class="col-sm-3">
+                <input type="file" id="outcome1" name="outcome1">
+                <br>
+                <input type="file" id="outcome2" name="outcome2">
+                <br>
+                <input type="file" id="outcome3" name="outcome3">
+             
+
+                <p class="help-block" class="col-sm-2 control-label">Please attach 3 expected outcome</p>
+              </div>
+            </div>
+   <div class="box-footer">
+
+               <div class="col-md-12 col-xs-4">
+         <button id="submit" name="submit" class="btn btn-success" href="review1.php">Sign Up</button>
+        </div>
+          </div>
+      </div>
+</div>
+</form>
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
-  
 
   <!-- Main Footer -->
   <footer class="main-footer">
@@ -692,14 +508,12 @@ desired effect
       </div>
       <!-- /.tab-pane -->
     </div>
-  </aside>
+  </aside> 
   <!-- /.control-sidebar -->
   <!-- Add the sidebar's background. This div must be placed
   immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
 </div>
-</div>>
-<!-- ./wrapper -->
 
 <!-- REQUIRED JS SCRIPTS -->
 
@@ -707,12 +521,99 @@ desired effect
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- Select2 -->
+<script src="bower_components/select2/dist/js/select2.full.min.js"></script>
+<!-- InputMask -->
+<script src="plugins/input-mask/jquery.inputmask.js"></script>
+<script src="plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+<script src="../../plugins/input-mask/jquery.inputmask.extensions.js"></script>
+<!-- date-range-picker -->
+<script src="bower_components/moment/min/moment.min.js"></script>
+<script src="bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+<!-- bootstrap datepicker -->
+<script src="bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+<!-- bootstrap color picker -->
+<script src="bower_components/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js"></script>
+<!-- bootstrap time picker -->
+<script src="plugins/timepicker/bootstrap-timepicker.min.js"></script>
+<!-- SlimScroll -->
+<script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<!-- iCheck 1.0.1 -->
+<script src="plugins/iCheck/icheck.min.js"></script>
 <!-- FastClick -->
-<script src="../../bower_components/fastclick/lib/fastclick.js"></script>
+<script src="bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="../../dist/js/demo.js"></script>
+<script src="dist/js/demo.js"></script>
+
+<script>
+  $(function () {
+      //Initialize Select2 Elements
+      $('.select2').select2()
+
+      //Datemask dd/mm/yyyy
+      $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
+      //Datemask2 mm/dd/yyyy
+      $('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
+      //Money Euro
+      $('[data-mask]').inputmask()
+
+      //Date range picker
+      $('#reservation').daterangepicker()
+      //Date range picker with time picker
+      $('#reservationtime').daterangepicker({ timePicker: true, timePickerIncrement: 30, format: 'MM/DD/YYYY h:mm A' })
+      //Date range as a button
+      $('#daterange-btn').daterangepicker(
+        {
+          ranges: {
+            'Today': [moment(), moment()],
+            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+            'This Month': [moment().startOf('month'), moment().endOf('month')],
+            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+          },
+          startDate: moment().subtract(29, 'days'),
+          endDate: moment()
+        },
+        function (start, end) {
+          $('#daterange-btn span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
+        }
+      )
+
+      //Date picker
+      $('#datepicker').datepicker({
+        autoclose: true
+      })
+
+      //iCheck for checkbox and radio inputs
+      $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+        checkboxClass: 'icheckbox_minimal-blue',
+        radioClass: 'iradio_minimal-blue'
+      })
+      //Red color scheme for iCheck
+      $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
+        checkboxClass: 'icheckbox_minimal-red',
+        radioClass: 'iradio_minimal-red'
+      })
+      //Flat red color scheme for iCheck
+      $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
+        checkboxClass: 'icheckbox_flat-green',
+        radioClass: 'iradio_flat-green'
+      })
+
+      //Colorpicker
+      $('.my-colorpicker1').colorpicker()
+      //color picker with addon
+      $('.my-colorpicker2').colorpicker()
+
+      //Timepicker
+      $('.timepicker').timepicker({
+        showInputs: false
+      })
+    })
+</script>
 
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the

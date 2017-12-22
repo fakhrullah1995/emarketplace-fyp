@@ -369,109 +369,80 @@ desired effect
           <div class="box-header with-border">
             <h3 class="box-title">Posting Form</h3>
           </div>
-          <form class="form-horizontal">
+          <form action="contestDB.php"  method="post" enctype="multipart/form-data" class="form-horizontal">
 
             <div class="form-group">
-              <label for="inputEmail3" class="col-sm-2 control-label">Type of job</label>
+              <label for="inputEmail3" class="col-sm-2 control-label">Type of Design</label>
               <div class="col-sm-5">
                 <div class="input-group">
                   <div class="input-group-addon">
                     <i class="fa fa-fw fa-black-tie"></i>
                   </div>
-                  <select class="form-control">
+                  <select class="form-control" id="projectType" name="projectType">
                     <option selected="selected">Choose what design you want</option>
-                    <option>Poster</option>
-                    <option>Bunting</option>
-                    <option>Banner</option>
-                    <option>Business Card</option>
+                    <option value="Poster">Poster</option>
+                    <option value="Bunting">Bunting</option>
+                    <option value"Banner">Banner</option>
+                    <option value="Business Card">Business Card</option>
                   </select>
                 </div>
               </div>
             </div>
 
             <div class="form-group">
-              <label for="inputEmail3" class="col-sm-2 control-label">Job Offer Description</label>
+              <label for="inputEmail3" class="col-sm-2 control-label">Contest Description</label>
               <div class="col-sm-5">
-                <textarea class="form-control" rows="6" placeholder="Descript about your job you want to offer"></textarea>
+                <textarea class="form-control" id="contestDescription" name="contestDescription" rows="6" placeholder="Descript about your job you want to offer"></textarea>
               </div>
             </div>
 
-            <div class="form-group">
-              <label for="inputEmail3" class="col-sm-2 control-label">Skills you need</label>
-              <div class="col-sm-5">
-                <div class="input-group">
-                  <div class="input-group-addon">
-                    <i class="fa fa-fw fa-wrench"></i>
-                  </div>
-                  <select class="form-control select2" multiple="multiple" data-placeholder="Enter Skills require for this job *multiple "
-                    style="width: 100%;">
-                    <option>HTML</option>
-                    <option>CSS</option>
-                    <option>PHP</option>
-                    <option>Java Script</option>
-                    <option>Tennessee</option>
-                    <option>Texas</option>
-                    <option>Washington</option>
-                  </select>
-                </div>
-              </div>
-            </div>
+        
 
 
             <div class="form-group">
-              <label for="inputEmail3" class="col-sm-2 control-label">Duration </label>
+              <label for="contestDuration" class="col-sm-2 control-label">Duration </label>
               <div class="col-sm-5">
                 <div class="input-group">
                   <div class="input-group-addon">
                     <i class="fa fa-clock-o"></i>
                   </div>
-                  <input type="email" class="form-control" id="inputEmail3" placeholder="Enter duration you want your job completed in day">
+                  <input type="email" class="form-control" id="contestDuration" name= "contestDuration" placeholder="Enter duration you want your job completed in day">
                 </div>
               </div>
             </div>
 
 
-            <div class="form-group">
-              <label for="inputEmail3" class="col-sm-2 control-label">Type of Payment</label>
-              <div class="col-sm-3">
-                <div class="input-group">
-                  <div class="input-group-addon">
-                    <i class="fa fa-fw fa-dollar"></i>
-                  </div>
-                  <select class="form-control" data-placeholder="Enter of payment you want to offer" style="width: 100%;">
-                    <option>Pay Per Job</option>
-                    <option>Pay Per Hour</option>
-                  </select>
-                </div>
-              </div>
+            
               <div class="form-group">
-                <label for="inputEmail3" class="col-sm-2 control-label">Payment Rate</label>
+                <label for="contestPayment" class="col-sm-2 control-label">Total Payment</label>
                 <div class="col-sm-4">
                   <div class="input-group">
                     <div class="input-group-addon">
                       <i class="fa fa-fw fa-dollar"></i>
                     </div>
-                    <input type="email" class="form-control" id="inputEmail3" placeholder="Enter Payment rate">
+                    <input type="email" class="form-control" id="contestPayment" name="contestPayment" placeholder="Enter total payment for this contest">
                   </div>
                 </div>
               </div>
-            </div>
+            
 
             <div class="form-group">
               <label for="exampleInputFile" class="col-sm-2 control-label">Expected Outcome</label>
               <div class="col-sm-3">
-                <input type="file" id="exampleInputFile">
+                <input type="file" id="contest1" name="contest1">
                 <br>
-                <input type="file" id="exampleInputFile">
+                <input type="file" id="contest2" name="contest2">
                 <br>
-                <input type="file" id="exampleInputFile">
+                <input type="file" id="contest3" name="contest3">
+                <br>
+                <input type="file" id="contest4" name="contest4">
 
-                <p class="help-block" class="col-sm-2 control-label">Please attach 3 expected outcome</p>
+                <p class="help-block" class="col-sm-2 control-label">Please attach 4 expected outcome</p>
               </div>
             </div>
             <div class="box-footer">
 
-              <a href="#" class="btn btn-info pull-right">
+              <a id="submit" name="submit" href="review2.php" class="btn btn-info pull-right">
                 <i></i> Post</a>
             </div>
           </form>

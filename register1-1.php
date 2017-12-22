@@ -1,29 +1,4 @@
-<?php
-// call file connection
-include_once 'conn.php';
-// check value post
-if(isset ($_POST['submit'])){
-  //declare variable for store input data
-  $clientName=$_POST['clientName'];
-  $clientEmail=$_POST['clientEmail'];
-  $clientPassword=$_POST['clientPassword'];
-//insert
-$query= "INSERT INTO client (clientName, clientEmail, clientPassword) VALUES ('$clientName','$clientEmail','$clientPassword')";
 
-$result = mysqli_query($con,$query);
-
-if($result)
-{
-echo "<script>alert ('register success!');</script>";
-header ("Location: advance-register1a.php");
-exit();
-}
-else
-{
-echo "<script>alert ('failed to register. please try again!');</script>";
-}
-}
-?>
 
 <!DOCTYPE html>
 <html>
@@ -63,9 +38,12 @@ echo "<script>alert ('failed to register. please try again!');</script>";
   <div class="register-box-body">
     <p class="login-box-msg">Register a new membership</p>
 
-    <form action="register1-1.php" method="post">
+    <form action="register1-1dbb.php" method="post" enctype="multipart/form-data">
+
+<label for="exampleInputFile" class="col-sm-1 control-label">Profile <br></label>
+         
       <div class="form-group has-feedback">
-        <input class="form-control" id="clientName" name="clientName" placeholder="Full name"  type="text"  required>
+        <input class="form-control" id="clientName" name="clientName"  placeholder="Full name"  type="text"  required>
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
@@ -77,9 +55,18 @@ echo "<script>alert ('failed to register. please try again!');</script>";
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input  class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Retype password" type="password" required>
+        <input  class="form-control"  placeholder="Retype password" type="password" required>
         <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
       </div>
+      <div class=row>
+   
+              <div class="col-sm-5"> <p>Profile image</p>
+                <input type="file" id="clientProfile" name="clientProfile">
+                <br>
+               
+      
+    </div>
+      </div> 
       <div class="row">
         <div class="col-xs-8">
           <div class="checkbox icheck">
@@ -92,7 +79,7 @@ echo "<script>alert ('failed to register. please try again!');</script>";
 
 
         <div class="col-xs-4">
-         <button id="submit" name="submit" class="btn btn-success" href="advance register1a.html">Sign Up</button>
+         <button type="submit" class="btn btn-success" name="submit">Sign Up</button>
         </div>
         <!-- /.col -->
       </div>

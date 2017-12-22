@@ -7,16 +7,16 @@
     <title>eNno Bootstrap Template</title>
 
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="css/animate.css">
-	<link rel="stylesheet" href="css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/font-awesome.css">
-	<link rel="stylesheet" href="css/jquery.bxslider.css">
-	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
-	<link rel="stylesheet" type="text/css" href="css/demo.css" />
-	<link rel="stylesheet" type="text/css" href="css/set1.css" />
-	<link href="css/overwrite.css" rel="stylesheet">
-	<link href="css/style.css" rel="stylesheet">
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/animate.css">
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/font-awesome.min.css">
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/font-awesome.css">
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/jquery.bxslider.css">
+	<link rel="stylesheet" type="bower_components/bootstrap/dist/text/css" href="css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/demo.css" />
+	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/set1.css" />
+	<link href="bower_components/bootstrap/dist/css/overwrite.css" rel="stylesheet">
+	<link href="bower_components/bootstrap/dist/css/style.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -161,15 +161,15 @@
 	</footer>
 	
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="bower_components/bootstrap/js/jquery-2.1.1.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-	<script src="js/wow.min.js"></script>
-	<script src="js/jquery.easing.1.3.js"></script>
-	<script src="js/jquery.isotope.min.js"></script>
-	<script src="js/jquery.bxslider.min.js"></script>
-	<script type="text/javascript" src="js/fliplightbox.min.js"></script>
-	<script src="js/functions.js"></script>
+    <script src="bower_components/bootstrap/js/bootstrap.min.js"></script>
+	<script src="bower_components/bootstrap/js/wow.min.js"></script>
+	<script src="bower_components/bootstrap/js/jquery.easing.1.3.js"></script>
+	<script src="bower_components/bootstrap/js/jquery.isotope.min.js"></script>
+	<script src="bower_components/bootstrap/js/jquery.bxslider.min.js"></script>
+	<script type="text/javascript" src="bower_components/bootstrap/js/fliplightbox.min.js"></script>
+	<script src="bower_components/bootstrap/js/functions.js"></script>
 	<script type="text/javascript">$('.portfolio').flipLightBox()</script>
   </body>
 </html>

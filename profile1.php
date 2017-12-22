@@ -1,28 +1,4 @@
-<!-- <?php
-include_once 'conn.php';
 
-// $sql=mysql_query("SELECT freeId, freeEmail, freeName, freePhoneNumber, freePaymentType, freeInterest, freeSkillType FROM freelancer" );
-$sql=mysql_query("SELECT freeId, freeName FROM freelancer" );
-$i=0;
-$dyn_table='<table border="1" cellpadding="10>';
-
-while($row=mysql_fetch_array($sql)){
-
-  $freeId=$row["freeId"];
-  $freeName=$row["freeName"];
-
-if($i%3==0){
-  $dyn_table .='<tr><td>'.$freeName.'</td>';
-
-}else{
-  $dyn_table .='<td>'.$freeName.'</td>';
-
-}
-
-  $i++;
-}
-$dyn_table .='</tr></table>';
-?> -->
 <!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from
@@ -46,6 +22,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect. -->
   <link rel="stylesheet" href="dist/css/skins/skin-blue.min.css">
+  <link rel="stylesheet" href="dist/css/skins/skin-green.min.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -78,7 +55,7 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------| -->
 
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-green sidebar-mini">
 <div class="wrapper">
 
   <!-- Main Header -->
@@ -117,7 +94,7 @@ desired effect
                     <a href="#">
                       <div class="pull-left">
                         <!-- User Image -->
-                        <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                        <img src="testingconnect.php? clientId=24" class="img-circle" alt="User Image">
                       </div>
                       <!-- Message title and timestamp -->
                       <h4>
@@ -204,7 +181,7 @@ desired effect
               <!-- The user image in the navbar-->
               <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">Alexander Pierce</span>
+              <span class="hidden-xs">Fazira Suhaimi</span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
@@ -212,7 +189,7 @@ desired effect
                 <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  Alexander Pierce - Web Developer
+                  <?php echo'clientName' ?> - Web Developer
                   <small>Member since Nov. 2012</small>
                 </p>
               </li>
@@ -259,10 +236,10 @@ desired effect
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="dist/img/user2-160x160.jpgg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
+          <p>Fazira Suhaimi</p>
           <!-- Status -->
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
@@ -285,11 +262,11 @@ desired effect
         <li class="header">MENU</li>
         <!-- Optionally, you can add icons to the links -->
         <li><a href="dashboard1.php"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
-        <li class="active"><a href="home1.php"><i class="fa fa-link"></i> <span>Home</span></a></li>
+        <li><a href="home1.php"><i class="fa fa-link"></i> <span>Home</span></a></li>
         <li><a href="schedule1.php"><i class="fa fa-link"></i> <span>Schedule</span></a></li>
         <li><a href="acceptreject1.php"><i class="fa fa-link"></i> <span>Accept/Reject</span></a></li>
         <li><a href="payment1.php"><i class="fa fa-link"></i> <span>Payment</span></a></li>
-        <li><a href="profile1.php"><i class="fa fa-link"></i> <span>Profile</span></a></li>
+        <li class="active"><a href="profile1.php"><i class="fa fa-link"></i> <span>Profile</span></a></li>
         <li class="treeview">
           <a href="offerjob1.php"><i class="fa fa-link"></i> <span>Offer Job</span>
             <span class="pull-right-container">
@@ -313,29 +290,325 @@ desired effect
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        HomePage
-        <small>Find your freelancer</small>
+        Profile
+        <small>This page may be view by other user</small>
       </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-        <li class="active">Here</li>
-      </ol>
+     
     </section>
 
+ 
+
     <!-- Main content -->
-    <section class="content container-fluid">
+    <section class="content">
 
-      <!--------------------------
-        | Your Page Content Here |
-        -------------------------->
+      <div class="row">
+        <div class="col-md-3">
 
-      
-        <!-- <?php echo $dyn_table; ?> -->
+          <!-- Profile Image -->
+          <div class="box box-primary">
+            <div class="box-body box-profile">
+              <img class="profile-user-img img-responsive img-circle" src="dist/img/user2-160x160.jpg" alt="User profile picture">
+
+              <h3 class="profile-username text-center">Fazira Suhaimi</h3>
+
+              <p class="text-muted text-center">Software Engineer</p>
+
+              <ul class="list-group list-group-unbordered">
+                <li class="list-group-item">
+                  <b>Followers</b> <a class="pull-right">1,322</a>
+                </li>
+                <li class="list-group-item">
+                  <b>Following</b> <a class="pull-right">543</a>
+                </li>
+                <li class="list-group-item">
+                  <b>Friends</b> <a class="pull-right">13,287</a>
+                </li>
+              </ul>
+
+              <a href="editProfile1.php" class="btn btn-primary btn-block"><b>Edit Profile</b></a>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+
+          <!-- About Me Box -->
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">About Me</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <strong><i class="fa fa-book margin-r-5"></i> Education</strong>
+
+              <p class="text-muted">
+                B.S. in Computer Science from the University of Tennessee at Knoxville
+              </p>
+
+              <hr>
+
+              <strong><i class="fa fa-map-marker margin-r-5"></i> Location</strong>
+
+              <p class="text-muted">Malibu, California</p>
+
+              <hr>
+
+              <strong><i class="fa fa-pencil margin-r-5"></i> Skills</strong>
+
+              <p>
+                <span class="label label-danger">UI Design</span>
+                <span class="label label-success">Coding</span>
+                <span class="label label-info">Javascript</span>
+                <span class="label label-warning">PHP</span>
+                <span class="label label-primary">Node.js</span>
+              </p>
+
+              <hr>
+
+              <strong><i class="fa fa-file-text-o margin-r-5"></i> Notes</strong>
+
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-9">
+          <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs">
+              <li class=""><a href="#ongoing" data-toggle="tab" aria-expanded="false">Ongoing</a></li>
+              <li class=""><a href="#review" data-toggle="tab" aria-expanded="false">Review</a></li>
+              <li class="active"><a href="#resume" data-toggle="tab" aria-expanded="true">Resume</a></li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane" id="ongoing">
+                <!-- Post -->
+                <!-- Post -->
+                <div class="post">
+                  <div class="user-block">
+                    <img class="img-circle img-bordered-sm" src="dist/img/laila.jpeg" alt="User Image">
+                    <span class="username">
+                      <a href="#">Laila</a>
+                      <a href="#" class="pull-right btn-box-tool">
+                        <i class="fa fa-times"></i>
+                      </a>
+                    </span>
+                    <span class="description">Posted 5 photos - 5 days ago</span>
+                  </div>
+                  <p>
+                   Please design me Batman poster.
+                   Display word "BATMAN" and batman character in middle.
+                  </p>
+                  <!-- /.user-block -->
+                  <div class="row margin-bottom">
+                    <div class="col-sm-6">
+                      <img class="img-responsive" src="dist/img/batman.jpg" alt="Photo">
+                    </div>
+                  </div>
+                </div>
+                <!-- /.post -->
+               
+               <!-- Post -->
+                  <div class="post">
+                    <div class="user-block">
+                      <img class="img-circle img-bordered-sm" src="dist/img/user6-128x128.jpg" alt="User Image">
+                          <span class="username">
+                            <a href="#">Adam Jones</a>
+                            <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
+                          </span>
+                      <span class="description">Posted 5 photos - 5 days ago</span>
+                    </div>
+                    <p>
+                      Lorem ipsum represents a long-held tradition for designers, typographers and the like. Some people hate it and argue for
+                      its demise, but others ignore the hate as they create awesome tools to help create filler text for everyone from bacon
+                      lovers to Charlie Sheen fans.
+                    </p>
+                    <!-- /.user-block -->
+                    <div class="row margin-bottom">
+                      <div class="col-sm-6">
+                        <img class="img-responsive" src="dist/img/captain.png" alt="Photo">
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /.post -->
+                  <!-- /.post -->
+
+                  <!-- Post -->
+                  <div class="post">
+                    <div class="user-block">
+                      <img class="img-circle img-bordered-sm" src="dist/img/hasbun.jpeg" alt="User Image">
+                          <span class="username">
+                            <a href="#">Hasbun</a>
+                            <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
+                          </span>
+                      <span class="description">Posted 5 photos - 5 days ago</span>
+                    </div>
+                    <p>
+                      Lorem ipsum represents a long-held tradition for designers, typographers and the like. Some people hate it and argue for
+                      its demise, but others ignore the hate as they create awesome tools to help create filler text for everyone from bacon
+                      lovers to Charlie Sheen fans.
+                    </p>
+                    <!-- /.user-block -->
+                    <div class="row margin-bottom">
+                      <div class="col-sm-6">
+                        <img class="img-responsive" src="dist/img/superman.jpg" alt="Photo">
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /.post -->
+                </div>
+                <!-- /.tab-pane -->
+                <div class="tab-pane" id="review">
+                  <!-- The timeline -->
+                  <ul class="timeline timeline-inverse">
+                    <!-- timeline time label -->
+                    <li class="time-label">
+                          <span class="bg-red">
+                            10 Feb. 2014
+                          </span>
+                    </li>
+                    <!-- /.timeline-label -->
+                    <!-- timeline item -->
+                  <li>
+                    <i class="fa fa-user bg-aqua"></i>
+                  
+                    <div class="timeline-item">
+                      <span class="time">
+                        <i class="fa fa-clock-o"></i> 5 mins ago</span>
+                  
+                      <h3 class="timeline-header no-border">
+                        <a href="#">Sarah Young</a> accepted your friend request
+                      </h3>
+                    </div>
+                  </li>
+                    <!-- END timeline item -->
+                    <!-- timeline item -->
+                    <li>
+                      <i class="fa fa-user bg-aqua"></i>
+
+                      <div class="timeline-item">
+                        <span class="time"><i class="fa fa-clock-o"></i> 5 mins ago</span>
+
+                        <h3 class="timeline-header no-border"><a href="#">Sarah Young</a> accepted your friend request
+                        </h3>
+                      </div>
+                    </li>
+                    <!-- END timeline item -->
+                    <!-- timeline item -->
+                    <li>
+                      <i class="fa fa-user bg-aqua"></i>
+                    
+                      <div class="timeline-item">
+                        <span class="time">
+                          <i class="fa fa-clock-o"></i> 5 mins ago</span>
+                    
+                        <h3 class="timeline-header no-border">
+                          <a href="#">Sarah Young</a> accepted your friend request
+                        </h3>
+                      </div>
+                    </li>
+                    <!-- END timeline item -->
+                    <!-- timeline time label -->
+                    <li class="time-label">
+                          <span class="bg-green">
+                            3 Jan. 2014
+                          </span>
+                    </li>
+                    <!-- /.timeline-label -->
+                    <!-- timeline item -->
+                  <li>
+                    <i class="fa fa-user bg-aqua"></i>
+                  
+                    <div class="timeline-item">
+                      <span class="time">
+                        <i class="fa fa-clock-o"></i> 5 mins ago</span>
+                  
+                      <h3 class="timeline-header no-border">
+                        <a href="#">Sarah Young</a> accepted your friend request
+                      </h3>
+                    </div>
+                  </li>
+                    <!-- END timeline item -->
+                      <!-- timeline item -->
+                      <li>
+                        <i class="fa fa-user bg-aqua"></i>
+                      
+                        <div class="timeline-item">
+                          <span class="time">
+                            <i class="fa fa-clock-o"></i> 5 mins ago</span>
+                      
+                          <h3 class="timeline-header no-border">
+                            <a href="#">Sarah Young</a> accepted your friend request
+                          </h3>
+                        </div>
+                      </li>
+                      <!-- END timeline item -->
+                    <li>
+                      <i class="fa fa-clock-o bg-gray"></i>
+                    </li>
+                  </ul>
+                </div>
+                <!-- /.tab-pane -->
+
+                <div class="tab-pane active" id="resume">
+                <div class="box-body">
+                  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                      <li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
+                      <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
+                    </ol>
+                    <div class="carousel-inner">
+                      <div class="item active">
+                        <img src="dist/img/corousel1.jpg" alt="First slide">
+                
+                        <div class="carousel-caption">
+                          First Slide
+                        </div>
+                        <p>blablabalbalbalalevhckjbsxn jhwkbax ickbjsaxm hckdwjx</p>
+                      </div>
+                      <div class="item">
+                        <img src="dist/img/carousel2.png" alt="Second slide">
+                
+                        <div class="carousel-caption">
+                          Second Slide
+                        </div>
+                        <p>blablabalbalbalalevhckjbsxn jhwkbax ickbjsaxm  hckdwjx</p>
+                      </div>
+                      <div class="item">
+                        <img src="dist/img/corousel3.jpg" alt="Third slide">
+                
+                        <div class="carousel-caption">
+                          Third Slide
+                        </div>
+                        <p>blablabalbalbalalevhckjbsxn jhwkbax ickbjsaxm hckdwjx</p>
+                      </div>
+                    </div>
+                    <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                      <span class="fa fa-angle-left"></span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                      <span class="fa fa-angle-right"></span>
+                    </a>
+                  </div>
+                </div>
+                </div>
+                <!-- /.tab-pane -->
+              </div>
+              <!-- /.tab-content -->
+            </div>
+            <!-- /.nav-tabs-custom -->
+          </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
 
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+
+  
 
   <!-- Main Footer -->
   <footer class="main-footer">
@@ -424,6 +697,7 @@ desired effect
   immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
 </div>
+</div>>
 <!-- ./wrapper -->
 
 <!-- REQUIRED JS SCRIPTS -->
@@ -432,8 +706,12 @@ desired effect
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="../../bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../../dist/js/demo.js"></script>
 
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the

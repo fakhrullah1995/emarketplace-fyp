@@ -1,3 +1,4 @@
+
 <?php
 //call file connection
 include_once 'conn.php';
@@ -100,7 +101,7 @@ if ($uploadOk == 0) {
 
     if ($result1) {
         echo "<script>alert ('register success!');</script>";
-        header("Location: review1.php");
+        header("Location: randompost1.php");
         exit();
     } else {
         echo "<script>alert ('failed to register. please try again!');</script>";
