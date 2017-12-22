@@ -1,3 +1,28 @@
+<!-- <?php
+include_once 'conn.php';
+
+// $sql=mysql_query("SELECT freeId, freeEmail, freeName, freePhoneNumber, freePaymentType, freeInterest, freeSkillType FROM freelancer" );
+$sql=mysql_query("SELECT freeId, freeName FROM freelancer" );
+$i=0;
+$dyn_table='<table border="1" cellpadding="10>';
+
+while($row=mysql_fetch_array($sql)){
+
+  $freeId=$row["freeId"];
+  $freeName=$row["freeName"];
+
+if($i%3==0){
+  $dyn_table .='<tr><td>'.$freeName.'</td>';
+
+}else{
+  $dyn_table .='<td>'.$freeName.'</td>';
+
+}
+
+  $i++;
+}
+$dyn_table .='</tr></table>';
+?> -->
 <!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from
@@ -10,29 +35,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <title>PROMatcher | client</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-<!-- Font Awesome -->
-<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
-<!-- Ionicons -->
-<link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
-<!-- daterange picker -->
-<link rel="stylesheet" href="bower_components/bootstrap-daterangepicker/daterangepicker.css">
-<!-- bootstrap datepicker -->
-<link rel="stylesheet" href="bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
-<!-- iCheck for checkboxes and radio inputs -->
-<link rel="stylesheet" href="plugins/iCheck/all.css">
-<!-- Bootstrap Color Picker -->
-<link rel="stylesheet" href="bower_components/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css">
-<!-- Bootstrap time Picker -->
-<link rel="stylesheet" href="plugins/timepicker/bootstrap-timepicker.min.css">
-<!-- Select2 -->
-<link rel="stylesheet" href="bower_components/select2/dist/css/select2.min.css">
-<!-- Theme style -->
-<link rel="stylesheet" href="dist/css/AdminLTE.min.css">
-<!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
-<link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
-
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
+        page. However, you can choose any other skin. Make sure you
+        apply the skin class to the body tag so the changes take effect. -->
+  <link rel="stylesheet" href="dist/css/skins/skin-blue.min.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -272,7 +285,7 @@ desired effect
         <li class="header">MENU</li>
         <!-- Optionally, you can add icons to the links -->
         <li><a href="dashboard1.php"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
-        <li><a href="home1.php"><i class="fa fa-link"></i> <span>Home</span></a></li>
+        <li class="active"><a href="home1.php"><i class="fa fa-link"></i> <span>Home</span></a></li>
         <li><a href="schedule1.php"><i class="fa fa-link"></i> <span>Schedule</span></a></li>
         <li><a href="acceptreject1.php"><i class="fa fa-link"></i> <span>Accept/Reject</span></a></li>
         <li><a href="payment1.php"><i class="fa fa-link"></i> <span>Payment</span></a></li>
@@ -284,7 +297,7 @@ desired effect
               </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="randompost1.php">Random Post</a></li>
+            <li><a href="randompost1.php">Random Post</a></li>
             <li><a href="hire1.php">Hire Freelancer</a></li>
             <li> <a href="contest1.php">Open Contest</a> </li>
           </ul>
@@ -300,134 +313,25 @@ desired effect
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Random Post Page
-        <small>Post your job offer here</small>
+        HomePage
+        <small>Find your freelancer</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Random post</a></li>
-       
+        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+        <li class="active">Here</li>
       </ol>
     </section>
 
     <!-- Main content -->
     <section class="content container-fluid">
-<div class="box box-info">
-  <div class="box-header with-border">
-    <h3 class="box-title">Posting Form</h3>
-  </div>
-  <form action="signup2.php" class="form-horizontal"  method="post" enctype="multipart/form-data">
 
-        <div class="form-group">
-          <label class="col-sm-2 control-label">Type of job</label>
-          <div class="col-sm-5">
-            <div class="input-group">
-              <div class="input-group-addon">
-                <i class="fa fa-fw fa-black-tie"></i>
-              </div>
-              <select class="form-control" id="jobType" name="jobType">
-                <option value="" selected="selected">Choose type of job you want to offer</option>
-                <option value="Design">Design</option>
-                <option value="Website Development">Website developement</option>
-                <option value="Mobile Application">Mobile Application Development</option>
-              </select>
-            </div>
-          </div>
-        </div>
+      <!--------------------------
+        | Your Page Content Here |
+        -------------------------->
 
-        <div class="form-group">
-          <label  class="col-sm-2 control-label">Job Offer Description</label>
-          <div class="col-sm-5">
-            <textarea class="form-control" id="jobdescription" name="jobdescription" rows="6" placeholder="Descript about your job you want to offer"></textarea>
-          </div>
-        </div>
+      
+        <!-- <?php echo $dyn_table; ?> -->
 
-  <div class="form-group">
-    <label class="col-sm-2 control-label" >Skills you need</label>
-    <div class="col-sm-5">
-      <div class="input-group">
-        <div class="input-group-addon">
-          <i class="fa fa-fw fa-wrench"></i>
-        </div>
-        <select class="form-control select2" multiple="multiple" data-placeholder="Enter Skills require for this job *multiple " style="width: 100%;" id="jobSkill" name="jobSkill[]">
-          <option value="HTML" >HTML</option>
-          <option value="CSS" >CSS</option>
-          <option value="PHP" >PHP</option>
-          <option value="Java Script" >Java Script</option>
-          <option value="" >Tennessee</option>
-          <option value="" >Texas</option>
-          <option value="" >Washington</option>
-        </select>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="form-group">
-    <label  class="col-sm-2 control-label">Duration </label>
-    <div class="col-sm-5">
-      <div class="input-group">
-        <div class="input-group-addon">
-          <i class="fa fa-clock-o"></i>
-        </div>
-        <input class="form-control" id="jobDuration" name="jobDuration" placeholder="Enter duration you want your job completed in day">
-      </div>
-    </div>
-  </div>
-
-
-    <div class="form-group">
-      <label  class="col-sm-2 control-label" >Type of Payment</label>
-      <div class="col-sm-3">
-        <div class="input-group">
-          <div class="input-group-addon">
-            <i class="fa fa-fw fa-dollar"></i>
-          </div>
-          <select class="form-control" data-placeholder="Enter of payment you want to offer"
-            style="width: 100%;" id="jobPayment" name="jobPayment">
-            <option value="Pay Per Job">Pay Per Job</option>
-            <option value="Pay Per Hour">Pay Per Hour</option>
-          </select>
-        </div>
-      </div>
-      </div>
-  <div class="form-group">
-    <label class="col-sm-2 control-label" >Payment Rate</label>
-    <div class="col-sm-4">
-      <div class="input-group">
-        <div class="input-group-addon">
-          <i class="fa fa-fw fa-dollar"></i>
-        </div>
-        <input class="form-control" id="jobRate" name="jobRate" placeholder="Enter Payment rate per day">
-      </div>
-    </div>
-  </div>
-    
-   <div class="form-group">
-                <label for="exampleInputFile" class="col-md-12 col-sm-2 control-label"></label>
-                <div class="col-md-6 col-sm-3">
-                <input type="file" id="outcome1" name="outcome1">
-               
-                <br>
-
-                <input type="file" id="outcome2" name="outcome2">
-              
-
-                <br>
-                <input type="file"  id="outcome3" name="outcome3">
-              
-
-                <p class="help-block" class="col-sm-2 control-label">Please attach 3 best artwork represent your skill</p></div>
-              </div>
-
-   <div class="box-footer">
-
-               <div class="col-md-12 col-xs-4">
-         <button id="submit" name="submit" class="btn btn-success" href="review1.php">Sign Up</button>
-        </div>
-          </div>
-      </div>
-</div>
-</form>
     </section>
     <!-- /.content -->
   </div>
@@ -514,12 +418,13 @@ desired effect
       </div>
       <!-- /.tab-pane -->
     </div>
-  </aside> 
+  </aside>
   <!-- /.control-sidebar -->
   <!-- Add the sidebar's background. This div must be placed
   immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
 </div>
+<!-- ./wrapper -->
 
 <!-- REQUIRED JS SCRIPTS -->
 
@@ -527,99 +432,8 @@ desired effect
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- Select2 -->
-<script src="bower_components/select2/dist/js/select2.full.min.js"></script>
-<!-- InputMask -->
-<script src="plugins/input-mask/jquery.inputmask.js"></script>
-<script src="plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
-<script src="../../plugins/input-mask/jquery.inputmask.extensions.js"></script>
-<!-- date-range-picker -->
-<script src="bower_components/moment/min/moment.min.js"></script>
-<script src="bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
-<!-- bootstrap datepicker -->
-<script src="bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
-<!-- bootstrap color picker -->
-<script src="bower_components/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js"></script>
-<!-- bootstrap time picker -->
-<script src="plugins/timepicker/bootstrap-timepicker.min.js"></script>
-<!-- SlimScroll -->
-<script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-<!-- iCheck 1.0.1 -->
-<script src="plugins/iCheck/icheck.min.js"></script>
-<!-- FastClick -->
-<script src="bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="dist/js/demo.js"></script>
-
-<script>
-  $(function () {
-      //Initialize Select2 Elements
-      $('.select2').select2()
-
-      //Datemask dd/mm/yyyy
-      $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
-      //Datemask2 mm/dd/yyyy
-      $('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
-      //Money Euro
-      $('[data-mask]').inputmask()
-
-      //Date range picker
-      $('#reservation').daterangepicker()
-      //Date range picker with time picker
-      $('#reservationtime').daterangepicker({ timePicker: true, timePickerIncrement: 30, format: 'MM/DD/YYYY h:mm A' })
-      //Date range as a button
-      $('#daterange-btn').daterangepicker(
-        {
-          ranges: {
-            'Today': [moment(), moment()],
-            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-            'This Month': [moment().startOf('month'), moment().endOf('month')],
-            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-          },
-          startDate: moment().subtract(29, 'days'),
-          endDate: moment()
-        },
-        function (start, end) {
-          $('#daterange-btn span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
-        }
-      )
-
-      //Date picker
-      $('#datepicker').datepicker({
-        autoclose: true
-      })
-
-      //iCheck for checkbox and radio inputs
-      $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
-        checkboxClass: 'icheckbox_minimal-blue',
-        radioClass: 'iradio_minimal-blue'
-      })
-      //Red color scheme for iCheck
-      $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
-        checkboxClass: 'icheckbox_minimal-red',
-        radioClass: 'iradio_minimal-red'
-      })
-      //Flat red color scheme for iCheck
-      $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
-        checkboxClass: 'icheckbox_flat-green',
-        radioClass: 'iradio_flat-green'
-      })
-
-      //Colorpicker
-      $('.my-colorpicker1').colorpicker()
-      //color picker with addon
-      $('.my-colorpicker2').colorpicker()
-
-      //Timepicker
-      $('.timepicker').timepicker({
-        showInputs: false
-      })
-    })
-</script>
 
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the

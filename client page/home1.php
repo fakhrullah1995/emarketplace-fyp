@@ -5,15 +5,17 @@ include_once 'conn.php';
 $sql=mysql_query("SELECT freeId, freeName FROM freelancer" );
 $i=0;
 $dyn_table='<table border="1" cellpadding="10>';
+
 while($row=mysql_fetch_array($sql)){
-  $id=$row["freeId"];
-  $member_name=$row["freeName"];
+
+  $freeId=$row["freeId"];
+  $freeName=$row["freeName"];
 
 if($i%3==0){
-  $dyn_table .='<tr><td>'.$member_name.'</td>';
+  $dyn_table .='<tr><td>'.$freeName.'</td>';
 
 }else{
-  $dyn_table .='<td>'.$member_name.'</td>';
+  $dyn_table .='<td>'.$freeName.'</td>';
 
 }
 
@@ -327,6 +329,7 @@ desired effect
         | Your Page Content Here |
         -------------------------->
 
+      
         <?php echo $dyn_table; ?>
 
     </section>

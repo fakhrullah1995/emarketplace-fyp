@@ -34,7 +34,7 @@ if(isset($_POST["submit"])) {
         echo "File is not an image.";
         $uploadOk = 0;
     }
-}
+
 // Check if file already exists
 if (file_exists($target_file)) {
     echo "Sorry, file 1 already exists.";
@@ -66,6 +66,7 @@ if ($uploadOk == 0) {
     echo "Sorry, your file was not uploaded.";
 // if everything is ok, try to upload file
 } else {
+    
     $Art11 =  basename( $_FILES["outcome1"]["name"]);
     $Art22 = basename( $_FILES["outcome2"]["name"]);
     $Art33= basename( $_FILES["outcome3"]["name"]);
@@ -90,19 +91,21 @@ if ($uploadOk == 0) {
         echo "Sorry, there was an error uploading your file.";
     }
 
-}
      //insert query1
-    $query1 = "INSERT INTO clientoffer (jobType, jobdescription, jobSkill, jobDuration, jobPayment, jobRate, outcome1, outcome2, outcome3) values ('$jobType','$jobdescription','$a','$jobDuration','$jobPayment','$jobRate','uploads/$Art11','uploads/$Art22','uploads/$Art33',)";
+    $query1 = "INSERT INTO clientoffer (jobType, jobdescription, jobSkill, jobDuration, jobPayment, jobRate, outcome1, outcome2, outcome3) values ('$jobType','$jobdescription','$a','$jobDuration','$jobPayment','$jobRate','uploads/$Art11','uploads/$Art22','uploads/$Art33')";
 
     $result1 = mysqli_query($con, $query1); //done
 
   echo $result1;
 
-    if ($result1  ) {
+    if ($result1) {
         echo "<script>alert ('register success!');</script>";
         header("Location: review1.php");
         exit();
     } else {
         echo "<script>alert ('failed to register. please try again!');</script>";
     }
+
+    }
+}
     ?>
