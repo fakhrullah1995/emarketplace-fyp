@@ -1,8 +1,13 @@
+<?php
+session_start();
+include_once 'conn.php';
+$clientID = $_SESSION['clientID'];
+$result3=mysqli_query($con,"SELECT * FROM client WHERE clientID=".$_SESSION['clientID']);
+$fetched_row=mysqli_fetch_array($result3);
+
+?>
+
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
 <html>
 <head>
   <meta charset="utf-8">
@@ -179,7 +184,7 @@ desired effect
               <!-- The user image in the navbar-->
               <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">Alexander Pierce</span>
+              <span class="hidden-xs"><?php echo $fetched_row['clientName']; ?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
@@ -187,7 +192,7 @@ desired effect
                 <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  Alexander Pierce - Web Developer
+                  <?php echo $fetched_row['clientName']; ?> - <?php echo $fetched_row['projectType']; ?>
                   <small>Member since Nov. 2012</small>
                 </p>
               </li>

@@ -1,4 +1,11 @@
+<?php
+session_start();
+include_once 'conn.php';
+$clientID = $_SESSION['clientID'];
+$result3=mysqli_query($con,"SELECT * FROM client WHERE clientID=".$_SESSION['clientID']);
+$fetched_row=mysqli_fetch_array($result3);
 
+?>
 <!DOCTYPE html>
 <html>
 

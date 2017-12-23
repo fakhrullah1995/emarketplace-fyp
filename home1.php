@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 include_once 'conn.php';
 
 // $sql=mysql_query("SELECT freeId, freeEmail, freeName, freePhoneNumber, freePaymentType, freeInterest, freeSkillType FROM freelancer" );
@@ -22,6 +22,15 @@ if($i%3==0){
   $i++;
 }
 $dyn_table .='</tr></table>';
+?> -->
+
+<?php
+session_start();
+include_once 'conn.php';
+$clientID = $_SESSION['clientID'];
+$result3=mysqli_query($con,"SELECT * FROM client WHERE clientID=".$_SESSION['clientID']);
+$fetched_row=mysqli_fetch_array($result3);
+
 ?>
 <!DOCTYPE html>
 <!--

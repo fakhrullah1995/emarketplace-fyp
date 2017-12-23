@@ -1,8 +1,13 @@
+<?php
+session_start();
+include_once 'conn.php';
+$clientID = $_SESSION['clientID'];
+$result3=mysqli_query($con,"SELECT * FROM client WHERE clientID=".$_SESSION['clientID']);
+$fetched_row=mysqli_fetch_array($result3);
+
+?>
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
+
 <html>
 <head>
   <meta charset="utf-8">

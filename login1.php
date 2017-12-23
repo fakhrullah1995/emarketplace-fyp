@@ -16,7 +16,7 @@ if ($row['clientEmail'] == $clientEmail && $row['clientPassword'] == $clientPass
   </script>
 
   <?php
-    $_SESSION['clientEmail'] = $row['clientEmail'];
+    $_SESSION['clientID'] = $row['clientID'];
  header("Location: dashboard1.php");
  exit();
 }
