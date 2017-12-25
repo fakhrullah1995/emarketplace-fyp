@@ -1,4 +1,12 @@
 <?php
+session_start();
+include_once 'conn.php';
+$clientID = $_SESSION['clientID'];
+$result3=mysqli_query($con,"SELECT * FROM client WHERE clientID=".$_SESSION['clientID']);
+$fetched_row=mysqli_fetch_array($result3);
+
+?>
+<!-- <?php
 include_once 'conn.php';
 
 // $sql=mysql_query("SELECT freeId, freeEmail, freeName, freePhoneNumber, freePaymentType, freeInterest, freeSkillType FROM freelancer" );
@@ -22,16 +30,9 @@ if($i%3==0){
   $i++;
 }
 $dyn_table .='</tr></table>';
-?>
+?> -->
 
-<?php
-session_start();
-include_once 'conn.php';
-$clientID = $_SESSION['clientID'];
-$result3=mysqli_query($con,"SELECT * FROM client WHERE clientID=".$_SESSION['clientID']);
-$fetched_row=mysqli_fetch_array($result3);
 
-?>
 <!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from
@@ -211,14 +212,14 @@ desired effect
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!-- The user image in the navbar-->
-              <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+              <img src="<?php echo $fetched_row['clientProfile']?>" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
               <span class="hidden-xs"><?php echo $fetched_row['clientName']; ?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
               <li class="user-header">
-                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="<?php echo $fetched_row['clientProfile']?>" class="img-circle" alt="User Image">
 
                 <p>
                   <?php echo $fetched_row['clientName']; ?> - <?php echo $fetched_row['projectType']; ?>
@@ -233,7 +234,7 @@ desired effect
                   <a href="profile1.php" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="logout1.php" class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>
@@ -253,7 +254,7 @@ desired effect
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="<?php echo $fetched_row['clientProfile']?>" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p> <?php echo $fetched_row['clientName']; ?> </p>
@@ -321,8 +322,7 @@ desired effect
         -------------------------->
 
       
-        <?php echo $dyn_table; ?>
-
+      
     </section>
     <!-- /.content -->
   </div>
@@ -332,12 +332,11 @@ desired effect
   <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
-      Anything you want
+      Client Account
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2017 <a href="#">ProClient Sdn Bhd</a>.</strong> All rights reserved.
   </footer>
-
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Create the tabs -->

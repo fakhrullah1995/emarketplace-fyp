@@ -80,7 +80,7 @@ desired effect
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>A</b>LT</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Admin</b>LTE</span>
+      <span class="logo-lg"><b>Pro</b>Client</span>
     </a>
 
     <!-- Header Navbar -->
@@ -108,7 +108,7 @@ desired effect
                     <a href="#">
                       <div class="pull-left">
                         <!-- User Image -->
-                        <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                        <img src="<?php echo $fetched_row['clientProfile']?>" class="img-circle" alt="User Image">
                       </div>
                       <!-- Message title and timestamp -->
                       <h4>
@@ -193,50 +193,35 @@ desired effect
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!-- The user image in the navbar-->
-              <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+              <img src="<?php echo $fetched_row['clientProfile']?>" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">Alexander Pierce</span>
+              <span class="hidden-xs"><?php echo $fetched_row['clientName']; ?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
               <li class="user-header">
-                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="<?php echo $fetched_row['clientProfile']?>" class="img-circle" alt="User Image">
 
                 <p>
-                  Alexander Pierce - Web Developer
-                  <small>Member since Nov. 2012</small>
+                  <?php echo $fetched_row['clientName']; ?> - <?php echo $fetched_row['projectType']; ?>
+                  
                 </p>
               </li>
               <!-- Menu Body -->
-              <li class="user-body">
-                <div class="row">
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Followers</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Sales</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Friends</a>
-                  </div>
-                </div>
-                <!-- /.row -->
-              </li>
+              
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                  <a href="profile1.php" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="logout1.php" class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>
           </li>
           <!-- Control Sidebar Toggle Button -->
-          <li>
-            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-          </li>
+         
         </ul>
       </div>
     </nav>
@@ -250,10 +235,10 @@ desired effect
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="<?php echo $fetched_row['clientProfile']?>" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
+          <p> <?php echo $fetched_row['clientName']; ?> </p>
           <!-- Status -->
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
@@ -318,11 +303,11 @@ desired effect
   <div class="box-header with-border">
     <h3 class="box-title">Posting Form</h3>
   </div>
-  <form action="signup2.php"  method="post" enctype="multipart/form-data" class="form-horizontal">
+  <form action="randompost1db.php" method="post" enctype="multipart/form-data">
 
         <div class="form-group">
-          <label class="col-sm-2 control-label">Type of job</label>
-          <div class="col-sm-5">
+          <label class="col-md-12 col-sm-2 control-label">Type of job</label>
+          <div class="col-md-6 col-sm-5">
             <div class="input-group">
               <div class="input-group-addon">
                 <i class="fa fa-fw fa-black-tie"></i>
@@ -338,15 +323,15 @@ desired effect
         </div>
 
         <div class="form-group">
-          <label  class="col-sm-2 control-label">Job Offer Description</label>
-          <div class="col-sm-5">
+          <label  class="col-md-12 col-sm-2 control-label">Job Offer Description</label>
+          <div class="col-md-6 col-sm-5">
             <textarea class="form-control" id="jobdescription" name="jobdescription" rows="6" placeholder="Descript about your job you want to offer"></textarea>
           </div>
         </div>
 
   <div class="form-group">
-    <label class="col-sm-2 control-label" >Skills you need</label>
-    <div class="col-sm-5">
+    <label class="col-md-12 col-sm-2 control-label" >Skills you need</label>
+    <div class="col-md-6 col-sm-5">
       <div class="input-group">
         <div class="input-group-addon">
           <i class="fa fa-fw fa-wrench"></i>
@@ -364,8 +349,8 @@ desired effect
 
 
   <div class="form-group">
-    <label  class="col-sm-2 control-label">Duration </label>
-    <div class="col-sm-5">
+    <label  class="col-md-12 col-sm-2 control-label">Duration </label>
+    <div class="col-md-6 col-sm-5">
       <div class="input-group">
         <div class="input-group-addon">
           <i class="fa fa-clock-o"></i>
@@ -377,8 +362,8 @@ desired effect
 
 
     <div class="form-group">
-      <label  class="col-sm-2 control-label" >Type of Payment</label>
-      <div class="col-sm-3">
+      <label  class="col-md-12 col-sm-2 control-label">Type of Payment</label>
+      <div class="col-md-6 col-sm-5">
         <div class="input-group">
           <div class="input-group-addon">
             <i class="fa fa-fw fa-dollar"></i>
@@ -392,8 +377,8 @@ desired effect
       </div>
       </div>
   <div class="form-group">
-    <label class="col-sm-2 control-label" >Payment Rate</label>
-    <div class="col-sm-4">
+    <label class="col-md-12 col-sm-2 control-label">Payment Rate</label>
+    <div class="col-md-6 col-sm-5">
       <div class="input-group">
         <div class="input-group-addon">
           <i class="fa fa-fw fa-dollar"></i>
@@ -404,8 +389,8 @@ desired effect
   </div>
     
   <div class="form-group">
-              <label for="exampleInputFile" class="col-sm-2 control-label">Expected Outcome</label>
-              <div class="col-sm-3">
+              <label for="exampleInputFile" class="col-md-12 col-sm-2 control-label">Expected Outcome</label>
+              <div class="col-md-6 col-sm-5">
                 <input type="file" id="outcome1" name="outcome1">
                 <br>
                 <input type="file" id="outcome2" name="outcome2">
@@ -419,7 +404,7 @@ desired effect
    <div class="box-footer">
 
                <div class="col-md-12 col-xs-4">
-         <button id="submit" name="submit" class="btn btn-success" href="review1.php">Sign Up</button>
+         <button type="submit" name="submit" class="btn btn-success" href="review1.php">Post</button>
         </div>
           </div>
       </div>
@@ -434,12 +419,11 @@ desired effect
   <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
-      Anything you want
+      Client Account
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2017 <a href="#">ProClient Sdn Bhd</a>.</strong> All rights reserved.
   </footer>
-
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Create the tabs -->

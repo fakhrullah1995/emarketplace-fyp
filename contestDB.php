@@ -2,6 +2,15 @@
 <?php
 //call file connection
 include_once 'conn.php';
+
+if(isset($_POST["submit"])) {
+   
+    //Table contest
+    $projectType= $_POST['projectType'];
+    $contestDescription= $_POST['contestDescription'];
+    $contestDuration= $_POST['contestDuration'];
+    $contestPayment=$_POST['contestPayment'];
+
 //check for any value posted
 $target_dir = "uploads/";
 $target_file = $target_dir . basename($_FILES["contest1"]["name"]);
@@ -14,19 +23,12 @@ $imageFileType = strtolower(pathinfo($target_file2,PATHINFO_EXTENSION));
 $imageFileType = strtolower(pathinfo($target_file3,PATHINFO_EXTENSION));
 $imageFileType = strtolower(pathinfo($target_file4,PATHINFO_EXTENSION));
 // Check if image file is a actual image or fake image
-if(isset($_POST["submit"])) {
-   
-    //Table contest
-    $projectType= $_POST['projectType'];
-    $contestDescription= $_POST['contestDescription'];
-    $contestDuration= $_POST['contestDuration'];
-    $contestPayment=$_POST['contestPayment'];
-
 
     $check = getimagesize($_FILES["contest1"]["tmp_name"]);
     $check2 = getimagesize($_FILES["contest2"]["tmp_name"]);
     $check3 = getimagesize($_FILES["contest3"]["tmp_name"]);
      $check4 = getimagesize($_FILES["contest4"]["tmp_name"]);
+     
     if($check !== false&&$check2 !== false&&$check3 !== false&&$check4 !==false) {
         echo "File is an image - " . $check["mime"] . ".";
         echo "File is an image - " . $check2["mime"] . ".";

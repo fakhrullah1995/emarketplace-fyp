@@ -3,7 +3,9 @@ session_start();
 include_once 'conn.php';
 $clientID = $_SESSION['clientID'];
 $result3=mysqli_query($con,"SELECT * FROM client WHERE clientID=".$_SESSION['clientID']);
+$result2=mysqli_query($con, "SELECT * FROM clientartwork WHERE clientID=".$_SESSION['clientID']);
 $fetched_row=mysqli_fetch_array($result3);
+$fetched_row1=mysqli_fetch_array($result2);
 
 ?>
 <!DOCTYPE html>
@@ -182,50 +184,35 @@ desired effect
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!-- The user image in the navbar-->
-              <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+              <img src="<?php echo $fetched_row['clientProfile']?>" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">Fazira Suhaimi</span>
+              <span class="hidden-xs"><?php echo $fetched_row['clientName']; ?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
               <li class="user-header">
-                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="<?php echo $fetched_row['clientProfile']?>" class="img-circle" alt="User Image">
 
                 <p>
-                  <?php echo'clientName' ?> - Web Developer
-                  <small>Member since Nov. 2012</small>
+                  <?php echo $fetched_row['clientName']; ?> - <?php echo $fetched_row['projectType']; ?>
+                  
                 </p>
               </li>
               <!-- Menu Body -->
-              <li class="user-body">
-                <div class="row">
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Followers</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Sales</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Friends</a>
-                  </div>
-                </div>
-                <!-- /.row -->
-              </li>
+              
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                  <a href="profile1.php" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="logout1.php" class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>
           </li>
           <!-- Control Sidebar Toggle Button -->
-          <li>
-            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-          </li>
+         
         </ul>
       </div>
     </nav>
@@ -239,10 +226,10 @@ desired effect
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="<?php echo $fetched_row['clientProfile']?>" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Fazira Suhaimi</p>
+          <p> <?php echo $fetched_row['clientName']; ?> </p>
           <!-- Status -->
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
@@ -310,11 +297,11 @@ desired effect
           <!-- Profile Image -->
           <div class="box box-primary">
             <div class="box-body box-profile">
-              <img class="profile-user-img img-responsive img-circle" src="dist/img/user2-160x160.jpg" alt="User profile picture">
+              <img class="profile-user-img img-responsive img-circle" src="<?php echo $fetched_row['clientProfile']?>" alt="User profile picture">
 
-              <h3 class="profile-username text-center">Fazira Suhaimi</h3>
+              <h3 class="profile-username text-center"><?php echo $fetched_row['clientName']; ?></h3>
 
-              <p class="text-muted text-center">Software Engineer</p>
+              <p class="text-muted text-center"><?php echo $fetched_row['projectType']; ?></p>
 
               <ul class="list-group list-group-unbordered">
                 <li class="list-group-item">
@@ -344,32 +331,24 @@ desired effect
               <strong><i class="fa fa-book margin-r-5"></i> Education</strong>
 
               <p class="text-muted">
-                B.S. in Computer Science from the University of Tennessee at Knoxville
+               <?php echo $fetched_row['clientEdu']; ?>
               </p>
 
               <hr>
 
               <strong><i class="fa fa-map-marker margin-r-5"></i> Location</strong>
 
-              <p class="text-muted">Malibu, California</p>
+              <p class="text-muted"><?php echo $fetched_row['clientAddress']; ?></p>
 
               <hr>
 
               <strong><i class="fa fa-pencil margin-r-5"></i> Skills</strong>
 
               <p>
-                <span class="label label-danger">UI Design</span>
-                <span class="label label-success">Coding</span>
-                <span class="label label-info">Javascript</span>
-                <span class="label label-warning">PHP</span>
-                <span class="label label-primary">Node.js</span>
+               <?php echo $fetched_row['clientSkillType']; ?>
               </p>
 
               <hr>
-
-              <strong><i class="fa fa-file-text-o margin-r-5"></i> Notes</strong>
-
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
             </div>
             <!-- /.box-body -->
           </div>
@@ -563,28 +542,28 @@ desired effect
                     </ol>
                     <div class="carousel-inner">
                       <div class="item active">
-                        <img src="dist/img/corousel1.jpg" alt="First slide">
+                        <img src="<?php echo $fetched_row1['clientArtwork1']?>" alt="First slide">
                 
                         <div class="carousel-caption">
-                          First Slide
+                          <strong>First Slide</strong>
                         </div>
-                        <p>blablabalbalbalalevhckjbsxn jhwkbax ickbjsaxm hckdwjx</p>
+                        <p><strong><?php echo $fetched_row1['clientArtworkDescription1']?></strong></p>
                       </div>
                       <div class="item">
-                        <img src="dist/img/carousel2.png" alt="Second slide">
+                        <img src="<?php echo $fetched_row1['clientArtwork2']?>" alt="Second slide">
                 
                         <div class="carousel-caption">
-                          Second Slide
+                         <strong> Second Slide </strong>
                         </div>
-                        <p>blablabalbalbalalevhckjbsxn jhwkbax ickbjsaxm  hckdwjx</p>
+                        <p><strong><?php echo $fetched_row1['clientArtworkDescription3']?></strong></p>
                       </div>
                       <div class="item">
-                        <img src="dist/img/corousel3.jpg" alt="Third slide">
+                        <img src="<?php echo $fetched_row1['clientArtwork3']?>" alt="Third slide">
                 
                         <div class="carousel-caption">
-                          Third Slide
+                          <strong>Third Slide</strong>
                         </div>
-                        <p>blablabalbalbalalevhckjbsxn jhwkbax ickbjsaxm hckdwjx</p>
+                       <p><strong><?php echo $fetched_row1['clientArtworkDescription3']?></strong></p>
                       </div>
                     </div>
                     <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
@@ -617,10 +596,10 @@ desired effect
   <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
-      Anything you want
+      Client Account
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2017 <a href="#">ProClient Sdn Bhd</a>.</strong> All rights reserved.
   </footer>
 
   <!-- Control Sidebar -->
