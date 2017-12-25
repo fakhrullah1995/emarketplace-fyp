@@ -285,66 +285,27 @@ desired effect
         <!-- /.search form -->
 
         <!-- Sidebar Menu -->
-        <ul class="sidebar-menu" data-widget="tree">
-          <li class="header">MENU</li>
-          <!-- Optionally, you can add icons to the links -->
-          <li>
-            <a href="dashboard1.php">
-              <i class="fa fa-link"></i>
-              <span>Dashboard</span>
-            </a>
-          </li>
-          <li>
-            <a href="home1.php">
-              <i class="fa fa-link"></i>
-              <span>Home</span>
-            </a>
-          </li>
-          <li>
-            <a href="schedule1.php">
-              <i class="fa fa-link"></i>
-              <span>Schedule</span>
-            </a>
-          </li>
-          <li>
-            <a href="acceptreject1.php">
-              <i class="fa fa-link"></i>
-              <span>Accept/Reject</span>
-            </a>
-          </li>
-          <li>
-            <a href="payment1.php">
-              <i class="fa fa-link"></i>
-              <span>Payment</span>
-            </a>
-          </li>
-          <li>
-            <a href="profile1.php">
-              <i class="fa fa-link"></i>
-              <span>Profile</span>
-            </a>
-          </li>
-          <li class="treeview">
-            <a href="offerjob1.php">
-              <i class="fa fa-link"></i>
-              <span>Offer Job</span>
-              <span class="pull-right-container">
+           <ul class="sidebar-menu" data-widget="tree">
+        <li class="header">MENU</li>
+        <li ><a href="dashboard1.php"><i class="fa fa-fw fa-bar-chart"></i> <span>Dashboard</span></a></li>
+        <li><a href="home1.php"><i class="fa fa-fw fa-home"></i> <span>Home</span></a></li>
+        <li><a href="schedule1.php"><i class="fa fa-fw fa-calendar-check-o"></i> <span>Schedule</span></a></li>
+        <li><a href="acceptreject1.php"><i class="fa fa-fw fa-retweet"></i> <span>Accept/Reject</span></a></li>
+        <li><a href="payment1.php"><i class="fa fa-fw fa-money"></i> <span>Payment</span></a></li>
+        <li><a href="profile1.php"><i class="fa fa-fw fa-user"></i> <span>Profile</span></a></li>
+        <li class="treeview">
+          <a href="offerjob1.php"><i class="fa fa-fw fa-briefcase"></i>  <span>Offer Job</span>
+            <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
-            </a>
-            <ul class="treeview-menu">
-              <li>
-                <a href="randompost1.php">Random Post</a>
-              </li>
-              <li>
-                <a href="hire1.php">Hire Freelancer</a>
-              </li>
-              <li class="active">
-                <a href="contest1.php">Open Contest</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
+          </a>
+          <ul class="treeview-menu">
+            <li ><a href="randompost1.php">Random Post</a></li>
+            <li><a href="hire1.php">Hire Freelancer</a></li>
+            <li class="active"> <a href="contest1.php">Open Contest</a> </li>
+          </ul>
+        </li>
+      </ul>
         <!-- /.sidebar-menu -->
       </section>
       <!-- /.sidebar -->

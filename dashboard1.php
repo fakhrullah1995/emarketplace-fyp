@@ -69,7 +69,7 @@ desired effect
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>A</b>LT</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Admin</b>LTE</span>
+      <span class="logo-lg"><b>Pro</b>Client</span>
     </a>
 
     <!-- Header Navbar -->
@@ -193,39 +193,24 @@ desired effect
 
                 <p>
                   <?php echo $fetched_row['clientName']; ?> - <?php echo $fetched_row['projectType']; ?>
-                  <small>Member since Nov. 2012</small>
+                  
                 </p>
               </li>
               <!-- Menu Body -->
-              <li class="user-body">
-                <div class="row">
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Followers</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Sales</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Friends</a>
-                  </div>
-                </div>
-                <!-- /.row -->
-              </li>
+              
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                  <a href="profile1.php" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="logout1.php" class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>
           </li>
           <!-- Control Sidebar Toggle Button -->
-          <li>
-            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-          </li>
+         
         </ul>
       </div>
     </nav>
@@ -242,7 +227,7 @@ desired effect
           <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
+          <p> <?php echo $fetched_row['clientName']; ?> </p>
           <!-- Status -->
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
@@ -264,14 +249,14 @@ desired effect
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MENU</li>
         <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="dashboard1.php"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
-        <li><a href="home1.php"><i class="fa fa-link"></i> <span>Home</span></a></li>
-        <li><a href="schedule1.php"><i class="fa fa-link"></i> <span>Schedule</span></a></li>
-        <li><a href="acceptreject1.php"><i class="fa fa-link"></i> <span>Accept/Reject</span></a></li>
-        <li><a href="payment1.php"><i class="fa fa-link"></i> <span>Payment</span></a></li>
-        <li><a href="profile1.php"><i class="fa fa-link"></i> <span>Profile</span></a></li>
+        <li class="active"><a href="dashboard1.php"><i class="fa fa-fw fa-bar-chart"></i> <span>Dashboard</span></a></li>
+        <li><a href="home1.php"><i class="fa fa-fw fa-home"></i> <span>Home</span></a></li>
+        <li><a href="schedule1.php"><i class="fa fa-fw fa-calendar-check-o"></i> <span>Schedule</span></a></li>
+        <li><a href="acceptreject1.php"><i class="fa fa-fw fa-retweet"></i> <span>Accept/Reject</span></a></li>
+        <li><a href="payment1.php"><i class="fa fa-fw fa-money"></i> <span>Payment</span></a></li>
+        <li><a href="profile1.php"><i class="fa fa-fw fa-user"></i> <span>Profile</span></a></li>
         <li class="treeview">
-          <a href="offerjob1.php"><i class="fa fa-link"></i> <span>Offer Job</span>
+          <a href="offerjob1.php"><i class="fa fa-fw fa-briefcase"></i> <span>Offer Job</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
@@ -296,10 +281,7 @@ desired effect
         Dashboard
         <small>Monitor your work here</small>
       </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-        <li class="active">Here</li>
-      </ol>
+      
     </section>
 
     <!-- Main content -->

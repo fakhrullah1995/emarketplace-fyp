@@ -58,7 +58,7 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------| -->
 
-<body class="hold-transition skin-green sidebar-mini">
+<body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
   <!-- Main Header -->
@@ -69,7 +69,7 @@ desired effect
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>A</b>LT</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Admin</b>LTE</span>
+      <span class="logo-lg"><b>Pro</b>Client</span>
     </a>
 
     <!-- Header Navbar -->
@@ -97,7 +97,7 @@ desired effect
                     <a href="#">
                       <div class="pull-left">
                         <!-- User Image -->
-                        <img src="testingconnect.php? clientId=24" class="img-circle" alt="User Image">
+                        <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                       </div>
                       <!-- Message title and timestamp -->
                       <h4>
@@ -239,7 +239,7 @@ desired effect
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="dist/img/user2-160x160.jpgg" class="img-circle" alt="User Image">
+          <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>Fazira Suhaimi</p>
@@ -264,14 +264,14 @@ desired effect
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MENU</li>
         <!-- Optionally, you can add icons to the links -->
-        <li><a href="dashboard1.php"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
-        <li><a href="home1.php"><i class="fa fa-link"></i> <span>Home</span></a></li>
-        <li><a href="schedule1.php"><i class="fa fa-link"></i> <span>Schedule</span></a></li>
-        <li><a href="acceptreject1.php"><i class="fa fa-link"></i> <span>Accept/Reject</span></a></li>
-        <li><a href="payment1.php"><i class="fa fa-link"></i> <span>Payment</span></a></li>
-        <li class="active"><a href="profile1.php"><i class="fa fa-link"></i> <span>Profile</span></a></li>
+       <li ><a href="dashboard1.php"><i class="fa fa-fw fa-bar-chart"></i> <span>Dashboard</span></a></li>
+        <li><a href="home1.php"><i class="fa fa-fw fa-home"></i> <span>Home</span></a></li>
+        <li><a href="schedule1.php"><i class="fa fa-fw fa-calendar-check-o"></i> <span>Schedule</span></a></li>
+        <li><a href="acceptreject1.php"><i class="fa fa-fw fa-retweet"></i> <span>Accept/Reject</span></a></li>
+        <li><a href="payment1.php"><i class="fa fa-fw fa-money"></i> <span>Payment</span></a></li>
+        <li class="active"><a href="profile1.php"><i class="fa fa-fw fa-user"></i> <span>Profile</span></a></li>
         <li class="treeview">
-          <a href="offerjob1.php"><i class="fa fa-link"></i> <span>Offer Job</span>
+          <a href="offerjob1.php"><i class="fa fa-fw fa-briefcase"></i>  <span>Offer Job</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
