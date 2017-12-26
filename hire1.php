@@ -1,9 +1,9 @@
-<?php
+ <?php
 session_start();
 include_once 'conn.php';
 $clientID = $_SESSION['clientID'];
-$result3=mysqli_query($con,"SELECT * FROM client WHERE clientID=".$_SESSION['clientID']);
-$fetched_row=mysqli_fetch_array($result3);
+$result3 = mysqli_query($con, "SELECT * FROM client WHERE clientID=" . $_SESSION['clientID']);
+$fetched_row = mysqli_fetch_array($result3);
 
 ?>
 <!DOCTYPE html>
@@ -182,14 +182,14 @@ desired effect
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!-- The user image in the navbar-->
-              <img src="<?php echo $fetched_row['clientProfile']?>" class="user-image" alt="User Image">
+              <img src="<?php echo $fetched_row['clientProfile'] ?>" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
               <span class="hidden-xs"><?php echo $fetched_row['clientName']; ?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
               <li class="user-header">
-                <img src="<?php echo $fetched_row['clientProfile']?>" class="img-circle" alt="User Image">
+                <img src="<?php echo $fetched_row['clientProfile'] ?>" class="img-circle" alt="User Image">
 
                 <p>
                   <?php echo $fetched_row['clientName']; ?> - <?php echo $fetched_row['projectType']; ?>
@@ -224,7 +224,7 @@ desired effect
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="<?php echo $fetched_row['clientProfile']?>" class="img-circle" alt="User Image">
+          <img src="<?php echo $fetched_row['clientProfile'] ?>" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p> <?php echo $fetched_row['clientName']; ?> </p>
@@ -288,35 +288,53 @@ desired effect
 
     <!-- Main content -->
     <section class="content container-fluid">
-
-
       <h2 class="page-header">Freelancer List</h2>
+<!-- sini la bodo start -->
+<?php
+$freelancerResult = mysqli_query($con, "SELECT * FROM freelancer");
+// $row = mysqli_fetch_row($freelancerResult);
+// var_dump($row);
+while($row = mysqli_fetch_assoc($freelancerResult)){
+  ?>
 
-      <div class="row">
+      
         <div class="col-md-3">
-          <!-- Widget: user widget style 1 -->
-          <div class="box box-widget widget-user-2">
-            <!-- Add the bg color to the header using any of the bg-* classes -->
-            <div class="widget-user-header bg-blue">
-              <div class="widget-user-image">
-                <img class="img-circle" src="<?php echo $fetched_row['clientProfile']?>" alt="User Avatar">
-              </div>
-              <!-- /.widget-user-image -->
-              <h3 class="widget-user-username"><?php echo $fetched_row['clientName']?></h3>
-              <h5 class="widget-user-desc"><?php echo $fetched_row['projectType']?></h5>
-            </div>
-            <div class="box-footer no-padding">
-              <ul class="nav nav-stacked">
-                <li><a href="#">Projects <span class="pull-right badge bg-blue">31</span></a></li>
-                <li><a href="#">Tasks <span class="pull-right badge bg-aqua">5</span></a></li>
-                <li><a href="#">Completed Projects <span class="pull-right badge bg-green">12</span></a></li>
-                <li><a href="#">Followers <span class="pull-right badge bg-red">842</span></a></li>
+
+          <!-- Profile Image -->
+          <div class="box box-primary">
+            <div class="box-body box-profile">
+              <img class="profile-user-img img-responsive img-circle" src="<?php echo $row['freeProfile'] ?>" alt="User profile picture">
+
+              <h3 class="profile-username text-center"><?php echo $row['freeName'] ?></h3>
+
+              <p class="text-muted text-center"><strong><?php echo $row['freeExp'] ?></strong></p>
+
+              <ul class="list-group list-group-unbordered">
+                <li class="list-group-item">
+                  <b>Interest</b> <a class="pull-right"><?php echo $row['freeInterest'] ?></a>
+                </li>
+                <li class="list-group-item">
+                  <b>Skill</b> <a class="pull-right"><?php echo $row['freeSkillType'] ?></a>
+                </li>
+                <li class="list-group-item">
+                  <b>Type Of Payment</b> <a class="pull-right"><?php echo $row['freePaymentType'] ?></a>
+                </li>
               </ul>
+
+              <a href="#" class="btn btn-primary btn-block"><b>BookMark</b></a>
+              <a href="freeProfile.php" class="btn btn-primary btn-block"><b>Review</b></a>
             </div>
+            <!-- /.box-body -->
+          </div></div>
+    <?php
+    }
+?>
+<!-- sini la bodo end -->
+      <div class="row">
           </div>
     </section>
     <!-- /.content -->
-  </div>
+    </div>
   <!-- /.content-wrapper -->
 
   <!-- Main Footer -->
@@ -405,7 +423,6 @@ desired effect
   <!-- Add the sidebar's background. This div must be placed
   immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
-</div>
 <!-- ./wrapper -->
 
 <!-- REQUIRED JS SCRIPTS -->

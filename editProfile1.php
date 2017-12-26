@@ -3,41 +3,12 @@ session_start();
 include_once 'conn.php';
 $clientID = $_SESSION['clientID'];
 $result3=mysqli_query($con,"SELECT * FROM client WHERE clientID=".$_SESSION['clientID']);
+$result2=mysqli_query($con, "SELECT * FROM clientartwork WHERE clientID=".$_SESSION['clientID']);
 $fetched_row=mysqli_fetch_array($result3);
+$fetched_row1=mysqli_fetch_array($result2);
 
 ?>
-<!-- <?php
-include_once 'conn.php';
-
-// $sql=mysql_query("SELECT freeId, freeEmail, freeName, freePhoneNumber, freePaymentType, freeInterest, freeSkillType FROM freelancer" );
-$sql=mysql_query("SELECT freeId, freeName FROM freelancer" );
-$i=0;
-$dyn_table='<table border="1" cellpadding="10>';
-
-while($row=mysql_fetch_array($sql)){
-
-  $freeId=$row["freeId"];
-  $freeName=$row["freeName"];
-
-if($i%3==0){
-  $dyn_table .='<tr><td>'.$freeName.'</td>';
-
-}else{
-  $dyn_table .='<td>'.$freeName.'</td>';
-
-}
-
-  $i++;
-}
-$dyn_table .='</tr></table>';
-?> -->
-
-
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
 <html>
 <head>
   <meta charset="utf-8">
@@ -56,6 +27,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect. -->
   <link rel="stylesheet" href="dist/css/skins/skin-blue.min.css">
+  <link rel="stylesheet" href="dist/css/skins/skin-green.min.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -68,25 +40,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<!-- 
-BODY TAG OPTIONS:
-=================
-Apply one or more of the following classes to get the
-desired effect
-|---------------------------------------------------------|
-| SKINS         | skin-blue                               |
-|               | skin-black                              |
-|               | skin-purple                             |
-|               | skin-yellow                             |
-|               | skin-red                                |
-|               | skin-green                              |
-|---------------------------------------------------------|
-|LAYOUT OPTIONS | fixed                                   |
-|               | layout-boxed                            |
-|               | layout-top-nav                          |
-|               | sidebar-collapse                        |
-|               | sidebar-mini                            |
-|---------------------------------------------------------| -->
+
 
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -279,12 +233,12 @@ desired effect
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MENU</li>
         <!-- Optionally, you can add icons to the links -->
-         <li ><a href="dashboard1.php"><i class="fa fa-fw fa-bar-chart"></i> <span>Dashboard</span></a></li>
-        <li class="active"><a href="home1.php"><i class="fa fa-fw fa-home"></i> <span>Home</span></a></li>
+       <li ><a href="dashboard1.php"><i class="fa fa-fw fa-bar-chart"></i> <span>Dashboard</span></a></li>
+        <li><a href="home1.php"><i class="fa fa-fw fa-home"></i> <span>Home</span></a></li>
         <li><a href="schedule1.php"><i class="fa fa-fw fa-calendar-check-o"></i> <span>Schedule</span></a></li>
         <li><a href="acceptreject1.php"><i class="fa fa-fw fa-retweet"></i> <span>Accept/Reject</span></a></li>
         <li><a href="payment1.php"><i class="fa fa-fw fa-money"></i> <span>Payment</span></a></li>
-        <li><a href="profile1.php"><i class="fa fa-fw fa-user"></i> <span>Profile</span></a></li>
+        <li class="active"><a href="profile1.php"><i class="fa fa-fw fa-user"></i> <span>Profile</span></a></li>
         <li class="treeview">
           <a href="offerjob1.php"><i class="fa fa-fw fa-briefcase"></i>  <span>Offer Job</span>
             <span class="pull-right-container">
@@ -308,64 +262,25 @@ desired effect
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        HomePage
-        <small>Find your freelancer</small>
+        Profile
+        <small>This page may be view by other user</small>
       </h1>
-    
+     
     </section>
 
+ 
+
     <!-- Main content -->
-    <section class="content container-fluid">
+    <section class="content">
 
-      <!--------------------------
-        | Your Page Content Here |
-        -------------------------->
-<?php
-$freelancerResult = mysqli_query($con, "SELECT * FROM freelancer");
-// $row = mysqli_fetch_row($freelancerResult);
-// var_dump($row);
-while ($row = mysqli_fetch_assoc($freelancerResult)) {
-  ?>
+    
 
-      
-        <div class="col-md-3">
-
-          <!-- Profile Image -->
-          <div class="box box-primary">
-            <div class="box-body box-profile">
-              <img class="profile-user-img img-responsive img-circle" src="<?php echo $row['freeProfile'] ?>" alt="User profile picture">
-
-              <h3 class="profile-username text-center"><?php echo $row['freeName'] ?></h3>
-
-              <p class="text-muted text-center"><strong><?php echo $row['freeExp'] ?></strong></p>
-
-              <ul class="list-group list-group-unbordered">
-                <li class="list-group-item">
-                  <b>Interest</b> <a class="pull-right"><?php echo $row['freeInterest'] ?></a>
-                </li>
-                <li class="list-group-item">
-                  <b>Skill</b> <a class="pull-right"><?php echo $row['freeSkillType'] ?></a>
-                </li>
-                <li class="list-group-item">
-                  <b>Type Of Payment</b> <a class="pull-right"><?php echo $row['freePaymentType'] ?></a>
-                </li>
-              </ul>
-
-              <a href="#" class="btn btn-primary btn-block"><b>BookMark</b></a>
-              <a href="freeProfile.php" class="btn btn-primary btn-block"><b>Review</b></a>
-            </div>
-            <!-- /.box-body -->
-          </div></div>
-    <?php
-
-  }
-  ?>
-      
-      
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+
+  
 
   <!-- Main Footer -->
   <footer class="main-footer">
@@ -376,6 +291,7 @@ while ($row = mysqli_fetch_assoc($freelancerResult)) {
     <!-- Default to the left -->
     <strong>Copyright &copy; 2017 <a href="#">ProClient Sdn Bhd</a>.</strong> All rights reserved.
   </footer>
+
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Create the tabs -->
@@ -453,6 +369,7 @@ while ($row = mysqli_fetch_assoc($freelancerResult)) {
   immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
 </div>
+</div>>
 <!-- ./wrapper -->
 
 <!-- REQUIRED JS SCRIPTS -->
@@ -461,8 +378,12 @@ while ($row = mysqli_fetch_assoc($freelancerResult)) {
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="../../bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../../dist/js/demo.js"></script>
 
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the

@@ -76,7 +76,7 @@
         <!-- form start -->
         <form action="signup.php" method="post" enctype="multipart/form-data">
             <div class="form-group">
-              <label for="inputEmail3" class="col-md-12 col-sm-2  control-label">Phone Number:</label>
+              <label  class="col-md-12 col-sm-2  control-label">Phone Number:</label>
             <div class="col-md-6 col-sm-3">
               <div class="input-group">
                 <div class="input-group-addon">
@@ -97,11 +97,11 @@
                   <i class="fa fa-fw fa-dollar"></i>
                   </div>
               <select class="form-control" id="ClientIncome" name="ClientIncome">
-                <option value="noIncome">No income</option>
-                <option value="below1000">Below RM1,000</option>
-                <option value="below2000"> RM1,000 - RM2,000 </option>
-                <option value="below3000">RM2,000 - RM3,000</option>
-                <option value="above3000">Above RM3,000</option>
+                <option value="No Income">No income</option>
+                <option value="Below RM1000">Below RM1,000</option>
+                <option value="Below RM2000"> RM1,000 - RM2,000 </option>
+                <option value="Below RM3000">RM2,000 - RM3,000</option>
+                <option value="Above RM3000">Above RM3,000</option>
               </select>
             </div>
           </div>
@@ -116,19 +116,19 @@
                 </div>
             <select class="form-control select2" style="width: 100%;" id="ClientState" name="ClientState">
               <option selected="selected">Choose your current location</option>
-              <option value="johor">Johor</option>
-              <option value="melaka">Melaka</option>
-              <option value="negeri9">Negeri Sembilan</option>
-              <option value="selangor">Selangor</option>
-              <option value="perak">Perak</option>
-              <option value="pahang">Pahang</option>
-              <option value="kedah">Kedah</option>
-              <option value="pulauPinang">Pulau Pinang</option>
-              <option value="kedah">Kedah</option>
-              <option value="perlis">Perlis</option>
-              <option value="kelantan">Kelantan</option>
-              <option value="sabah">Sabah</option>
-              <option value="serawak">Serawak</option>
+              <option value="Johor">Johor</option>
+              <option value="Melaka">Melaka</option>
+              <option value="Negeri9">Negeri Sembilan</option>
+              <option value="Selangor">Selangor</option>
+              <option value="Perak">Perak</option>
+              <option value="Pahang">Pahang</option>
+              <option value="Kedah">Kedah</option>
+              <option value="Pulau Pinang">Pulau Pinang</option>
+              <option value="Kedah">Kedah</option>
+              <option value="Perlis">Perlis</option>
+              <option value="Kelantan">Kelantan</option>
+              <option value="Sabah">Sabah</option>
+              <option value="Serawak">Serawak</option>
             </select>
           </div>
             </div>
@@ -161,39 +161,39 @@
                     </div>
                   <select class="form-control select2" style="width: 100%;" id="clientEx" name="clientEx">
                     <option selected="selected">Choose your Experience level</option>
-                    <option value="beginner">Beginner</option>
-                    <option value="intermediate">Intermediate</option>
-                    <option value="expert">Expert</option>
+                    <option value="Beginner">Beginner</option>
+                    <option value="Intermediate">Intermediate</option>
+                    <option value="Expert">Expert</option>
                   </select>
                 </div>
                 </div>
               </div>
 
               <div class="form-group">
-                <label for="inputEmail3" class="col-md-12 col-sm-2 control-label">Payment type</label>
+                <label class="col-md-12 col-sm-2 control-label">Payment type</label>
                 <div class="col-md-6 col-sm-3">
                   <div class="input-group">
                     <div class="input-group-addon">
                       <i class="fa fa-fw fa-bank"></i>
                     </div>
                   <select class="form-control select2" multiple="multiple" data-placeholder="Select type of payment you would accept" style="width: 100%;" id="paymentType" name="clientPaymentType[]">
-                    <option value="payperhour">Payment Per Hour</option>
-                    <option value="payperjob">Payment Per Job</option>
+                    <option value="Payment Per Hour">Payment Per Hour</option>
+                    <option value="Payment Per Job">Payment Per Job</option>
                   </select>
                 </div>
                 </div>
               </div>
               <div class="form-group">
-                <label for="inputEmail3" class="col-md-12 col-sm-2 control-label">Project you interested</label>
+                <label class="col-md-12 col-sm-2 control-label">Project you interested</label>
                 <div class="col-md-6 col-sm-3">
                         <div class="input-group">
                           <div class="input-group-addon">
                             <i class="fa fa-fw fa-trophy"></i>
                           </div>
                   <select class="form-control select2" multiple="multiple" data-placeholder="Select type of project you interested" style="width: 100%;" id="projectType" name="projectType[]">
-                    <option value="designer">Designer</option>
-                    <option value="webApps">Web Application Development</option>
-                    <option value="mobileApps">Mobile Application Development</option>
+                    <option value="Designer">Designer</option>
+                    <option value="Web Application">Web Application Development</option>
+                    <option value="Mobilr Application">Mobile Application Development</option>
                   </select>
                 </div>
               </div>

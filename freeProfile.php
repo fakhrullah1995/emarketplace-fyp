@@ -1,43 +1,19 @@
 <?php
 session_start();
 include_once 'conn.php';
+
 $clientID = $_SESSION['clientID'];
+
 $result3=mysqli_query($con,"SELECT * FROM client WHERE clientID=".$_SESSION['clientID']);
+$result2=mysqli_query($con, "SELECT * FROM clientartwork WHERE clientID=".$_SESSION['clientID']);
+$result1 = mysqli_query($con, "SELECT * FROM freelancer");
+
 $fetched_row=mysqli_fetch_array($result3);
+$fetched_row1=mysqli_fetch_array($result2);
+$fetched_row2 = mysqli_fetch_array($result1);
 
 ?>
-<!-- <?php
-include_once 'conn.php';
-
-// $sql=mysql_query("SELECT freeId, freeEmail, freeName, freePhoneNumber, freePaymentType, freeInterest, freeSkillType FROM freelancer" );
-$sql=mysql_query("SELECT freeId, freeName FROM freelancer" );
-$i=0;
-$dyn_table='<table border="1" cellpadding="10>';
-
-while($row=mysql_fetch_array($sql)){
-
-  $freeId=$row["freeId"];
-  $freeName=$row["freeName"];
-
-if($i%3==0){
-  $dyn_table .='<tr><td>'.$freeName.'</td>';
-
-}else{
-  $dyn_table .='<td>'.$freeName.'</td>';
-
-}
-
-  $i++;
-}
-$dyn_table .='</tr></table>';
-?> -->
-
-
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
 <html>
 <head>
   <meta charset="utf-8">
@@ -56,6 +32,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect. -->
   <link rel="stylesheet" href="dist/css/skins/skin-blue.min.css">
+  <link rel="stylesheet" href="dist/css/skins/skin-green.min.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -279,12 +256,12 @@ desired effect
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MENU</li>
         <!-- Optionally, you can add icons to the links -->
-         <li ><a href="dashboard1.php"><i class="fa fa-fw fa-bar-chart"></i> <span>Dashboard</span></a></li>
-        <li class="active"><a href="home1.php"><i class="fa fa-fw fa-home"></i> <span>Home</span></a></li>
+       <li ><a href="dashboard1.php"><i class="fa fa-fw fa-bar-chart"></i> <span>Dashboard</span></a></li>
+        <li><a href="home1.php"><i class="fa fa-fw fa-home"></i> <span>Home</span></a></li>
         <li><a href="schedule1.php"><i class="fa fa-fw fa-calendar-check-o"></i> <span>Schedule</span></a></li>
         <li><a href="acceptreject1.php"><i class="fa fa-fw fa-retweet"></i> <span>Accept/Reject</span></a></li>
         <li><a href="payment1.php"><i class="fa fa-fw fa-money"></i> <span>Payment</span></a></li>
-        <li><a href="profile1.php"><i class="fa fa-fw fa-user"></i> <span>Profile</span></a></li>
+        <li class="active"><a href="profile1.php"><i class="fa fa-fw fa-user"></i> <span>Profile</span></a></li>
         <li class="treeview">
           <a href="offerjob1.php"><i class="fa fa-fw fa-briefcase"></i>  <span>Offer Job</span>
             <span class="pull-right-container">
@@ -308,64 +285,317 @@ desired effect
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        HomePage
-        <small>Find your freelancer</small>
+        Review 
+        <small>Freelancer's Profile</small>
       </h1>
-    
+     
     </section>
 
+ 
+
     <!-- Main content -->
-    <section class="content container-fluid">
+    <section class="content">
 
-      <!--------------------------
-        | Your Page Content Here |
-        -------------------------->
-<?php
-$freelancerResult = mysqli_query($con, "SELECT * FROM freelancer");
-// $row = mysqli_fetch_row($freelancerResult);
-// var_dump($row);
-while ($row = mysqli_fetch_assoc($freelancerResult)) {
-  ?>
-
-      
+      <div class="row">
         <div class="col-md-3">
 
           <!-- Profile Image -->
           <div class="box box-primary">
             <div class="box-body box-profile">
-              <img class="profile-user-img img-responsive img-circle" src="<?php echo $row['freeProfile'] ?>" alt="User profile picture">
+              <img class="profile-user-img img-responsive img-circle" src="<?php echo $fetched_row2['freeProfile']?>" alt="User profile picture">
 
-              <h3 class="profile-username text-center"><?php echo $row['freeName'] ?></h3>
+              <h3 class="profile-username text-center"><?php echo $fetched_row2['freeName']; ?></h3>
 
-              <p class="text-muted text-center"><strong><?php echo $row['freeExp'] ?></strong></p>
+              <p class="text-muted text-center"><?php echo $fetched_row2['freeInterest']; ?></p>
 
               <ul class="list-group list-group-unbordered">
                 <li class="list-group-item">
-                  <b>Interest</b> <a class="pull-right"><?php echo $row['freeInterest'] ?></a>
+                  <b>Followers</b> <a class="pull-right">1,322</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Skill</b> <a class="pull-right"><?php echo $row['freeSkillType'] ?></a>
+                  <b>Following</b> <a class="pull-right">543</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Type Of Payment</b> <a class="pull-right"><?php echo $row['freePaymentType'] ?></a>
+                  <b>Friends</b> <a class="pull-right">13,287</a>
                 </li>
               </ul>
 
-              <a href="#" class="btn btn-primary btn-block"><b>BookMark</b></a>
-              <a href="freeProfile.php" class="btn btn-primary btn-block"><b>Review</b></a>
+              <a href="editProfile1.php" class="btn btn-primary btn-block"><b>Edit Profile</b></a>
             </div>
             <!-- /.box-body -->
-          </div></div>
-    <?php
+          </div>
+          <!-- /.box -->
 
-  }
-  ?>
-      
-      
+          <!-- About Me Box -->
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">About Me</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <strong><i class="fa fa-book margin-r-5"></i> Education</strong>
+
+              <p class="text-muted">
+               <?php echo $fetched_row2['freeEdu']; ?>
+              </p>
+
+              <hr>
+
+              <strong><i class="fa fa-map-marker margin-r-5"></i> Location</strong>
+
+              <p class="text-muted"><?php echo $fetched_row2['freeAddress']; ?></p>
+
+              <hr>
+
+              <strong><i class="fa fa-pencil margin-r-5"></i> Skills</strong>
+
+              <p>
+               <?php echo $fetched_row2['freeSkillType']; ?>
+              </p>
+
+              <hr>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-9">
+          <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs">
+              <li class=""><a href="#ongoing" data-toggle="tab" aria-expanded="false">Ongoing</a></li>
+              <li class=""><a href="#review" data-toggle="tab" aria-expanded="false">Review</a></li>
+              <li class="active"><a href="#resume" data-toggle="tab" aria-expanded="true">Resume</a></li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane" id="ongoing">
+                <!-- Post -->
+                <!-- Post -->
+                <div class="post">
+                  <div class="user-block">
+                    <img class="img-circle img-bordered-sm" src="dist/img/laila.jpeg" alt="User Image">
+                    <span class="username">
+                      <a href="#">Laila</a>
+                      <a href="#" class="pull-right btn-box-tool">
+                        <i class="fa fa-times"></i>
+                      </a>
+                    </span>
+                    <span class="description">Posted 5 photos - 5 days ago</span>
+                  </div>
+                  <p>
+                   Please design me Batman poster.
+                   Display word "BATMAN" and batman character in middle.
+                  </p>
+                  <!-- /.user-block -->
+                  <div class="row margin-bottom">
+                    <div class="col-sm-6">
+                      <img class="img-responsive" src="dist/img/batman.jpg" alt="Photo">
+                    </div>
+                  </div>
+                </div>
+                <!-- /.post -->
+               
+               <!-- Post -->
+                  <div class="post">
+                    <div class="user-block">
+                      <img class="img-circle img-bordered-sm" src="dist/img/user6-128x128.jpg" alt="User Image">
+                          <span class="username">
+                            <a href="#">Adam Jones</a>
+                            <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
+                          </span>
+                      <span class="description">Posted 5 photos - 5 days ago</span>
+                    </div>
+                    <p>
+                      Lorem ipsum represents a long-held tradition for designers, typographers and the like. Some people hate it and argue for
+                      its demise, but others ignore the hate as they create awesome tools to help create filler text for everyone from bacon
+                      lovers to Charlie Sheen fans.
+                    </p>
+                    <!-- /.user-block -->
+                    <div class="row margin-bottom">
+                      <div class="col-sm-6">
+                        <img class="img-responsive" src="dist/img/captain.png" alt="Photo">
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /.post -->
+                  <!-- /.post -->
+
+                  <!-- Post -->
+                  <div class="post">
+                    <div class="user-block">
+                      <img class="img-circle img-bordered-sm" src="dist/img/hasbun.jpeg" alt="User Image">
+                          <span class="username">
+                            <a href="#">Hasbun</a>
+                            <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
+                          </span>
+                      <span class="description">Posted 5 photos - 5 days ago</span>
+                    </div>
+                    <p>
+                      Lorem ipsum represents a long-held tradition for designers, typographers and the like. Some people hate it and argue for
+                      its demise, but others ignore the hate as they create awesome tools to help create filler text for everyone from bacon
+                      lovers to Charlie Sheen fans.
+                    </p>
+                    <!-- /.user-block -->
+                    <div class="row margin-bottom">
+                      <div class="col-sm-6">
+                        <img class="img-responsive" src="dist/img/superman.jpg" alt="Photo">
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /.post -->
+                </div>
+                <!-- /.tab-pane -->
+                <div class="tab-pane" id="review">
+                  <!-- The timeline -->
+                  <ul class="timeline timeline-inverse">
+                    <!-- timeline time label -->
+                    <li class="time-label">
+                          <span class="bg-red">
+                            10 Feb. 2014
+                          </span>
+                    </li>
+                    <!-- /.timeline-label -->
+                    <!-- timeline item -->
+                  <li>
+                    <i class="fa fa-user bg-aqua"></i>
+                  
+                    <div class="timeline-item">
+                      <span class="time">
+                        <i class="fa fa-clock-o"></i> 5 mins ago</span>
+                  
+                      <h3 class="timeline-header no-border">
+                        <a href="#">Sarah Young</a> accepted your friend request
+                      </h3>
+                    </div>
+                  </li>
+                    <!-- END timeline item -->
+                    <!-- timeline item -->
+                    <li>
+                      <i class="fa fa-user bg-aqua"></i>
+
+                      <div class="timeline-item">
+                        <span class="time"><i class="fa fa-clock-o"></i> 5 mins ago</span>
+
+                        <h3 class="timeline-header no-border"><a href="#">Sarah Young</a> accepted your friend request
+                        </h3>
+                      </div>
+                    </li>
+                    <!-- END timeline item -->
+                    <!-- timeline item -->
+                    <li>
+                      <i class="fa fa-user bg-aqua"></i>
+                    
+                      <div class="timeline-item">
+                        <span class="time">
+                          <i class="fa fa-clock-o"></i> 5 mins ago</span>
+                    
+                        <h3 class="timeline-header no-border">
+                          <a href="#">Sarah Young</a> accepted your friend request
+                        </h3>
+                      </div>
+                    </li>
+                    <!-- END timeline item -->
+                    <!-- timeline time label -->
+                    <li class="time-label">
+                          <span class="bg-green">
+                            3 Jan. 2014
+                          </span>
+                    </li>
+                    <!-- /.timeline-label -->
+                    <!-- timeline item -->
+                  <li>
+                    <i class="fa fa-user bg-aqua"></i>
+                  
+                    <div class="timeline-item">
+                      <span class="time">
+                        <i class="fa fa-clock-o"></i> 5 mins ago</span>
+                  
+                      <h3 class="timeline-header no-border">
+                        <a href="#">Sarah Young</a> accepted your friend request
+                      </h3>
+                    </div>
+                  </li>
+                    <!-- END timeline item -->
+                      <!-- timeline item -->
+                      <li>
+                        <i class="fa fa-user bg-aqua"></i>
+                      
+                        <div class="timeline-item">
+                          <span class="time">
+                            <i class="fa fa-clock-o"></i> 5 mins ago</span>
+                      
+                          <h3 class="timeline-header no-border">
+                            <a href="#">Sarah Young</a> accepted your friend request
+                          </h3>
+                        </div>
+                      </li>
+                      <!-- END timeline item -->
+                    <li>
+                      <i class="fa fa-clock-o bg-gray"></i>
+                    </li>
+                  </ul>
+                </div>
+                <!-- /.tab-pane -->
+
+                <div class="tab-pane active" id="resume">
+                <div class="box-body">
+                  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                      <li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
+                      <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
+                    </ol>
+                    <div class="carousel-inner">
+                      <div class="item active">
+                        <img src="<?php echo $fetched_row2['freeArtwork1']?>" alt="First slide">
+                
+                        <div class="carousel-caption">
+                          <strong>First Slide</strong>
+                        </div>
+                        <p><strong><?php echo $fetched_row2['freeArtworkDescription1']?></strong></p>
+                      </div>
+                      <div class="item">
+                        <img src="<?php echo $fetched_row2['freeArtwork2']?>" alt="Second slide">
+                
+                        <div class="carousel-caption">
+                         <strong> Second Slide </strong>
+                        </div>
+                        <p><strong><?php echo $fetched_row2['freeArtworkDescription3']?></strong></p>
+                      </div>
+                      <div class="item">
+                        <img src="<?php echo $fetched_row2['freeArtwork3']?>" alt="Third slide">
+                
+                        <div class="carousel-caption">
+                          <strong>Third Slide</strong>
+                        </div>
+                       <p><strong><?php echo $fetched_row3['freeArtworkDescription3']?></strong></p>
+                      </div>
+                    </div>
+                    <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                      <span class="fa fa-angle-left"></span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                      <span class="fa fa-angle-right"></span>
+                    </a>
+                  </div>
+                </div>
+                </div>
+                <!-- /.tab-pane -->
+              </div>
+              <!-- /.tab-content -->
+            </div>
+            <!-- /.nav-tabs-custom -->
+          </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+
+  
 
   <!-- Main Footer -->
   <footer class="main-footer">
@@ -376,6 +606,7 @@ while ($row = mysqli_fetch_assoc($freelancerResult)) {
     <!-- Default to the left -->
     <strong>Copyright &copy; 2017 <a href="#">ProClient Sdn Bhd</a>.</strong> All rights reserved.
   </footer>
+
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Create the tabs -->
@@ -453,6 +684,7 @@ while ($row = mysqli_fetch_assoc($freelancerResult)) {
   immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
 </div>
+</div>>
 <!-- ./wrapper -->
 
 <!-- REQUIRED JS SCRIPTS -->
@@ -461,8 +693,12 @@ while ($row = mysqli_fetch_assoc($freelancerResult)) {
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="../../bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../../dist/js/demo.js"></script>
 
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the

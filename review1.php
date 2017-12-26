@@ -1,3 +1,37 @@
+<?php
+session_start();
+include_once 'conn.php';
+$clientID = $_SESSION['clientID'];
+$result3=mysqli_query($con,"SELECT * FROM client WHERE clientID=".$_SESSION['clientID']);
+$fetched_row=mysqli_fetch_array($result3);
+
+?>
+<!-- <?php
+include_once 'conn.php';
+
+// $sql=mysql_query("SELECT freeId, freeEmail, freeName, freePhoneNumber, freePaymentType, freeInterest, freeSkillType FROM freelancer" );
+$sql=mysql_query("SELECT freeId, freeName FROM freelancer" );
+$i=0;
+$dyn_table='<table border="1" cellpadding="10>';
+
+while($row=mysql_fetch_array($sql)){
+
+  $freeId=$row["freeId"];
+  $freeName=$row["freeName"];
+
+if($i%3==0){
+  $dyn_table .='<tr><td>'.$freeName.'</td>';
+
+}else{
+  $dyn_table .='<td>'.$freeName.'</td>';
+
+}
+
+  $i++;
+}
+$dyn_table .='</tr></table>';
+?> -->
+
 
 <!DOCTYPE html>
 <!--
@@ -65,7 +99,7 @@ desired effect
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>A</b>LT</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Admin</b>LTE</span>
+      <span class="logo-lg"><b>Pro</b>Client</span>
     </a>
 
     <!-- Header Navbar -->
@@ -178,50 +212,35 @@ desired effect
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!-- The user image in the navbar-->
-              <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+              <img src="<?php echo $fetched_row['clientProfile']?>" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">Alexander Pierce</span>
+              <span class="hidden-xs"><?php echo $fetched_row['clientName']; ?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
               <li class="user-header">
-                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="<?php echo $fetched_row['clientProfile']?>" class="img-circle" alt="User Image">
 
                 <p>
-                  Alexander Pierce - Web Developer
-                  <small>Member since Nov. 2012</small>
+                  <?php echo $fetched_row['clientName']; ?> - <?php echo $fetched_row['projectType']; ?>
+                  
                 </p>
               </li>
               <!-- Menu Body -->
-              <li class="user-body">
-                <div class="row">
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Followers</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Sales</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Friends</a>
-                  </div>
-                </div>
-                <!-- /.row -->
-              </li>
+              
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                  <a href="profile1.php" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="logout1.php" class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>
           </li>
           <!-- Control Sidebar Toggle Button -->
-          <li>
-            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-          </li>
+         
         </ul>
       </div>
     </nav>
@@ -235,10 +254,10 @@ desired effect
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="<?php echo $fetched_row['clientProfile']?>" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
+          <p> <?php echo $fetched_row['clientName']; ?> </p>
           <!-- Status -->
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
@@ -260,14 +279,14 @@ desired effect
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MENU</li>
         <!-- Optionally, you can add icons to the links -->
-        <li><a href="dashboard1.php"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
-        <li class="active"><a href="home1.php"><i class="fa fa-link"></i> <span>Home</span></a></li>
-        <li><a href="schedule1.php"><i class="fa fa-link"></i> <span>Schedule</span></a></li>
-        <li><a href="acceptreject1.php"><i class="fa fa-link"></i> <span>Accept/Reject</span></a></li>
-        <li><a href="payment1.php"><i class="fa fa-link"></i> <span>Payment</span></a></li>
-        <li><a href="profile1.php"><i class="fa fa-link"></i> <span>Profile</span></a></li>
+         <li ><a href="dashboard1.php"><i class="fa fa-fw fa-bar-chart"></i> <span>Dashboard</span></a></li>
+        <li class="active"><a href="home1.php"><i class="fa fa-fw fa-home"></i> <span>Home</span></a></li>
+        <li><a href="schedule1.php"><i class="fa fa-fw fa-calendar-check-o"></i> <span>Schedule</span></a></li>
+        <li><a href="acceptreject1.php"><i class="fa fa-fw fa-retweet"></i> <span>Accept/Reject</span></a></li>
+        <li><a href="payment1.php"><i class="fa fa-fw fa-money"></i> <span>Payment</span></a></li>
+        <li><a href="profile1.php"><i class="fa fa-fw fa-user"></i> <span>Profile</span></a></li>
         <li class="treeview">
-          <a href="offerjob1.php"><i class="fa fa-link"></i> <span>Offer Job</span>
+          <a href="offerjob1.php"><i class="fa fa-fw fa-briefcase"></i>  <span>Offer Job</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
@@ -289,13 +308,10 @@ desired effect
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        HomePage
-        <small>Find your freelancer</small>
+        Review
+        <small>Your Job offer will dispay as this</small>
       </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-        <li class="active">Here</li>
-      </ol>
+    
     </section>
 
     <!-- Main content -->
@@ -304,8 +320,45 @@ desired effect
       <!--------------------------
         | Your Page Content Here |
         -------------------------->
-
-
+<div class="active tab-pane" id="activity">
+                  <!-- Post -->
+                  <div class="post">
+                    <div class="user-block">
+                      <img class="img-circle img-bordered-sm" src="<?php echo $fetched_row['clientProfile']?>" alt="User Image">
+                          <span class="username">
+                            <a href="#"><?php echo $fetched_row['clientName']?></a>
+                            <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
+                          </span>
+                      <span class="description">Posted 5 photos - 5 days ago</span>
+                    </div>
+                    <!-- /.user-block -->
+                    <div class="row margin-bottom">
+                   
+                     
+                      <!-- /.col -->
+                      <div class="col-sm-6">
+                        <div class="row">
+                          <div class="col-sm-5">
+                            <img class="img-responsive" src="dist/img/photo2.png" alt="Photo">
+                            <br>
+                            <img class="img-responsive" src="dist/img/photo3.jpg" alt="Photo">
+                          </div>
+                          <!-- /.col -->
+                          <div class="col-sm-5">
+                            <img class="img-responsive" src="dist/img/photo4.jpg" alt="Photo">
+                            <br>
+                            <img class="img-responsive" src="dist/img/photo1.png" alt="Photo">
+                          </div> </div>
+                          <!-- /.col -->
+                        </div>
+                        <!-- /.row -->
+                      </div>
+                      <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+   
+                  <!-- /.post -->
+      
     </section>
     <!-- /.content -->
   </div>
@@ -315,12 +368,11 @@ desired effect
   <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
-      Anything you want
+      Client Account
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2017 <a href="#">ProClient Sdn Bhd</a>.</strong> All rights reserved.
   </footer>
-
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Create the tabs -->
