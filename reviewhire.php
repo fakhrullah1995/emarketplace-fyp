@@ -2,16 +2,17 @@
 session_start();
 include_once 'conn.php';
 $clientID = $_SESSION['clientID'];
+
+$result1=mysqli_query($con,"SELECT *FROM hire ");
+$result2=mysqli_query($con, "SELECT * FROM clientartwork WHERE clientID=".$_SESSION['clientID']);
 $result3=mysqli_query($con,"SELECT * FROM client WHERE clientID=".$_SESSION['clientID']);
 
+$fetched_row2=mysqli_fetch_array($result1);
+$fetched_row1=mysqli_fetch_array($result2);
 $fetched_row=mysqli_fetch_array($result3);
 
 
 ?>
-
-
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,17 +21,28 @@ $fetched_row=mysqli_fetch_array($result3);
   <title>PROMatcher | client</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
-  <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
-        page. However, you can choose any other skin. Make sure you
-        apply the skin class to the body tag so the changes take effect. -->
-  <link rel="stylesheet" href="dist/css/skins/skin-blue.min.css">
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+<!-- Ionicons -->
+<link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
+<!-- daterange picker -->
+<link rel="stylesheet" href="bower_components/bootstrap-daterangepicker/daterangepicker.css">
+<!-- bootstrap datepicker -->
+<link rel="stylesheet" href="bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+<!-- iCheck for checkboxes and radio inputs -->
+<link rel="stylesheet" href="plugins/iCheck/all.css">
+<!-- Bootstrap Color Picker -->
+<link rel="stylesheet" href="bower_components/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css">
+<!-- Bootstrap time Picker -->
+<link rel="stylesheet" href="plugins/timepicker/bootstrap-timepicker.min.css">
+<!-- Select2 -->
+<link rel="stylesheet" href="bower_components/select2/dist/css/select2.min.css">
+<!-- Theme style -->
+<link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+<!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+<link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -43,25 +55,8 @@ $fetched_row=mysqli_fetch_array($result3);
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<!-- 
-BODY TAG OPTIONS:
-=================
-Apply one or more of the following classes to get the
-desired effect
-|---------------------------------------------------------|
-| SKINS         | skin-blue                               |
-|               | skin-black                              |
-|               | skin-purple                             |
-|               | skin-yellow                             |
-|               | skin-red                                |
-|               | skin-green                              |
-|---------------------------------------------------------|
-|LAYOUT OPTIONS | fixed                                   |
-|               | layout-boxed                            |
-|               | layout-top-nav                          |
-|               | sidebar-collapse                        |
-|               | sidebar-mini                            |
-|---------------------------------------------------------| -->
+
+
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
@@ -71,7 +66,7 @@ desired effect
     <!-- Logo -->
     <a href="#" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>LT</span>
+      <span class="logo-mini"><b>P</b>Client</span>
       <!-- logo for regular state and mobile devices -->
       <span class="logo-lg"><b>Pro</b>Client</span>
     </a>
@@ -253,12 +248,12 @@ desired effect
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MENU</li>
         <!-- Optionally, you can add icons to the links -->
-        <li ><a href="dashboard1.php"><i class="fa fa-fw fa-bar-chart"></i> <span>Dashboard</span></a></li>
-        <li><a href="home1.php"><i class="fa fa-fw fa-home"></i> <span>Home</span></a></li>
+       <li ><a href="dashboard1.php"><i class="fa fa-fw fa-bar-chart"></i> <span>Dashboard</span></a></li>
+        <li class="active"><a href="home1.php"><i class="fa fa-fw fa-home"></i> <span>Home</span></a></li>
         <li><a href="schedule1.php"><i class="fa fa-fw fa-calendar-check-o"></i> <span>Schedule</span></a></li>
-        <li class="active"><a href="acceptreject1.php"><i class="fa fa-fw fa-retweet"></i> <span>Accept/Reject</span></a></li>
+        <li><a href="acceptreject1.php"><i class="fa fa-fw fa-retweet"></i> <span>Accept/Reject</span></a></li>
         <li><a href="payment1.php"><i class="fa fa-fw fa-money"></i> <span>Payment</span></a></li>
-        <li><a href="profile1.php"><i class="fa fa-fw fa-user"></i> <span>Profile</span></a></li>
+        <li ><a href="profile1.php"><i class="fa fa-fw fa-user"></i> <span>Profile</span></a></li>
         <li class="treeview">
           <a href="offerjob1.php"><i class="fa fa-fw fa-briefcase"></i>  <span>Offer Job</span>
             <span class="pull-right-container">
@@ -267,7 +262,7 @@ desired effect
           </a>
           <ul class="treeview-menu">
             <li><a href="randompost1.php">Random Post</a></li>
-            <li><a href="hire1.php">Hire Freelancer</a></li>
+            <li ><a href="hire1.php">Hire Freelancer</a></li>
             <li> <a href="contest1.php">Open Contest</a> </li>
           </ul>
         </li>
@@ -282,74 +277,116 @@ desired effect
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Accept/Reject 
-        <small>Check your project here</small>
+        Hire Freelancer
+        <small>This hiring offer will display as this</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-        <li class="active">Here</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> Hiring Review</a></li>
+       
       </ol>
     </section>
 
     <!-- Main content -->
     <section class="content container-fluid">
-
-      <!--------------------------
-        | Your Page Content Here |
-        -------------------------->
-
-
-
-              <div class="row">
-                <div class="col-xs-12">
-                  <div class="box">
-                    <div class="box-header">
-                      <h3 class="box-title">Freelancer under your project</h3>
+<div class="box box-info">
+  <div class="box-header with-border">
+    <h3 class="box-title">Hiring display</h3>
+  </div>
+  <form action="hireformdb.php" method="post" enctype="multipart/form-data">
+   <div class="box-body">
+              <img  src="dist/img/photo2.png" alt="Photo" style="width:300px;height:300px;">
+              <img  src="dist/img/photo2.png" alt="Photo" style="width:300px;height:300px;"> 
+              <img  src="dist/img/photo2.png" alt="Photo" style="width:300px;height:300px;">
+              <br>
               
-                  
-                    </div>
-                    <!-- /.box-header -->
-                    
-                    <div class="box-body table-responsive no-padding">
-                      <table class="table table-hover">
-                        <tr>
-                          <th>Freelancer ID</th>
-                          <th>Freelancer Name</th>
-                          <th>Experience</th>
-                          <th>Interest in</th>
-                          <th>View Project</th>
-                        </tr>
-                        <?php
-                        $freelancerApp = mysqli_query($con, "SELECT * FROM freelancer ");
-                        while ($row = mysqli_fetch_assoc($freelancerApp)) {
+             
+            </div><p><strong>This project offered by <?php echo $fetched_row['clientName'] ?>, <?php echo $fetched_row['clientEx'] ?> level client that require skill of <?php echo $fetched_row2['jobSkill'] ?> for this project.  </strong></p>
+        <div class="box-footer box-comments">
+              <div class="box-comment">
+                <!-- User image -->
+                <img class="img-circle img-sm" src="<?php echo $fetched_row['clientProfile'] ?>" alt="User Image">
 
-                          ?>
-                        <tr>
-                          <td><?php echo $row['freeId']?></td>
-                          <td><?php echo $row['freeName'] ?></td>
-                          <td>
-                            <span class="label label-success"><?php echo $row['freeExp'] ?></span>
-                          </td>
-                          <td>user interested in <?php echo $row['freeInterest'] ?></td>
-                          <td><a href="acceptreject1-1.php" class="btn btn-info pull-center">
-                            <i></i> Post</a></td>
-                        </tr>
+                <div class="comment-text">
+                      <span class="username">
+                        <?php echo $fetched_row['clientName'] ?>
                       
-                       <?php
-}
-?>
-                      </table>
-                    </div>
-                    <!-- /.box-body -->
-                  </div>
-                  <!-- /.box -->
+                      </span><!-- /.username -->
+              
                 </div>
+                <!-- /.comment-text -->
               </div>
+  </div>
+<div class="col-md-4">
+   <div class="info-box bg-blue">
+            <span class="info-box-icon"><i class="ion ion-ios-pricetag-outline"></i></span>
 
-    </section>
+            <div class="info-box-content">
+              <span class="info-box-text">Job Type</span>
+              <span class="info-box-number"><?php echo $fetched_row2['jobType']; ?></span>
+
+              <div class="progress">
+                <div class="progress-bar" style="width: 100%"></div>
+              </div>
+              <span class="progress-description">
+                   <?php echo $fetched_row2['jobdescription']; ?>
+                  </span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+
+            <div class="info-box bg-yellow">
+            <span class="info-box-icon"><i class="ion ion-ios-pricetag-outline"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Job Skills Required</span>
+              <span class="info-box-number"><?php echo $fetched_row2['jobSkill']; ?></span>
+
+              <div class="progress">
+                <div class="progress-bar" style="width: 100%"></div>
+              </div>
+              <span class="progress-description">
+                    All skill to fulfill to take this project
+                  </span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+           <div class="info-box bg-green">
+            <span class="info-box-icon"><i class="ion ion-ios-heart-outline"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Job Duration</span>
+              <span class="info-box-number"> <?php echo $fetched_row2['jobDuration']; ?> weeks</span>
+
+              <div class="progress">
+                <div class="progress-bar" style="width: 100%"></div>
+              </div>
+              <span class="progress-description">
+                   Due will be in <?php echo $fetched_row2['jobDuration']; ?> weeks from today
+                  </span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+          
+          <div class="info-box bg-red">
+            <span class="info-box-icon"><i class="ion-ios-chatbubble-outline"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Type of Payment</span>
+              <span class="info-box-number"><?php echo $fetched_row2['jobPayment']; ?></span>
+
+              <div class="progress">
+                <div class="progress-bar" style="width: 100%"></div>
+              </div>
+              <span class="progress-description">
+                    Job Rate offered is RM<?php echo $fetched_row2['jobRate']; ?>.00
+                  </span>
+            </div>
+ 
+    </section> </div>
     <!-- /.content -->
   </div>
-  <!-- /.content-wrapper -->
+  
 
   <!-- Main Footer -->
   <footer class="main-footer">
@@ -438,6 +475,7 @@ desired effect
   immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
 </div>
+</div>>
 <!-- ./wrapper -->
 
 <!-- REQUIRED JS SCRIPTS -->
@@ -446,11 +484,98 @@ desired effect
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- Select2 -->
+<script src="bower_components/select2/dist/js/select2.full.min.js"></script>
+<!-- InputMask -->
+<script src="plugins/input-mask/jquery.inputmask.js"></script>
+<script src="plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+<script src="../../plugins/input-mask/jquery.inputmask.extensions.js"></script>
+<!-- date-range-picker -->
+<script src="bower_components/moment/min/moment.min.js"></script>
+<script src="bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+<!-- bootstrap datepicker -->
+<script src="bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+<!-- bootstrap color picker -->
+<script src="bower_components/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js"></script>
+<!-- bootstrap time picker -->
+<script src="plugins/timepicker/bootstrap-timepicker.min.js"></script>
+<!-- SlimScroll -->
+<script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<!-- iCheck 1.0.1 -->
+<script src="plugins/iCheck/icheck.min.js"></script>
+<!-- FastClick -->
+<script src="bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="dist/js/demo.js"></script>
 
-<!-- Optionally, you can add Slimscroll and FastClick plugins.
-     Both of these plugins are recommended to enhance the
-     user experience. -->
+<script>
+  $(function () {
+      //Initialize Select2 Elements
+      $('.select2').select2()
+
+      //Datemask dd/mm/yyyy
+      $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
+      //Datemask2 mm/dd/yyyy
+      $('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
+      //Money Euro
+      $('[data-mask]').inputmask()
+
+      //Date range picker
+      $('#reservation').daterangepicker()
+      //Date range picker with time picker
+      $('#reservationtime').daterangepicker({ timePicker: true, timePickerIncrement: 30, format: 'MM/DD/YYYY h:mm A' })
+      //Date range as a button
+      $('#daterange-btn').daterangepicker(
+        {
+          ranges: {
+            'Today': [moment(), moment()],
+            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+            'This Month': [moment().startOf('month'), moment().endOf('month')],
+            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+          },
+          startDate: moment().subtract(29, 'days'),
+          endDate: moment()
+        },
+        function (start, end) {
+          $('#daterange-btn span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
+        }
+      )
+
+      //Date picker
+      $('#datepicker').datepicker({
+        autoclose: true
+      })
+
+      //iCheck for checkbox and radio inputs
+      $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+        checkboxClass: 'icheckbox_minimal-blue',
+        radioClass: 'iradio_minimal-blue'
+      })
+      //Red color scheme for iCheck
+      $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
+        checkboxClass: 'icheckbox_minimal-red',
+        radioClass: 'iradio_minimal-red'
+      })
+      //Flat red color scheme for iCheck
+      $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
+        checkboxClass: 'icheckbox_flat-green',
+        radioClass: 'iradio_flat-green'
+      })
+
+      //Colorpicker
+      $('.my-colorpicker1').colorpicker()
+      //color picker with addon
+      $('.my-colorpicker2').colorpicker()
+
+      //Timepicker
+      $('.timepicker').timepicker({
+        showInputs: false
+      })
+    })
+</script>
 </body>
 </html>

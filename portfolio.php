@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>eNno Bootstrap Template</title>
+    <title>ProClient| E-marketplace</title>
 
     <!-- Bootstrap -->
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -56,7 +56,7 @@
 			<div class="col-md-8 col-md-offset-2">
 				<div class="blogs">
 					<div class="text-center">
-						<h2>CLIENT</h2>
+						<h2>Freelancer</h2>
 						<p>As freelancer you can find random offer post, accept or reject job offer and join contest.<br>
 						For random job offer, you can review the client profile before accept and work with you. <br>
 						For contest freelancer can join by submit the product before the due date.
@@ -69,7 +69,19 @@
 		</div>
 	</div>
 	
-			
+			<div class="form-group">
+	<div class="col-md-2 col-md-offset-5">	
+		<label  class="col-md-12 col-sm-2  control-label">Join As Freelancer:</label>
+
+		<form action="register2-1.php">
+ <button type="submit" class="btn btn-block btn-danger">Register</button>
+	</form>
+	<br>
+				 <form action="login2.php">
+					<button type="submit" class="btn btn-block btn-info btn-lg">Login</button><br><br><br>	
+	</form>
+	</div>       
+	</div>	
 	<section>
 				
 				<div class="col-md-6 col-md-offset-3">	

@@ -1,23 +1,17 @@
 <?php
 session_start();
 include_once 'conn.php';
-$clientID = $_SESSION['clientID'];
-$result3=mysqli_query($con,"SELECT * FROM client WHERE clientID=".$_SESSION['clientID']);
-
+$freeId = $_SESSION['freeId'];
+$result3=mysqli_query($con,"SELECT * FROM freelancer WHERE freeId=".$_SESSION['freeId']);
 $fetched_row=mysqli_fetch_array($result3);
 
-
 ?>
-
-
-
-
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>PROMatcher | client</title>
+  <title>PROMatcher | Freelancer</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -42,26 +36,24 @@ $fetched_row=mysqli_fetch_array($result3);
   <!-- Google Font -->
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+        <style>
+          .example-modal .modal {
+            position: relative;
+            top: auto;
+            bottom: auto;
+            right: auto;
+            left: auto;
+            display: block;
+            z-index: 1;
+          }
+        
+          .example-modal .modal {
+            background: transparent !important;
+          }
+        </style>
 </head>
-<!-- 
-BODY TAG OPTIONS:
-=================
-Apply one or more of the following classes to get the
-desired effect
-|---------------------------------------------------------|
-| SKINS         | skin-blue                               |
-|               | skin-black                              |
-|               | skin-purple                             |
-|               | skin-yellow                             |
-|               | skin-red                                |
-|               | skin-green                              |
-|---------------------------------------------------------|
-|LAYOUT OPTIONS | fixed                                   |
-|               | layout-boxed                            |
-|               | layout-top-nav                          |
-|               | sidebar-collapse                        |
-|               | sidebar-mini                            |
-|---------------------------------------------------------| -->
+
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
@@ -186,17 +178,17 @@ desired effect
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!-- The user image in the navbar-->
-              <img src="<?php echo $fetched_row['clientProfile']?>" class="user-image" alt="User Image">
+              <img src="<?php echo $fetched_row['freeProfile']?>" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs"><?php echo $fetched_row['clientName']; ?></span>
+              <span class="hidden-xs"><?php echo $fetched_row['freeName']; ?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
               <li class="user-header">
-                <img src="<?php echo $fetched_row['clientProfile']?>" class="img-circle" alt="User Image">
+                <img src="<?php echo $fetched_row['freeProfile']?>" class="img-circle" alt="User Image">
 
                 <p>
-                  <?php echo $fetched_row['clientName']; ?> - <?php echo $fetched_row['projectType']; ?>
+                  <?php echo $fetched_row['freeName']; ?> - <?php echo $fetched_row['freeInterest']; ?>
                   
                 </p>
               </li>
@@ -208,7 +200,7 @@ desired effect
                   <a href="profile1.php" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="logout1.php" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="logout2.php" class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>
@@ -228,10 +220,10 @@ desired effect
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="<?php echo $fetched_row['clientProfile']?>" class="img-circle" alt="User Image">
+          <img src="<?php echo $fetched_row['freeProfile']?>" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p> <?php echo $fetched_row['clientName']; ?> </p>
+          <p> <?php echo $fetched_row['freeName']; ?> </p>
           <!-- Status -->
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
@@ -247,30 +239,19 @@ desired effect
             </span>
         </div>
       </form>
-      <!-- /.search form -->
+        <!-- /.search form -->
 
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MENU</li>
         <!-- Optionally, you can add icons to the links -->
-        <li ><a href="dashboard1.php"><i class="fa fa-fw fa-bar-chart"></i> <span>Dashboard</span></a></li>
-        <li><a href="home1.php"><i class="fa fa-fw fa-home"></i> <span>Home</span></a></li>
-        <li><a href="schedule1.php"><i class="fa fa-fw fa-calendar-check-o"></i> <span>Schedule</span></a></li>
-        <li class="active"><a href="acceptreject1.php"><i class="fa fa-fw fa-retweet"></i> <span>Accept/Reject</span></a></li>
-        <li><a href="payment1.php"><i class="fa fa-fw fa-money"></i> <span>Payment</span></a></li>
-        <li><a href="profile1.php"><i class="fa fa-fw fa-user"></i> <span>Profile</span></a></li>
-        <li class="treeview">
-          <a href="offerjob1.php"><i class="fa fa-fw fa-briefcase"></i>  <span>Offer Job</span>
-            <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="randompost1.php">Random Post</a></li>
-            <li><a href="hire1.php">Hire Freelancer</a></li>
-            <li> <a href="contest1.php">Open Contest</a> </li>
-          </ul>
-        </li>
+        <li ><a href="dashboard2.php"><i class="fa fa-fw fa-bar-chart"></i> <span>Dashboard</span></a></li>
+        <li ><a href="home2.php"><i class="fa fa-fw fa-home"></i> <span>Home</span></a></li>
+        <li ><a href="acceptreject2.php"><i class="fa fa-fw fa-retweet"></i> <span>Accept/Reject</span></a></li>
+        <li><a href="project2.php"><i class="fa fa-fw fa-black-tie"></i> <span>Project</span></a></li>
+        <li class="active"><a href="payment2.php"><i class="fa fa-fw fa-money"></i> <span>Get Payment</span></a></li>
+        <li><a href="profile2.php"><i class="fa fa-fw fa-user"></i> <span>Profile</span></a></li>
+        
       </ul>
       <!-- /.sidebar-menu -->
     </section>
@@ -282,69 +263,112 @@ desired effect
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Accept/Reject 
-        <small>Check your project here</small>
+        Payment Page
+        <small>Pay your Freelancer Here</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-        <li class="active">Here</li>
+        <li class="active"><a href="#"><i class="fa fa-dashboard"></i> Payment</a></li>
       </ol>
     </section>
 
     <!-- Main content -->
     <section class="content container-fluid">
 
+      <!-- bar char start -->
+      <div class="col-md-8">
+        <div class="box box-primary">
+          <div class="box-header with-border">
+            <i class="fa fa-bar-chart-o"></i>
+      
+            <h3 class="box-title">Job Status</h3>
+            <p>Check whether freelancer completed or not</p>
+      
+            <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                <i class="fa fa-minus"></i>
+              </button>
+      
+            </div>
+          </div>
+          <div class="box-body no-padding">
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-success">
+                    Project ID: 123
+                  </button>
+                  <span>Project design grafic interface</span>
+              </li>
+              <br>
+              <li>
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger">
+                   Project ID: 133
+                </button>
+              <span>Project design grafic interface</span>
+             
+              </li>
+              </li>
+              <br>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-success">
+               Project ID: 125
+            </button>
+           <span>Project design grafic interface</span>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+
+
+    <div class="modal modal-success fade" id="modal-success">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title">Completed Job</h4>
+          </div>
+          <div class="modal-body">
+            <p>Payment need to paid 100% from total price in agreement &hellip;</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-outline">Payment</button>
+          </div>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+        <div class="modal modal-danger fade" id="modal-danger">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Ongoing Job</h4>
+              </div>
+              <div class="modal-body">
+                <p>Payment can only get after Delivery final product &hellip;</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-outline">Payment</button>
+              </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
+       
       <!--------------------------
         | Your Page Content Here |
         -------------------------->
-
-
-
-              <div class="row">
-                <div class="col-xs-12">
-                  <div class="box">
-                    <div class="box-header">
-                      <h3 class="box-title">Freelancer under your project</h3>
-              
-                  
-                    </div>
-                    <!-- /.box-header -->
-                    
-                    <div class="box-body table-responsive no-padding">
-                      <table class="table table-hover">
-                        <tr>
-                          <th>Freelancer ID</th>
-                          <th>Freelancer Name</th>
-                          <th>Experience</th>
-                          <th>Interest in</th>
-                          <th>View Project</th>
-                        </tr>
-                        <?php
-                        $freelancerApp = mysqli_query($con, "SELECT * FROM freelancer ");
-                        while ($row = mysqli_fetch_assoc($freelancerApp)) {
-
-                          ?>
-                        <tr>
-                          <td><?php echo $row['freeId']?></td>
-                          <td><?php echo $row['freeName'] ?></td>
-                          <td>
-                            <span class="label label-success"><?php echo $row['freeExp'] ?></span>
-                          </td>
-                          <td>user interested in <?php echo $row['freeInterest'] ?></td>
-                          <td><a href="acceptreject1-1.php" class="btn btn-info pull-center">
-                            <i></i> Post</a></td>
-                        </tr>
-                      
-                       <?php
-}
-?>
-                      </table>
-                    </div>
-                    <!-- /.box-body -->
-                  </div>
-                  <!-- /.box -->
-                </div>
-              </div>
 
     </section>
     <!-- /.content -->
@@ -355,7 +379,7 @@ desired effect
   <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
-      Client Account
+      Freelancer Account
     </div>
     <!-- Default to the left -->
     <strong>Copyright &copy; 2017 <a href="#">ProClient Sdn Bhd</a>.</strong> All rights reserved.

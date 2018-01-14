@@ -1,23 +1,48 @@
 <?php
 session_start();
 include_once 'conn.php';
-$clientID = $_SESSION['clientID'];
-$result3=mysqli_query($con,"SELECT * FROM client WHERE clientID=".$_SESSION['clientID']);
-
+$freeId = $_SESSION['freeId'];
+$result3=mysqli_query($con,"SELECT * FROM freelancer WHERE freeId=".$_SESSION['freeId']);
 $fetched_row=mysqli_fetch_array($result3);
 
-
 ?>
+<!-- <?php
+include_once 'conn.php';
 
+// $sql=mysql_query("SELECT freeId, freeEmail, freeName, freePhoneNumber, freePaymentType, freeInterest, freeSkillType FROM freelancer" );
+$sql=mysql_query("SELECT * FROM clientoffer" );
+$i=0;
+$dyn_table='<table border="1" cellpadding="10>';
 
+while($row=mysql_fetch_array($sql)){
+
+  $freeId=$row["freeId"];
+  $freeName=$row["freeName"];
+
+if($i%3==0){
+  $dyn_table .='<tr><td>'.$freeName.'</td>';
+
+}else{
+  $dyn_table .='<td>'.$freeName.'</td>';
+
+}
+
+  $i++;
+}
+$dyn_table .='</tr></table>';
+?> -->
 
 
 <!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>PROMatcher | client</title>
+  <title>PROMatcher | Freelancer</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -32,36 +57,12 @@ $fetched_row=mysqli_fetch_array($result3);
         apply the skin class to the body tag so the changes take effect. -->
   <link rel="stylesheet" href="dist/css/skins/skin-blue.min.css">
 
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
 
   <!-- Google Font -->
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<!-- 
-BODY TAG OPTIONS:
-=================
-Apply one or more of the following classes to get the
-desired effect
-|---------------------------------------------------------|
-| SKINS         | skin-blue                               |
-|               | skin-black                              |
-|               | skin-purple                             |
-|               | skin-yellow                             |
-|               | skin-red                                |
-|               | skin-green                              |
-|---------------------------------------------------------|
-|LAYOUT OPTIONS | fixed                                   |
-|               | layout-boxed                            |
-|               | layout-top-nav                          |
-|               | sidebar-collapse                        |
-|               | sidebar-mini                            |
-|---------------------------------------------------------| -->
+
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
@@ -186,17 +187,17 @@ desired effect
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!-- The user image in the navbar-->
-              <img src="<?php echo $fetched_row['clientProfile']?>" class="user-image" alt="User Image">
+              <img src="<?php echo $fetched_row['freeProfile']?>" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs"><?php echo $fetched_row['clientName']; ?></span>
+              <span class="hidden-xs"><?php echo $fetched_row['freeName']; ?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
               <li class="user-header">
-                <img src="<?php echo $fetched_row['clientProfile']?>" class="img-circle" alt="User Image">
+                <img src="<?php echo $fetched_row['freeProfile']?>" class="img-circle" alt="User Image">
 
                 <p>
-                  <?php echo $fetched_row['clientName']; ?> - <?php echo $fetched_row['projectType']; ?>
+                  <?php echo $fetched_row['freeName']; ?> - <?php echo $fetched_row['freeInterest']; ?>
                   
                 </p>
               </li>
@@ -208,7 +209,7 @@ desired effect
                   <a href="profile1.php" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="logout1.php" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="logout2.php" class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>
@@ -228,10 +229,10 @@ desired effect
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="<?php echo $fetched_row['clientProfile']?>" class="img-circle" alt="User Image">
+          <img src="<?php echo $fetched_row['freeProfile']?>" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p> <?php echo $fetched_row['clientName']; ?> </p>
+          <p> <?php echo $fetched_row['freeName']; ?> </p>
           <!-- Status -->
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
@@ -247,33 +248,23 @@ desired effect
             </span>
         </div>
       </form>
-      <!-- /.search form -->
+     <!-- /.search form -->
 
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MENU</li>
         <!-- Optionally, you can add icons to the links -->
-        <li ><a href="dashboard1.php"><i class="fa fa-fw fa-bar-chart"></i> <span>Dashboard</span></a></li>
-        <li><a href="home1.php"><i class="fa fa-fw fa-home"></i> <span>Home</span></a></li>
-        <li><a href="schedule1.php"><i class="fa fa-fw fa-calendar-check-o"></i> <span>Schedule</span></a></li>
-        <li class="active"><a href="acceptreject1.php"><i class="fa fa-fw fa-retweet"></i> <span>Accept/Reject</span></a></li>
-        <li><a href="payment1.php"><i class="fa fa-fw fa-money"></i> <span>Payment</span></a></li>
-        <li><a href="profile1.php"><i class="fa fa-fw fa-user"></i> <span>Profile</span></a></li>
-        <li class="treeview">
-          <a href="offerjob1.php"><i class="fa fa-fw fa-briefcase"></i>  <span>Offer Job</span>
-            <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="randompost1.php">Random Post</a></li>
-            <li><a href="hire1.php">Hire Freelancer</a></li>
-            <li> <a href="contest1.php">Open Contest</a> </li>
-          </ul>
-        </li>
+        <li ><a href="dashboard2.php"><i class="fa fa-fw fa-bar-chart"></i> <span>Dashboard</span></a></li>
+        <li class="active"><a href="home2.php"><i class="fa fa-fw fa-home"></i> <span>Home</span></a></li>
+        <li><a href="acceptreject2.php"><i class="fa fa-fw fa-retweet"></i> <span>Accept/Reject</span></a></li>
+        <li><a href="project2.php"><i class="fa fa-fw fa-black-tie"></i> <span>Project</span></a></li>
+        <li><a href="payment2.php"><i class="fa fa-fw fa-money"></i> <span>Get Payment</span></a></li>
+        <li><a href="profile2.php"><i class="fa fa-fw fa-user"></i> <span>Profile</span></a></li>
+        
       </ul>
       <!-- /.sidebar-menu -->
     </section>
+    <!-- /.sidebar -->
     <!-- /.sidebar -->
   </aside>
 
@@ -282,13 +273,10 @@ desired effect
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Accept/Reject 
-        <small>Check your project here</small>
+        HomePage
+        <small>Find your freelancer</small>
       </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-        <li class="active">Here</li>
-      </ol>
+    
     </section>
 
     <!-- Main content -->
@@ -297,55 +285,48 @@ desired effect
       <!--------------------------
         | Your Page Content Here |
         -------------------------->
+<?php
+$offerResult = mysqli_query($con, "SELECT * FROM clientoffer");
+// $row = mysqli_fetch_row($freelancerResult);
+// var_dump($row);
+while ($row = mysqli_fetch_assoc($offerResult)) {
+  ?>
 
+      
+        <div class="col-md-3">
 
+          <!-- Profile Image -->
+          <div class="box box-primary">
+            <div class="box-body box-profile">
+              <img class="profile-user-img img-responsive img-circle" src="<?php echo $row['outcome1'] ?>" alt="User profile picture">
 
-              <div class="row">
-                <div class="col-xs-12">
-                  <div class="box">
-                    <div class="box-header">
-                      <h3 class="box-title">Freelancer under your project</h3>
-              
-                  
-                    </div>
-                    <!-- /.box-header -->
-                    
-                    <div class="box-body table-responsive no-padding">
-                      <table class="table table-hover">
-                        <tr>
-                          <th>Freelancer ID</th>
-                          <th>Freelancer Name</th>
-                          <th>Experience</th>
-                          <th>Interest in</th>
-                          <th>View Project</th>
-                        </tr>
-                        <?php
-                        $freelancerApp = mysqli_query($con, "SELECT * FROM freelancer ");
-                        while ($row = mysqli_fetch_assoc($freelancerApp)) {
+              <h3 class="profile-username text-center"><?php echo $row['jobType'] ?></h3>
 
-                          ?>
-                        <tr>
-                          <td><?php echo $row['freeId']?></td>
-                          <td><?php echo $row['freeName'] ?></td>
-                          <td>
-                            <span class="label label-success"><?php echo $row['freeExp'] ?></span>
-                          </td>
-                          <td>user interested in <?php echo $row['freeInterest'] ?></td>
-                          <td><a href="acceptreject1-1.php" class="btn btn-info pull-center">
-                            <i></i> Post</a></td>
-                        </tr>
-                      
-                       <?php
-}
-?>
-                      </table>
-                    </div>
-                    <!-- /.box-body -->
-                  </div>
-                  <!-- /.box -->
-                </div>
-              </div>
+              <p class="text-muted text-center"><strong><?php echo $row['jobPayment'] ?></strong></p>
 
+              <ul class="list-group list-group-unbordered">
+                <li class="list-group-item">
+                  <b>Skill Required</b> <a class="pull-right"><?php echo $row['jobSkill'] ?></a>
+                </li>
+                <li class="list-group-item">
+                  <b>Duration</b> <a class="pull-right"><?php echo $row['jobDuration'] ?></a>
+                </li>
+                <li class="list-group-item">
+                  <b>Payment Rate</b> <a class="pull-right"><?php echo $row['jobRate'] ?></a>
+                </li>
+              </ul>
+
+              <a href="#" class="btn btn-primary btn-block"><b>BookMark</b></a>
+              <a href="review2.php" class="btn btn-primary btn-block"><b>Review</b></a>
+            </div>
+            <!-- /.box-body -->
+          </div></div>
+    <?php
+
+  }
+  ?>
+      
+      
     </section>
     <!-- /.content -->
   </div>
@@ -355,12 +336,11 @@ desired effect
   <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
-      Client Account
+      Freelancer Account
     </div>
     <!-- Default to the left -->
     <strong>Copyright &copy; 2017 <a href="#">ProClient Sdn Bhd</a>.</strong> All rights reserved.
   </footer>
-
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Create the tabs -->

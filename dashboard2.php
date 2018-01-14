@@ -1,23 +1,18 @@
 <?php
 session_start();
 include_once 'conn.php';
-$clientID = $_SESSION['clientID'];
-$result3=mysqli_query($con,"SELECT * FROM client WHERE clientID=".$_SESSION['clientID']);
-
+$freeId = $_SESSION['freeId'];
+$result3=mysqli_query($con,"SELECT * FROM freelancer WHERE freeId=".$_SESSION['freeId']);
 $fetched_row=mysqli_fetch_array($result3);
 
-
 ?>
-
-
-
 
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>PROMatcher | client</title>
+  <title>PROMatcher | Freelancer</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -43,25 +38,7 @@ $fetched_row=mysqli_fetch_array($result3);
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<!-- 
-BODY TAG OPTIONS:
-=================
-Apply one or more of the following classes to get the
-desired effect
-|---------------------------------------------------------|
-| SKINS         | skin-blue                               |
-|               | skin-black                              |
-|               | skin-purple                             |
-|               | skin-yellow                             |
-|               | skin-red                                |
-|               | skin-green                              |
-|---------------------------------------------------------|
-|LAYOUT OPTIONS | fixed                                   |
-|               | layout-boxed                            |
-|               | layout-top-nav                          |
-|               | sidebar-collapse                        |
-|               | sidebar-mini                            |
-|---------------------------------------------------------| -->
+
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
@@ -186,17 +163,17 @@ desired effect
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!-- The user image in the navbar-->
-              <img src="<?php echo $fetched_row['clientProfile']?>" class="user-image" alt="User Image">
+              <img src="<?php echo $fetched_row['freeProfile']?>" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs"><?php echo $fetched_row['clientName']; ?></span>
+              <span class="hidden-xs"><?php echo $fetched_row['freeName']; ?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
               <li class="user-header">
-                <img src="<?php echo $fetched_row['clientProfile']?>" class="img-circle" alt="User Image">
+                <img src="<?php echo $fetched_row['freeProfile']?>" class="img-circle" alt="User Image">
 
                 <p>
-                  <?php echo $fetched_row['clientName']; ?> - <?php echo $fetched_row['projectType']; ?>
+                  <?php echo $fetched_row['freeName']; ?> - <?php echo $fetched_row['freeInterest']; ?>
                   
                 </p>
               </li>
@@ -208,7 +185,7 @@ desired effect
                   <a href="profile1.php" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="logout1.php" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="logout2.php" class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>
@@ -228,10 +205,10 @@ desired effect
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="<?php echo $fetched_row['clientProfile']?>" class="img-circle" alt="User Image">
+          <img src="<?php echo $fetched_row['freeProfile']?>" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p> <?php echo $fetched_row['clientName']; ?> </p>
+          <p> <?php echo $fetched_row['freeName']; ?> </p>
           <!-- Status -->
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
@@ -253,24 +230,13 @@ desired effect
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MENU</li>
         <!-- Optionally, you can add icons to the links -->
-        <li ><a href="dashboard1.php"><i class="fa fa-fw fa-bar-chart"></i> <span>Dashboard</span></a></li>
-        <li><a href="home1.php"><i class="fa fa-fw fa-home"></i> <span>Home</span></a></li>
-        <li><a href="schedule1.php"><i class="fa fa-fw fa-calendar-check-o"></i> <span>Schedule</span></a></li>
-        <li class="active"><a href="acceptreject1.php"><i class="fa fa-fw fa-retweet"></i> <span>Accept/Reject</span></a></li>
-        <li><a href="payment1.php"><i class="fa fa-fw fa-money"></i> <span>Payment</span></a></li>
-        <li><a href="profile1.php"><i class="fa fa-fw fa-user"></i> <span>Profile</span></a></li>
-        <li class="treeview">
-          <a href="offerjob1.php"><i class="fa fa-fw fa-briefcase"></i>  <span>Offer Job</span>
-            <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="randompost1.php">Random Post</a></li>
-            <li><a href="hire1.php">Hire Freelancer</a></li>
-            <li> <a href="contest1.php">Open Contest</a> </li>
-          </ul>
-        </li>
+        <li class="active"><a href="dashboard2.php"><i class="fa fa-fw fa-bar-chart"></i> <span>Dashboard</span></a></li>
+        <li><a href="home2.php"><i class="fa fa-fw fa-home"></i> <span>Home</span></a></li>
+        <li><a href="acceptreject2.php"><i class="fa fa-fw fa-retweet"></i> <span>Accept/Reject</span></a></li>
+        <li><a href="project2.php"><i class="fa fa-fw fa-black-tie"></i> <span>Project</span></a></li>
+        <li><a href="payment2.php"><i class="fa fa-fw fa-money"></i> <span>Get Payment</span></a></li>
+        <li><a href="profile2.php"><i class="fa fa-fw fa-user"></i> <span>Profile</span></a></li>
+        
       </ul>
       <!-- /.sidebar-menu -->
     </section>
@@ -282,13 +248,10 @@ desired effect
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Accept/Reject 
-        <small>Check your project here</small>
+        Dashboard
+        <small>Monitor your work here</small>
       </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-        <li class="active">Here</li>
-      </ol>
+      
     </section>
 
     <!-- Main content -->
@@ -298,64 +261,177 @@ desired effect
         | Your Page Content Here |
         -------------------------->
 
-
-
-              <div class="row">
-                <div class="col-xs-12">
-                  <div class="box">
-                    <div class="box-header">
-                      <h3 class="box-title">Freelancer under your project</h3>
-              
-                  
-                    </div>
-                    <!-- /.box-header -->
+        <!-- bar char offered job start -->
+        <div class="col-md-12">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                  <i class="fa fa-bar-chart-o"></i>
+    
+                  <h3 class="box-title">Jobs</h3> 
+                  <p>Monthly Job Offered</p>
+    
+                  <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                    </button>
                     
-                    <div class="box-body table-responsive no-padding">
-                      <table class="table table-hover">
-                        <tr>
-                          <th>Freelancer ID</th>
-                          <th>Freelancer Name</th>
-                          <th>Experience</th>
-                          <th>Interest in</th>
-                          <th>View Project</th>
-                        </tr>
-                        <?php
-                        $freelancerApp = mysqli_query($con, "SELECT * FROM freelancer ");
-                        while ($row = mysqli_fetch_assoc($freelancerApp)) {
-
-                          ?>
-                        <tr>
-                          <td><?php echo $row['freeId']?></td>
-                          <td><?php echo $row['freeName'] ?></td>
-                          <td>
-                            <span class="label label-success"><?php echo $row['freeExp'] ?></span>
-                          </td>
-                          <td>user interested in <?php echo $row['freeInterest'] ?></td>
-                          <td><a href="acceptreject1-1.php" class="btn btn-info pull-center">
-                            <i></i> Post</a></td>
-                        </tr>
-                      
-                       <?php
-}
-?>
-                      </table>
-                    </div>
-                    <!-- /.box-body -->
                   </div>
-                  <!-- /.box -->
+                </div>
+                <div class="box-body">
+                    <div id="bar-chart" style="height: 300px;"></div>                </div>
+                <!-- /.box-body-->
+              </div>
+        </div>
+    </section>
+    <section>
+      <!-- bar -->
+       <!-- bar char start -->
+       <div class="col-md-6">
+          <div class="box box-primary">
+              <div class="box-header with-border">
+                <i class="fa fa-bar-chart-o"></i>
+    
+                <h3 class="box-title">Job Offer Status</h3>
+                <p>Check whether freelancer accept or not your offer</p>
+    
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                  </button>
+                  
                 </div>
               </div>
+              <div class="box-body no-padding">
+                  <ul class="nav nav-pills nav-stacked">
+                    <li><a href="designReport.php"><i class="fa fa-inbox"></i> Designing Project
+                      <span class="label label-primary pull-right">12</span></a></li>
+                    <li><a href="webReport.php"><i class="fa fa-envelope-o"></i> Web Development Project
+                      <span class="label label-primary pull-right">12</span></a></li>
+                    <li><a href="mobileReport.php"><i class="fa fa-file-text-o"></i> Mobile Application Project
+                      <span class="label label-primary pull-right">12</span></a></li>
+                    
+                  </ul>
+              </div>            
+            </div>
+      </div>
+      <!-- bar -->
+      <!-- review start -->
+      <div class="col-md-6">
+          <div class="box box-primary">
+              <div class="box-header with-border">
+                <i class="fa fa-bar-chart-o"></i>
+    
+                <h3 class="box-title">Review</h3>
+                <p>Rate given by previous Freelancer</p>
+    
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                  </button>
+                  
+                </div>
+              </div>
+                <!-- /.box-header -->
+            <div class="box-body">
+                <div class="row">
+                  <div class="col-xs-6 col-md-3 text-center">
+                    <input type="text" class="knob" value="30" data-width="90" data-height="90" data-fgColor="#3c8dbc">
+  
+                    <div class="knob-label">Designing Project</div>
+                  </div>
+                  <!-- ./col -->
+                  <div class="col-xs-6 col-md-3 text-center">
+                    <input type="text" class="knob" value="70" data-width="90" data-height="90" data-fgColor="#f56954">
+  
+                    <div class="knob-label">Web Development Project</div>
+                  </div>
+                  <!-- ./col -->
+                  <div class="col-xs-6 col-md-3 text-center">
+                    <input type="text" class="knob" value="-80" data-min="-150" data-max="150" data-width="90" data-height="90" data-fgColor="#00a65a">
+  
+                    <div class="knob-label">Mobile Application Project</div>
+                  </div>
+                  <!-- ./col -->
+                  
+                  <!-- ./col -->
+                </div>
+                <!-- /.row -->
+              <!-- /.box-body-->
+            </div>
+      </div>
+      <!-- bar -->
+      
+        </section>
+    <section class="content container-fluid">
+   <!-- bar char start -->
+   <div class="row">
+    <div class="col-xs-12">
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title">Freelancer under your project</h3>
 
-    </section>
+          <div class="box-tools">
+            <div class="input-group input-group-sm" style="width: 150px;">
+              <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+
+              <div class="input-group-btn">
+                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body table-responsive no-padding">
+          <table class="table table-hover">
+            <tr>
+              <th>ID</th>
+              <th>User</th>
+              <th>Date</th>
+              <th>Status</th>
+              <th>Reason</th>
+            </tr>
+            <tr>
+              <td>183</td>
+              <td>John Doe</td>
+              <td>11-7-2014</td>
+              <td><span class="label label-success">Approved</span></td>
+              <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+            </tr>
+            <tr>
+              <td>219</td>
+              <td>Alexander Pierce</td>
+              <td>11-7-2014</td>
+              <td><span class="label label-warning">Pending</span></td>
+              <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+            </tr>
+            <tr>
+              <td>657</td>
+              <td>Bob Doe</td>
+              <td>11-7-2014</td>
+              <td><span class="label label-primary">Approved</span></td>
+              <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+            </tr>
+            <tr>
+              <td>175</td>
+              <td>Mike Doe</td>
+              <td>11-7-2014</td>
+              <td><span class="label label-danger">Denied</span></td>
+              <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+            </tr>
+          </table>
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <!-- /.box -->
+    </div>
+  </div>
+  </section>
+
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
 
-  <!-- Main Footer -->
   <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
-      Client Account
+      Freelancer Account
     </div>
     <!-- Default to the left -->
     <strong>Copyright &copy; 2017 <a href="#">ProClient Sdn Bhd</a>.</strong> All rights reserved.
@@ -432,7 +508,7 @@ desired effect
       </div>
       <!-- /.tab-pane -->
     </div>
-  </aside>
+  </aside> 
   <!-- /.control-sidebar -->
   <!-- Add the sidebar's background. This div must be placed
   immediately after the control sidebar -->
@@ -446,11 +522,120 @@ desired effect
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="dist/js/demo.js"></script>
+<!-- FLOT CHARTS -->
+<script src="bower_components/Flot/jquery.flot.js"></script>
+<!-- FLOT RESIZE PLUGIN - allows the chart to redraw when the window is resized -->
+<script src="bower_components/Flot/jquery.flot.resize.js"></script>
+<!-- FLOT PIE PLUGIN - also used to draw donut charts -->
+<script src="bower_components/Flot/jquery.flot.pie.js"></script>
+<!-- FLOT CATEGORIES PLUGIN - Used to draw bar charts -->
+<script src="bower_components/Flot/jquery.flot.categories.js"></script>
+<!-- jQuery Knob -->
+<script src="bower_components/jquery-knob/js/jquery.knob.js"></script>
+<!-- Page script -->
+
+<script>
+   $(function () {
+/*
+* BAR CHART
+* ---------
+*/
+
+var bar_data = {
+ data : [['January', 10], ['February', 8], ['March', 4], ['April', 13], ['May', 17], ['June', 9], ['July',9], ['August',9],['September',9],['October',9,]['November',5],['December',3]],
+ color: '#3c8dbc'
+}
+$.plot('#bar-chart', [bar_data], {
+ grid  : {
+   borderWidth: 0.5,
+   borderColor: '#f3f3f3',
+   tickColor  : '#f3f3f3'
+ },
+ 
+ series: {
+   bars: {
+     show    : true,
+     barWidth: 0.5,
+     align   : 'center'
+   }
+ },
+ xaxis : {
+   mode      : 'categories',
+   tickLength: 0
+ }
+})
+})
+/* END BAR CHART */
+$(".knob").knob({
+      /*change : function (value) {
+       //console.log("change : " + value);
+       },
+       release : function (value) {
+       console.log("release : " + value);
+       },
+       cancel : function () {
+       console.log("cancel : " + this.value);
+       },*/
+      draw: function () {
+
+        // "tron" case
+        if (this.$.data('skin') == 'tron') {
+
+          var a = this.angle(this.cv)  // Angle
+              , sa = this.startAngle          // Previous start angle
+              , sat = this.startAngle         // Start angle
+              , ea                            // Previous end angle
+              , eat = sat + a                 // End angle
+              , r = true;
+
+          this.g.lineWidth = this.lineWidth;
+
+          this.o.cursor
+          && (sat = eat - 0.3)
+          && (eat = eat + 0.3);
+
+          if (this.o.displayPrevious) {
+            ea = this.startAngle + this.angle(this.value);
+            this.o.cursor
+            && (sa = ea - 0.3)
+            && (ea = ea + 0.3);
+            this.g.beginPath();
+            this.g.strokeStyle = this.previousColor;
+            this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, sa, ea, false);
+            this.g.stroke();
+          }
+
+          this.g.beginPath();
+          this.g.strokeStyle = r ? this.o.fgColor : this.fgColor;
+          this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, sat, eat, false);
+          this.g.stroke();
+
+          this.g.lineWidth = 2;
+          this.g.beginPath();
+          this.g.strokeStyle = this.o.fgColor;
+          this.g.arc(this.xy, this.xy, this.radius - this.lineWidth + 1 + this.lineWidth * 2 / 3, 0, 2 * Math.PI, false);
+          this.g.stroke();
+
+          return false;
+        }
+      }
+    });
+    /* END JQUERY KNOB */
+
+
+</script>
+
 
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
      user experience. -->
+
+     
 </body>
 </html>

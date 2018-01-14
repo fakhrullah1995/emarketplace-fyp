@@ -2,15 +2,15 @@
 session_start();
 include_once 'conn.php';
 
-$clientID = $_SESSION['clientID'];
+$freeId = $_SESSION['freeId'];
 
-$result3=mysqli_query($con,"SELECT * FROM client WHERE clientID=".$_SESSION['clientID']);
-$result2=mysqli_query($con, "SELECT * FROM clientartwork WHERE clientID=".$_SESSION['clientID']);
-$result1 = mysqli_query($con, "SELECT * FROM freelancer");
+$result3=mysqli_query($con,"SELECT * FROM freelancer WHERE freeId=".$_SESSION['freeId']);
+//$result2=mysqli_query($con, "SELECT * FROM clientartwork WHERE clientID=".$_SESSION['clientID']);
+//$result1 = mysqli_query($con, "SELECT * FROM freelancer");
 
 $fetched_row=mysqli_fetch_array($result3);
-$fetched_row1=mysqli_fetch_array($result2);
-$fetched_row2 = mysqli_fetch_array($result1);
+//$fetched_row1=mysqli_fetch_array($result2);
+//$fetched_row2 = mysqli_fetch_array($result1);
 
 ?>
 <!DOCTYPE html>
@@ -198,17 +198,17 @@ desired effect
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!-- The user image in the navbar-->
-              <img src="<?php echo $fetched_row['clientProfile']?>" class="user-image" alt="User Image">
+              <img src="<?php echo $fetched_row['freeProfile']?>" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs"><?php echo $fetched_row['clientName']; ?></span>
+              <span class="hidden-xs"><?php echo $fetched_row['freeName']; ?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
               <li class="user-header">
-                <img src="<?php echo $fetched_row['clientProfile']?>" class="img-circle" alt="User Image">
+                <img src="<?php echo $fetched_row['freeProfile']?>" class="img-circle" alt="User Image">
 
                 <p>
-                  <?php echo $fetched_row['clientName']; ?> - <?php echo $fetched_row['projectType']; ?>
+                  <?php echo $fetched_row['freeName']; ?> - <?php echo $fetched_row['projectType']; ?>
                   
                 </p>
               </li>
@@ -329,7 +329,7 @@ desired effect
                 </li>
               </ul>
 
-              <a href="hireform.php" class="btn btn-primary btn-block"><b>Hire</b></a>
+              <a href="editProfile1.php" class="btn btn-primary btn-block"><b>Edit Profile</b></a>
             </div>
             <!-- /.box-body -->
           </div>

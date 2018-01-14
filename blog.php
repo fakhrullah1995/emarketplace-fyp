@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ProClient E-marletplace</title>
+    <title>ProClient| E-marketplace</title>
 
     <!-- Bootstrap -->
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -68,8 +68,21 @@
 			</div>
 		</div>
 	</div>
-	
-			
+
+	<div class="form-group">
+	<div class="col-md-2 col-md-offset-5">	
+		<label  class="col-md-12 col-sm-2  control-label">Join As Client:</label>
+
+		<form action="register1-1.php">
+ <button type="submit" class="btn btn-block btn-danger">Register</button>
+	</form>
+	<br>
+				 <form action="login1.php">
+					<button type="submit" class="btn btn-block btn-info btn-lg">Login</button><br><br><br>	
+	</form>
+	</div>       
+	</div>
+		
 	<section>
 				
 				<div class="col-md-6 col-md-offset-3">	

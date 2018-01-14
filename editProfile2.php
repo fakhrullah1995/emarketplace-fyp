@@ -1,11 +1,11 @@
 <?php
 session_start();
 include_once 'conn.php';
-$clientID = $_SESSION['clientID'];
-$result3=mysqli_query($con,"SELECT * FROM client WHERE clientID=".$_SESSION['clientID']);
-$result2=mysqli_query($con, "SELECT * FROM clientartwork WHERE clientID=".$_SESSION['clientID']);
+$freeId = $_SESSION['freeId'];
+$result3=mysqli_query($con,"SELECT * FROM freelancer WHERE freeId=".$_SESSION['freeId']);
+//$result2=mysqli_query($con, "SELECT * FROM clientartwork WHERE clientID=".$_SESSION['clientID']);
 $fetched_row=mysqli_fetch_array($result3);
-$fetched_row1=mysqli_fetch_array($result2);
+//$fetched_row1=mysqli_fetch_array($result2);
 
 ?>
 <!DOCTYPE html>
@@ -13,7 +13,7 @@ $fetched_row1=mysqli_fetch_array($result2);
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>PROMatcher | client</title>
+  <title>PROMatcher | Freelancer</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -176,17 +176,17 @@ $fetched_row1=mysqli_fetch_array($result2);
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!-- The user image in the navbar-->
-              <img src="<?php echo $fetched_row['clientProfile']?>" class="user-image" alt="User Image">
+              <img src="<?php echo $fetched_row['freeProfile']?>" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs"><?php echo $fetched_row['clientName']; ?></span>
+              <span class="hidden-xs"><?php echo $fetched_row['freeName']; ?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
               <li class="user-header">
-                <img src="<?php echo $fetched_row['clientProfile']?>" class="img-circle" alt="User Image">
+                <img src="<?php echo $fetched_row['freeProfile']?>" class="img-circle" alt="User Image">
 
                 <p>
-                  <?php echo $fetched_row['clientName']; ?> - <?php echo $fetched_row['projectType']; ?>
+                  <?php echo $fetched_row['freeName']; ?> - <?php echo $fetched_row['freeInterest']; ?>
                   
                 </p>
               </li>
@@ -195,10 +195,10 @@ $fetched_row1=mysqli_fetch_array($result2);
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="profile1.php" class="btn btn-default btn-flat">Profile</a>
+                  <a href="profile2.php" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="logout1.php" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="logout2.php" class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>
@@ -218,10 +218,10 @@ $fetched_row1=mysqli_fetch_array($result2);
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="<?php echo $fetched_row['clientProfile']?>" class="img-circle" alt="User Image">
+          <img src="<?php echo $fetched_row['freeProfile']?>" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p> <?php echo $fetched_row['clientName']; ?> </p>
+          <p> <?php echo $fetched_row['freeName']; ?> </p>
           <!-- Status -->
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
@@ -237,34 +237,23 @@ $fetched_row1=mysqli_fetch_array($result2);
             </span>
         </div>
       </form>
-      <!-- /.search form -->
+   <!-- /.search form -->
 
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MENU</li>
         <!-- Optionally, you can add icons to the links -->
-       <li ><a href="dashboard1.php"><i class="fa fa-fw fa-bar-chart"></i> <span>Dashboard</span></a></li>
-        <li><a href="home1.php"><i class="fa fa-fw fa-home"></i> <span>Home</span></a></li>
-        <li><a href="schedule1.php"><i class="fa fa-fw fa-calendar-check-o"></i> <span>Schedule</span></a></li>
-        <li><a href="acceptreject1.php"><i class="fa fa-fw fa-retweet"></i> <span>Accept/Reject</span></a></li>
-        <li><a href="payment1.php"><i class="fa fa-fw fa-money"></i> <span>Payment</span></a></li>
-        <li class="active"><a href="profile1.php"><i class="fa fa-fw fa-user"></i> <span>Profile</span></a></li>
-        <li class="treeview">
-          <a href="offerjob1.php"><i class="fa fa-fw fa-briefcase"></i>  <span>Offer Job</span>
-            <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="randompost1.php">Random Post</a></li>
-            <li><a href="hire1.php">Hire Freelancer</a></li>
-            <li> <a href="contest1.php">Open Contest</a> </li>
-          </ul>
-        </li>
+        <li ><a href="dashboard2.php"><i class="fa fa-fw fa-bar-chart"></i> <span>Dashboard</span></a></li>
+        <li ><a href="home2.php"><i class="fa fa-fw fa-home"></i> <span>Home</span></a></li>
+        <li><a href="acceptreject2.php"><i class="fa fa-fw fa-retweet"></i> <span>Accept/Reject</span></a></li>
+        <li><a href="project2.php"><i class="fa fa-fw fa-black-tie"></i> <span>Project</span></a></li>
+        <li><a href="payment2.php"><i class="fa fa-fw fa-money"></i> <span>Get Payment</span></a></li>
+        <li class="active"><a href="profile2.php"><i class="fa fa-fw fa-user"></i> <span>Profile</span></a></li>
+        
       </ul>
       <!-- /.sidebar-menu -->
     </section>
-    <!-- /.sidebar -->
+    <!-- /.sidebar 
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
@@ -287,19 +276,19 @@ $fetched_row1=mysqli_fetch_array($result2);
   <div class="box-header with-border">
     <h3 class="box-title">Posting Form</h3>
   
-    <form action="editProfiledb.php" method="post" enctype="multipart/form-data">
+    <form action="editProfile2db.php" method="post" enctype="multipart/form-data">
       
 <div class="form-group">
       <label  class="col-md-12 col-sm-2 control-label">Name</label>
       <div class="col-md-6 col-sm-5">
-        <input class="form-control" id="clientName" name="clientName"  placeholder="Full name"  type="text"  required>
+        <input class="form-control" id="freeName" name="freeName"  placeholder="Full name"  type="text"  required>
       
       </div></div>
 
       <div class="form-group">
               <label for="exampleInputFile" class="col-md-12 col-sm-2 control-label">Profile Picture</label>
               <div class="col-md-6 col-sm-5">
-                <input type="file" id="clientProfile" name="clientProfile">
+                <input type="file" id="freeProfile" name="freeProfile">
                 <br>
               </div>
             </div>
@@ -311,7 +300,7 @@ $fetched_row1=mysqli_fetch_array($result2);
                 <div class="input-group-addon">
                   <i class="fa fa-phone"></i>
                 </div>
-                <input  class="form-control" id="ClientPhoneNumber" name="ClientPhoneNumber" data-inputmask="'mask': ['999-999-9999 [x99999]', '+099 99 99 9999[9]-9999']" data-mask type="text">
+                <input  class="form-control" id="freePhoneNumber" name="freePhoneNumber" data-inputmask="'mask': ['999-999-9999 [x99999]', '+099 99 99 9999[9]-9999']" data-mask type="text">
               </div>
               </div>
               <!-- /.input group -->
@@ -325,7 +314,7 @@ $fetched_row1=mysqli_fetch_array($result2);
                 <div class="input-group-addon">
                   <i class="fa fa-fw fa-dollar"></i>
                   </div>
-              <select class="form-control" id="ClientIncome" name="ClientIncome">
+              <select class="form-control" id="freeIncome" name="freeIncome">
                 <option value="No Income">No income</option>
                 <option value="Below RM1000">Below RM1,000</option>
                 <option value="Below RM2000"> RM1,000 - RM2,000 </option>
@@ -343,7 +332,7 @@ $fetched_row1=mysqli_fetch_array($result2);
                 <div class="input-group-addon">
                   <i class="fa fa-fw fa-map"></i>
                 </div>
-            <select class="form-control select2" style="width: 100%;" id="ClientState" name="ClientState">
+            <select class="form-control select2" style="width: 100%;" id="freeState" name="freeState">
               <option selected="selected">Choose your current location</option>
               <option value="Johor">Johor</option>
               <option value="Melaka">Melaka</option>
@@ -371,7 +360,7 @@ $fetched_row1=mysqli_fetch_array($result2);
                   <div class="input-group-addon">
                     <i class="fa fa-fw fa-wrench"></i>
                   </div>
-            <select class="form-control select2" multiple="multiple" data-placeholder="Select which you familiar" style="width: 100%;" id="clientSkillType" name="clientSkillType[]">
+            <select class="form-control select2" multiple="multiple" data-placeholder="Select which you familiar" style="width: 100%;" id="freeSkillType" name="freeSkillType[]">
               <option value="HTML">HTML</option>
               <option value="CSS">CSS</option>
               <option value="PHP">PHP</option>
@@ -388,7 +377,7 @@ $fetched_row1=mysqli_fetch_array($result2);
                     <div class="input-group-addon">
                       <i class="fa fa-fw fa-briefcase"></i>
                     </div>
-                  <select class="form-control select2" style="width: 100%;" id="clientEx" name="clientEx">
+                  <select class="form-control select2" style="width: 100%;" id="freeExp" name="freeExp">
                     <option selected="selected">Choose your Experience level</option>
                     <option value="Beginner">Beginner</option>
                     <option value="Intermediate">Intermediate</option>
@@ -405,7 +394,7 @@ $fetched_row1=mysqli_fetch_array($result2);
                     <div class="input-group-addon">
                       <i class="fa fa-fw fa-bank"></i>
                     </div>
-                  <select class="form-control select2" multiple="multiple" data-placeholder="Select type of payment you would accept" style="width: 100%;" id="paymentType" name="clientPaymentType[]">
+                  <select class="form-control select2" multiple="multiple" data-placeholder="Select type of payment you would accept" style="width: 100%;" id="freepaymentType" name="freePaymentType[]">
                     <option value="Payment Per Hour">Payment Per Hour</option>
                     <option value="Payment Per Job">Payment Per Job</option>
                   </select>
@@ -419,7 +408,7 @@ $fetched_row1=mysqli_fetch_array($result2);
                           <div class="input-group-addon">
                             <i class="fa fa-fw fa-trophy"></i>
                           </div>
-                  <select class="form-control select2" multiple="multiple" data-placeholder="Select type of project you interested" style="width: 100%;" id="projectType" name="projectType[]">
+                  <select class="form-control select2" multiple="multiple" data-placeholder="Select type of project you interested" style="width: 100%;" id="freeInterest" name="freeInterest[]">
                     <option value="Designer">Designer</option>
                     <option value="Web Application">Web Application Development</option>
                     <option value="Mobilr Application">Mobile Application Development</option>
@@ -429,32 +418,32 @@ $fetched_row1=mysqli_fetch_array($result2);
               </div>
 
             <div class="form-group">
-              <label for="inputEmail3" class="col-md-12 col-sm-2 control-label">Education Background</label>
+              <label  class="col-md-12 col-sm-2 control-label">Education Background</label>
               <div class="col-md-6 col-sm-3">
-                <textarea class="form-control" rows="4" placeholder="Enter your education background" id="clientEdu" name="clientEdu"></textarea>
+                <textarea class="form-control" rows="4" placeholder="Enter your education background" id="freeEdu" name="freeEdu"></textarea>
               </div>
             </div>
 
                <div class="form-group">
                 <label for="inputEmail3" class="col-md-12 col-sm-2 control-label">Address</label>
                 <div class="col-md-6 col-sm-3">
-                  <textarea class="form-control" rows="4" placeholder="Enter your current address" id="clientAddress" name="clientAddress"></textarea>
+                  <textarea class="form-control" rows="4" placeholder="Enter your current address" id="freeAddress" name="freeAddress"></textarea>
                 </div>
               </div>
 
              <div class="form-group">
                 <label for="exampleInputFile" class="col-md-12 col-sm-2 control-label">Artwork</label>
                 <div class="col-md-6 col-sm-3">
-                <input type="file" id="clientArtwork" name="clientArtwork1">
-                <textarea class="form-control" rows="4" placeholder="Enter your education background"  id="clientArtworkDescription" name="clientArtworkDescription1" ></textarea>
+                <input type="file" id="freeArtwork1" name="freeArtwork1">
+                <textarea class="form-control" rows="4" placeholder="Enter your education background"  id="freeArtworkDescription1" name="freeArtworkDescription1" ></textarea>
                 <br>
 
-                <input type="file" id="clientArtwork" name="clientArtwork2">
-               <textarea class="form-control" rows="4" placeholder="Enter your education background"  id="clientArtworkDescription" name="clientArtworkDescription2" ></textarea>
+                <input type="file" id="freeArtwork2" name="freeArtwork2">
+               <textarea class="form-control" rows="4" placeholder="Enter your education background"  id="freeArtworkDescription2" name="freeArtworkDescription2" ></textarea>
 
                 <br>
-                <input type="file"  id="clientArtwork" name="clientArtwork3">
-              <textarea class="form-control" rows="4" placeholder="Enter your education background"  id="clientArtworkDescription" name="clientArtworkDescription3" ></textarea> 
+                <input type="file"  id="freeArtwork3" name="freeArtwork3">
+              <textarea class="form-control" rows="4" placeholder="Enter your education background"  id="freeArtworkDescription3" name="freeArtworkDescription3" ></textarea> 
 
                 <p class="help-block" class="col-sm-2 control-label">Please attach 3 best artwork represent your skill</p></div>
               </div>
@@ -479,7 +468,7 @@ $fetched_row1=mysqli_fetch_array($result2);
   <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
-      Client Account
+      Freelancer Account
     </div>
     <!-- Default to the left -->
     <strong>Copyright &copy; 2017 <a href="#">ProClient Sdn Bhd</a>.</strong> All rights reserved.

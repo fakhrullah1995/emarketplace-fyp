@@ -32,36 +32,36 @@
 <body class="hold-transition register-page">
 <div class="register-box">
   <div class="register-logo">
-    <a href="../../index2.html"><b>Pro</b>Matcher</a>
+    <a href="#"><b>Pro</b>Matcher</a>
   </div>
 
   <div class="register-box-body">
     <p class="login-box-msg">Register a new membership</p>
 
-    <form action="register1-1dbb.php" method="post" enctype="multipart/form-data">
+    <form action="register2-1db.php" method="post" enctype="multipart/form-data">
 
 <label for="exampleInputFile" class="col-sm-1 control-label">Profile <br></label>
          
       <div class="form-group has-feedback">
-        <input class="form-control" id="clientName" name="clientName"  placeholder="Full name"  type="text"  required>
+        <input class="form-control" id="freeName" name="freeName"  placeholder="Full name"  type="text"  required>
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input class="form-control" id="clientEmail" name="clientEmail" placeholder="Email" type="email" required>
+        <input class="form-control" id="freeEmail" name="freeEmail" placeholder="Email" type="email" required>
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input  class="form-control" id="clientPassword" name="clientPassword" placeholder="Password" type="password" required>
+        <input  class="form-control" id="freePassword" name="freePassword" placeholder="Password" type="password" required>
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input  class="form-control"  placeholder="Retype password" type="password" required>
+        <input  class="form-control"  id="confirmPassword" name="confirmPassword" placeholder="Retype password" type="password" required>
         <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
       </div>
       <div class=row>
    
               <div class="col-sm-5"> <p>Profile image</p>
-                <input type="file" id="clientProfile" name="clientProfile">
+                <input type="file" id="freeProfile" name="freeProfile">
                 <br>
                
       
@@ -84,6 +84,15 @@
         <!-- /.col -->
       </div>
     </form>
+
+    <div class="social-auth-links text-center">
+      <p>- OR -</p>
+      <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign up using
+        Facebook</a>
+      <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign up using
+        Google+</a>
+    </div>
+
     <a href="login1.php" class="text-center">I already have a membership</a>
   </div>
   <!-- /.form-box -->
@@ -97,16 +106,16 @@
 <!-- iCheck -->
 <script src="plugins/iCheck/icheck.min.js"></script>
 <script>
-var clientPassword = document.getElementById("clientPassword")
-  , confirm_password = document.getElementById("confirmpassword");
+var clientPassword = document.getElementById("freePassword")
+  , confirm_password = document.getElementById("confirmPassword");
 function validatePassword(){
-  if(clientPassword.value != confirm_password.value) {
+  if(freePassword.value != confirm_password.value) {
     confirm_password.setCustomValidity("Passwords Don't Match");
   } else {
     confirm_password.setCustomValidity('');
   }
 }
-clientPassword.onchange = validatePassword;
+freePassword.onchange = validatePassword;
 confirm_password.onkeyup = validatePassword;
 </script>
 <script>

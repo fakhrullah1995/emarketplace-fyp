@@ -1,23 +1,17 @@
 <?php
 session_start();
 include_once 'conn.php';
-$clientID = $_SESSION['clientID'];
-$result3=mysqli_query($con,"SELECT * FROM client WHERE clientID=".$_SESSION['clientID']);
-
+$freeId = $_SESSION['freeId'];
+$result3=mysqli_query($con,"SELECT * FROM freelancer WHERE freeId=".$_SESSION['freeId']);
 $fetched_row=mysqli_fetch_array($result3);
-
 
 ?>
 
-
-
-
-<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>PROMatcher | client</title>
+  <title>PROMatcher | Freelancer</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -62,6 +56,7 @@ desired effect
 |               | sidebar-collapse                        |
 |               | sidebar-mini                            |
 |---------------------------------------------------------| -->
+
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
@@ -186,17 +181,17 @@ desired effect
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!-- The user image in the navbar-->
-              <img src="<?php echo $fetched_row['clientProfile']?>" class="user-image" alt="User Image">
+              <img src="<?php echo $fetched_row['freeProfile']?>" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs"><?php echo $fetched_row['clientName']; ?></span>
+              <span class="hidden-xs"><?php echo $fetched_row['freeName']; ?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
               <li class="user-header">
-                <img src="<?php echo $fetched_row['clientProfile']?>" class="img-circle" alt="User Image">
+                <img src="<?php echo $fetched_row['freeProfile']?>" class="img-circle" alt="User Image">
 
                 <p>
-                  <?php echo $fetched_row['clientName']; ?> - <?php echo $fetched_row['projectType']; ?>
+                  <?php echo $fetched_row['freeName']; ?> - <?php echo $fetched_row['freeInterest']; ?>
                   
                 </p>
               </li>
@@ -208,7 +203,7 @@ desired effect
                   <a href="profile1.php" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="logout1.php" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="logout2.php" class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>
@@ -228,10 +223,10 @@ desired effect
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="<?php echo $fetched_row['clientProfile']?>" class="img-circle" alt="User Image">
+          <img src="<?php echo $fetched_row['freeProfile']?>" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p> <?php echo $fetched_row['clientName']; ?> </p>
+          <p> <?php echo $fetched_row['freeName']; ?> </p>
           <!-- Status -->
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
@@ -247,30 +242,19 @@ desired effect
             </span>
         </div>
       </form>
-      <!-- /.search form -->
+             <!-- /.search form -->
 
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MENU</li>
         <!-- Optionally, you can add icons to the links -->
-        <li ><a href="dashboard1.php"><i class="fa fa-fw fa-bar-chart"></i> <span>Dashboard</span></a></li>
-        <li><a href="home1.php"><i class="fa fa-fw fa-home"></i> <span>Home</span></a></li>
-        <li><a href="schedule1.php"><i class="fa fa-fw fa-calendar-check-o"></i> <span>Schedule</span></a></li>
-        <li class="active"><a href="acceptreject1.php"><i class="fa fa-fw fa-retweet"></i> <span>Accept/Reject</span></a></li>
-        <li><a href="payment1.php"><i class="fa fa-fw fa-money"></i> <span>Payment</span></a></li>
-        <li><a href="profile1.php"><i class="fa fa-fw fa-user"></i> <span>Profile</span></a></li>
-        <li class="treeview">
-          <a href="offerjob1.php"><i class="fa fa-fw fa-briefcase"></i>  <span>Offer Job</span>
-            <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="randompost1.php">Random Post</a></li>
-            <li><a href="hire1.php">Hire Freelancer</a></li>
-            <li> <a href="contest1.php">Open Contest</a> </li>
-          </ul>
-        </li>
+        <li ><a href="dashboard2.php"><i class="fa fa-fw fa-bar-chart"></i> <span>Dashboard</span></a></li>
+        <li ><a href="home2.php"><i class="fa fa-fw fa-home"></i> <span>Home</span></a></li>
+        <li class="active"><a href="acceptreject2.php"><i class="fa fa-fw fa-retweet"></i> <span>Accept/Reject</span></a></li>
+        <li><a href="project2.php"><i class="fa fa-fw fa-black-tie"></i> <span>Project</span></a></li>
+        <li><a href="payment2.php"><i class="fa fa-fw fa-money"></i> <span>Get Payment</span></a></li>
+        <li><a href="profile2.php"><i class="fa fa-fw fa-user"></i> <span>Profile</span></a></li>
+        
       </ul>
       <!-- /.sidebar-menu -->
     </section>
@@ -282,12 +266,12 @@ desired effect
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Accept/Reject 
-        <small>Check your project here</small>
+        Accept/Reject
+        <small>Comments and approve your freelancer work here</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-        <li class="active">Here</li>
+        <li><a href="acceptreject1.php"><i class="fa fa-dashboard"></i> Accept/Reject</a></li>
+        <li class="active">Approve and comment</li>
       </ol>
     </section>
 
@@ -297,53 +281,146 @@ desired effect
       <!--------------------------
         | Your Page Content Here |
         -------------------------->
-
-
-
               <div class="row">
-                <div class="col-xs-12">
-                  <div class="box">
-                    <div class="box-header">
-                      <h3 class="box-title">Freelancer under your project</h3>
-              
+               
+                  <div class="col-md-8">
+                    <div class="box box-solid">
+                      <div class="box-header with-border">
+                        <h3 class="box-title">Carousel</h3>
+                      </div>
+                      <!-- /.box-header -->
+                      <div class="box-body">
+                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                          <ol class="carousel-indicators">
+                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
+                          </ol>
+                          <div class="carousel-inner">
+                            <div class="item active">
+                              <img src="http://placehold.it/900x500/39CCCC/ffffff&text=I+Love+Bootstrap" alt="First slide">
                   
+                              <div class="carousel-caption">
+                                First Changes
+                              </div>
+                            </div>
+                            <div class="item">
+                              <img src="http://placehold.it/900x500/3c8dbc/ffffff&text=I+Love+Bootstrap" alt="Second slide">
+                  
+                              <div class="carousel-caption">
+                                Second Changes
+                              </div>
+                            </div>
+                            <div class="item">
+                              <img src="http://placehold.it/900x500/f39c12/ffffff&text=I+Love+Bootstrap" alt="Third slide">
+                  
+                              <div class="carousel-caption">
+                                Third Changes
+                              </div>
+                            </div>
+                          </div>
+                          <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                            <span class="fa fa-angle-left"></span>
+                          </a>
+                          <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                            <span class="fa fa-angle-right"></span>
+                          </a>
+                        </div>
+                      </div>
+                      <!-- /.box-body -->
                     </div>
-                    <!-- /.box-header -->
-                    
-                    <div class="box-body table-responsive no-padding">
-                      <table class="table table-hover">
-                        <tr>
-                          <th>Freelancer ID</th>
-                          <th>Freelancer Name</th>
-                          <th>Experience</th>
-                          <th>Interest in</th>
-                          <th>View Project</th>
-                        </tr>
-                        <?php
-                        $freelancerApp = mysqli_query($con, "SELECT * FROM freelancer ");
-                        while ($row = mysqli_fetch_assoc($freelancerApp)) {
-
-                          ?>
-                        <tr>
-                          <td><?php echo $row['freeId']?></td>
-                          <td><?php echo $row['freeName'] ?></td>
-                          <td>
-                            <span class="label label-success"><?php echo $row['freeExp'] ?></span>
-                          </td>
-                          <td>user interested in <?php echo $row['freeInterest'] ?></td>
-                          <td><a href="acceptreject1-1.php" class="btn btn-info pull-center">
-                            <i></i> Post</a></td>
-                        </tr>
-                      
-                       <?php
-}
-?>
-                      </table>
-                    </div>
-                    <!-- /.box-body -->
+                    <!-- /.box -->
                   </div>
-                  <!-- /.box -->
-                </div>
+                  <!-- /.col -->
+
+
+                    <div class="col-md-4">
+                      <!-- DIRECT CHAT PRIMARY -->
+                      <div class="box box-primary direct-chat direct-chat-primary">
+                        <div class="box-header with-border">
+                          <h3 class="box-title">Direct Chat</h3>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                          <!-- Conversations are loaded here -->
+                          <div class="direct-chat-messages">
+                            <!-- Message. Default to the left -->
+                            <div class="direct-chat-msg">
+                              <div class="direct-chat-info clearfix">
+                                <span class="direct-chat-name pull-left"><?php echo $fetched_row['freeName']; ?></span>
+                                <span class="direct-chat-timestamp pull-right">23 Jan 2:00 pm</span>
+                              </div>
+                              <!-- /.direct-chat-info -->
+                              <img class="direct-chat-img" src="<?php echo $fetched_row['freeProfile']?>" alt="Message User Image">
+                              <!-- /.direct-chat-img -->
+                              <div class="direct-chat-text">
+                                Is this template really for free? That's unbelievable!
+                              </div>
+                              <!-- /.direct-chat-text -->
+                            </div>
+                            <!-- /.direct-chat-msg -->
+                    
+                            <!-- Message to the right -->
+                            <div class="direct-chat-msg right">
+                              <div class="direct-chat-info clearfix">
+                                <span class="direct-chat-name pull-right">Sarah Bullock</span>
+                                <span class="direct-chat-timestamp pull-left">23 Jan 2:05 pm</span>
+                              </div>
+                              <!-- /.direct-chat-info -->
+                              <img class="direct-chat-img" src="dist/img/user3-128x128.jpg" alt="Message User Image">
+                              <!-- /.direct-chat-img -->
+                              <div class="direct-chat-text">
+                                You better believe it!
+                              </div>
+                              <!-- /.direct-chat-text -->
+                            </div>
+                            <!-- /.direct-chat-msg -->
+                          </div>
+                          <!--/.direct-chat-messages-->
+                    
+                          <!-- Contacts are loaded here -->
+                          <div class="direct-chat-contacts">
+                            <ul class="contacts-list">
+                              <li>
+                                <a href="#">
+                                  <img class="contacts-list-img" src="dist/img/user1-128x128.jpg" alt="User Image">
+                    
+                                  <div class="contacts-list-info">
+                                    <span class="contacts-list-name">
+                                      Count Dracula
+                                      <small class="contacts-list-date pull-right">2/28/2015</small>
+                                    </span>
+                                    <span class="contacts-list-msg">How have you been? I was...</span>
+                                  </div>
+                                  <!-- /.contacts-list-info -->
+                                </a>
+                              </li>
+                              <!-- End Contact Item -->
+                            </ul>
+                            <!-- /.contatcts-list -->
+                          </div>
+                          <!-- /.direct-chat-pane -->
+                        </div>
+                        <!-- /.box-body -->
+                        <div class="box-footer">
+                          <form action="#" method="post">
+                            <div class="input-group">
+                              <input type="text" name="message" placeholder="Type Message ..." class="form-control">
+                              <span class="input-group-btn">
+                                <button type="submit" class="btn btn-primary btn-flat">Send</button>
+                              </span>
+                            </div>
+                          </form>
+                        </div>
+                        <!-- /.box-footer-->
+                      </div>
+                      <!--/.direct-chat --> 
+                      <button type="button" class="btn btn-block btn-danger">BACK</button>
+                        <button type="button" class="btn btn-block btn-success">FINALIZE</button>
+                      
+                    </div>
+                    <!-- /.col -->
+               
               </div>
 
     </section>
@@ -352,10 +429,11 @@ desired effect
   <!-- /.content-wrapper -->
 
   <!-- Main Footer -->
+
   <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
-      Client Account
+      Freelancer Account
     </div>
     <!-- Default to the left -->
     <strong>Copyright &copy; 2017 <a href="#">ProClient Sdn Bhd</a>.</strong> All rights reserved.

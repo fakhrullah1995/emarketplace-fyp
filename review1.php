@@ -6,31 +6,6 @@ $result3=mysqli_query($con,"SELECT * FROM client WHERE clientID=".$_SESSION['cli
 $fetched_row=mysqli_fetch_array($result3);
 
 ?>
-<!-- <?php
-include_once 'conn.php';
-
-// $sql=mysql_query("SELECT freeId, freeEmail, freeName, freePhoneNumber, freePaymentType, freeInterest, freeSkillType FROM freelancer" );
-$sql=mysql_query("SELECT freeId, freeName FROM freelancer" );
-$i=0;
-$dyn_table='<table border="1" cellpadding="10>';
-
-while($row=mysql_fetch_array($sql)){
-
-  $freeId=$row["freeId"];
-  $freeName=$row["freeName"];
-
-if($i%3==0){
-  $dyn_table .='<tr><td>'.$freeName.'</td>';
-
-}else{
-  $dyn_table .='<td>'.$freeName.'</td>';
-
-}
-
-  $i++;
-}
-$dyn_table .='</tr></table>';
-?> -->
 
 
 <!DOCTYPE html>
